@@ -32,29 +32,28 @@ export function Navbar() {
   ]
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className={`fixed inset-x-0 mx-auto z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-        scrolled ? 'top-4 w-[95%] max-w-5xl' : 'top-6 w-[95%] max-w-7xl'
-      }`}
+      className={`fixed inset-x-0 mx-auto z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? 'top-4 w-[95%] max-w-5xl' : 'top-6 w-[95%] max-w-7xl'
+        }`}
     >
       <div className="bg-white/80 backdrop-blur-xl border border-slate-200 shadow-xl shadow-slate-200/50 rounded-full px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-        
+
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-2 relative z-20">
-          <img src="/logo.png" alt="CliniLink Logo" className="h-7 sm:h-9 w-auto object-contain" onError={(e) => e.target.style.display = 'none'} /> 
+          <img src="/logo.png" alt="CliniLink Logo" className="h-7 sm:h-9 w-auto object-contain" onError={(e) => e.target.style.display = 'none'} />
         </Link>
 
         {/* DESKTOP LINKS */}
         <div className="hidden md:flex items-center gap-1 relative" onMouseLeave={() => setHoveredIndex(null)}>
           {navLinks.map((link, index) => {
             const isHovered = hoveredIndex === index;
-            
+
             if (link.hasDropdown) {
               return (
-                <div 
+                <div
                   key={link.name}
                   className="relative group px-3 py-2 cursor-pointer"
                   onMouseEnter={() => {
@@ -67,7 +66,7 @@ export function Navbar() {
                     {link.name}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${scienceOpen ? 'rotate-180' : ''}`} />
                   </div>
-                  
+
                   {isHovered && (
                     <motion.div
                       layoutId="navBubble"
@@ -79,7 +78,7 @@ export function Navbar() {
                   {/* Dropdown Menu */}
                   <AnimatePresence>
                     {scienceOpen && (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, y: 15, scale: 0.95, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                         exit={{ opacity: 0, y: 10, scale: 0.95, filter: "blur(5px)" }}
@@ -103,9 +102,9 @@ export function Navbar() {
             }
 
             return (
-              <Link 
-                key={link.name} 
-                to={link.path} 
+              <Link
+                key={link.name}
+                to={link.path}
                 className="relative px-4 py-2 text-sm font-bold text-slate-700 hover:text-primary transition-colors"
                 onMouseEnter={() => setHoveredIndex(index)}
               >
@@ -124,7 +123,6 @@ export function Navbar() {
 
         {/* CTA BUTTONS */}
         <div className="flex items-center gap-3 z-20">
-          <a href="#" className="text-sm font-bold text-slate-600 hover:text-slate-900 hidden sm:block transition-colors px-3 py-2 rounded-full hover:bg-slate-100">Log In</a>
           <a href="#" className="px-5 py-2.5 rounded-full bg-primary hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] hover:scale-105 active:scale-95">
             Book a Demo
           </a>
