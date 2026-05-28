@@ -31,6 +31,18 @@ export function Navbar() {
     { name: 'Contact', path: '/contact' },
   ]
 
+  const getActiveIndex = () => {
+    const path = location.pathname;
+    if (path === '/') return 0;
+    if (['/platform', '/solutions', '/retention-intelligence'].includes(path)) return 1;
+    if (path === '/resources') return 2;
+    if (path === '/about') return 3;
+    if (path === '/contact') return 4;
+    return null;
+  };
+
+  const activeIndex = getActiveIndex();
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -50,6 +62,8 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-1 relative" onMouseLeave={() => setHoveredIndex(null)}>
           {navLinks.map((link, index) => {
             const isHovered = hoveredIndex === index;
+            const isActive = activeIndex === index;
+            const displayBubble = hoveredIndex !== null ? isHovered : isActive;
 
             if (link.hasDropdown) {
               return (
@@ -62,12 +76,14 @@ export function Navbar() {
                   }}
                   onMouseLeave={() => setScienceOpen(false)}
                 >
-                  <div className="flex items-center gap-1 text-sm font-bold text-slate-700 hover:text-primary transition-colors z-10 relative">
+                  <div className={`flex items-center gap-1 text-sm font-bold transition-colors z-10 relative ${
+                    isActive ? 'text-primary' : 'text-slate-700 hover:text-primary'
+                  }`}>
                     {link.name}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${scienceOpen ? 'rotate-180' : ''}`} />
                   </div>
 
-                  {isHovered && (
+                  {displayBubble && (
                     <motion.div
                       layoutId="navBubble"
                       className="absolute inset-0 bg-slate-100 rounded-full -z-0"
@@ -85,13 +101,19 @@ export function Navbar() {
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
                         className="absolute top-[calc(100%+1rem)] left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] border border-slate-100 p-2 w-64 origin-top z-50"
                       >
-                        <Link to="/platform" className="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary rounded-xl transition-colors">
+                        <Link to="/platform" className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-colors ${
+                          location.pathname === '/platform' ? 'bg-slate-50 text-primary' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'
+                        }`}>
                           Platform
                         </Link>
-                        <Link to="/solutions" className="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary rounded-xl transition-colors">
+                        <Link to="/solutions" className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-colors ${
+                          location.pathname === '/solutions' ? 'bg-slate-50 text-primary' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'
+                        }`}>
                           Solutions
                         </Link>
-                        <Link to="/retention-intelligence" className="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-primary rounded-xl transition-colors">
+                        <Link to="/retention-intelligence" className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-colors ${
+                          location.pathname === '/retention-intelligence' ? 'bg-slate-50 text-primary' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'
+                        }`}>
                           Retention Intelligence
                         </Link>
                       </motion.div>
@@ -105,11 +127,13 @@ export function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="relative px-4 py-2 text-sm font-bold text-slate-700 hover:text-primary transition-colors"
+                className={`relative px-4 py-2 text-sm font-bold transition-colors ${
+                  isActive ? 'text-primary' : 'text-slate-700 hover:text-primary'
+                }`}
                 onMouseEnter={() => setHoveredIndex(index)}
               >
                 <span className="relative z-10">{link.name}</span>
-                {isHovered && (
+                {displayBubble && (
                   <motion.div
                     layoutId="navBubble"
                     className="absolute inset-0 bg-slate-100 rounded-full z-0"

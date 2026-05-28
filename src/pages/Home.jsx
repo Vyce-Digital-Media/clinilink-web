@@ -6,7 +6,7 @@ import { FadeIn } from '../components/animations/FadeIn'
 import { AnimatedCounter } from '../components/ui/AnimatedCounter'
 import MagneticButton from '../components/ui/MagneticButton'
 import ScrollingText from '../components/sections/ScrollingText'
-import ExpandOnHover from '../components/ui/ExpandOnHover'
+import StickyScrollSection from '../components/ui/StickyScrollSection'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
 import CardStackSection from '../components/ui/CardStackSection'
 import TextReveal from '../components/ui/TextReveal'
@@ -126,7 +126,7 @@ export default function Home() {
               <TextReveal 
                 text="The hidden cost of clinical research is participant attrition. When you lose patients, you lose time, data integrity, and capital. CliniLink turns passive monitoring into proactive intervention." 
                 progress={textRevealProgress}
-                className="text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.1] justify-center"
+                className="text-2xl md:text-4xl lg:text-[3.5rem] leading-[1.2] justify-center"
               />
             </div>
             
@@ -240,14 +240,8 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* INTERACTIVE EXPAND ON HOVER GALLERY SECTION */}
-        <section className="relative py-32 bg-slate-950 text-white" id="platform">
-          <div className="w-full flex justify-center items-center overflow-hidden">
-            <div className="flex justify-center items-center relative w-full">
-              <ExpandOnHover items={features} />
-            </div>
-          </div>
-        </section>
+        {/* STICKY SPLIT-SCROLL RETENTION SECTION */}
+        <StickyScrollSection />
 
         {/* FINAL CTA WITH MAGNETIC BUTTON */}
         <section className="py-40 px-6 bg-white relative overflow-hidden text-center border-t border-slate-100">
