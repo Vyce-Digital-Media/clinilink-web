@@ -51,7 +51,7 @@ export function Navbar() {
       className={`fixed inset-x-0 mx-auto z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? 'top-4 w-[95%] max-w-5xl' : 'top-6 w-[95%] max-w-7xl'
         }`}
     >
-      <div className="bg-white/80 backdrop-blur-xl border border-slate-200 shadow-xl shadow-slate-200/50 rounded-full px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <div className="bg-[#0b1b33]/85 backdrop-blur-xl border border-white/10 shadow-2xl shadow-blue-950/20 rounded-full px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
 
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-2 relative z-20">
@@ -77,7 +77,7 @@ export function Navbar() {
                   onMouseLeave={() => setScienceOpen(false)}
                 >
                   <div className={`flex items-center gap-1 text-sm font-bold transition-colors z-10 relative ${
-                    isActive ? 'text-primary' : 'text-slate-700 hover:text-primary'
+                    isActive ? 'text-primary' : 'text-slate-300 hover:text-white'
                   }`}>
                     {link.name}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${scienceOpen ? 'rotate-180' : ''}`} />
@@ -86,7 +86,7 @@ export function Navbar() {
                   {displayBubble && (
                     <motion.div
                       layoutId="navBubble"
-                      className="absolute inset-0 bg-slate-100 rounded-full -z-0"
+                      className="absolute inset-0 bg-white/10 rounded-full -z-0"
                       transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                     />
                   )}
@@ -99,20 +99,20 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                         exit={{ opacity: 0, y: 10, scale: 0.95, filter: "blur(5px)" }}
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                        className="absolute top-[calc(100%+1rem)] left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] border border-slate-100 p-2 w-64 origin-top z-50"
+                        className="absolute top-[calc(100%+1rem)] left-1/2 -translate-x-1/2 bg-[#0b1b33]/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.3)] border border-white/10 p-2 w-64 origin-top z-50"
                       >
                         <Link to="/platform" className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-colors ${
-                          location.pathname === '/platform' ? 'bg-slate-50 text-primary' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'
+                          location.pathname === '/platform' ? 'bg-white/10 text-primary' : 'text-slate-300 hover:bg-white/10 hover:text-white'
                         }`}>
                           Platform
                         </Link>
                         <Link to="/solutions" className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-colors ${
-                          location.pathname === '/solutions' ? 'bg-slate-50 text-primary' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'
+                          location.pathname === '/solutions' ? 'bg-white/10 text-primary' : 'text-slate-300 hover:bg-white/10 hover:text-white'
                         }`}>
                           Solutions
                         </Link>
                         <Link to="/retention-intelligence" className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-colors ${
-                          location.pathname === '/retention-intelligence' ? 'bg-slate-50 text-primary' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'
+                          location.pathname === '/retention-intelligence' ? 'bg-white/10 text-primary' : 'text-slate-300 hover:bg-white/10 hover:text-white'
                         }`}>
                           Retention Intelligence
                         </Link>
@@ -128,7 +128,7 @@ export function Navbar() {
                 key={link.name}
                 to={link.path}
                 className={`relative px-4 py-2 text-sm font-bold transition-colors ${
-                  isActive ? 'text-primary' : 'text-slate-700 hover:text-primary'
+                  isActive ? 'text-primary' : 'text-slate-300 hover:text-white'
                 }`}
                 onMouseEnter={() => setHoveredIndex(index)}
               >
@@ -136,7 +136,7 @@ export function Navbar() {
                 {displayBubble && (
                   <motion.div
                     layoutId="navBubble"
-                    className="absolute inset-0 bg-slate-100 rounded-full z-0"
+                    className="absolute inset-0 bg-white/10 rounded-full z-0"
                     transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                   />
                 )}
