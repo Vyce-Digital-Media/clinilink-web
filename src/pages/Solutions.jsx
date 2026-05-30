@@ -12,11 +12,11 @@ const DASHBOARD_IMG_SITE    = 'https://images.unsplash.com/photo-1582213782179-e
 
 const crossStudyBenefits = [
   { title: 'Centralized Engagement Management', icon: LayoutGrid },
-  { title: 'Improved Operational Visibility',   icon: Eye },
+  { title: 'Predictive Retention Visibility',   icon: Eye },
   { title: 'Streamlined Communication Workflows', icon: Workflow },
-  { title: 'More Proactive Retention Oversight', icon: Activity },
+  { title: 'Proactive Participant Intervention', icon: Activity },
   { title: 'Reduced Manual Coordination',        icon: Clock },
-  { title: 'Scalable Study Support',             icon: ShieldCheck }
+  { title: 'Scalable Multi-Study Support',       icon: ShieldCheck }
 ]
 
 const audiences = [
@@ -26,13 +26,13 @@ const audiences = [
     tagColor: 'bg-blue-50 text-blue-600',
     accentColor: 'border-blue-500',
     dimColor: 'border-blue-200 group-hover:border-blue-500',
-    title: 'Scale Participant Engagement',
-    desc: 'Support sponsors with scalable participant engagement and centralized retention oversight across studies and sites.',
+    title: 'Support sponsors with scalable retention operations',
+    desc: 'Support sponsors with scalable retention operations, centralized participant oversight, and more standardized engagement workflows across studies and sites.',
     bullets: [
-      { head: 'Operational Visibility', body: 'Monitor participant engagement and follow-up activity across active studies.' },
-      { head: 'Standardized Engagement Workflows', body: 'Support more consistent communication and retention processes across programs.' },
-      { head: 'Reduced Coordinator Burden', body: 'Automate participant outreach and streamline engagement workflows.' },
-      { head: 'Sponsor Support', body: 'Provide sponsors with stronger retention infrastructure and operational transparency.' }
+      { head: 'Operational Visibility', body: 'Monitor participant engagement activity, follow-ups, alerts, and retention workflows across active studies.' },
+      { head: 'Standardized Engagement Processes', body: 'Create more consistent participant communication and retention management workflows across programs.' },
+      { head: 'Reduced Coordinator Burden', body: 'Automate outreach, reminders, and follow-up workflows to improve operational efficiency.' },
+      { head: 'Sponsor Transparency', body: 'Provide sponsors with stronger retention oversight and operational visibility throughout the study lifecycle.' }
     ],
     image: DASHBOARD_IMG_CRO,
     imgAlt: 'CRO Dashboard'
@@ -43,13 +43,13 @@ const audiences = [
     tagColor: 'bg-emerald-50 text-emerald-600',
     accentColor: 'border-emerald-500',
     dimColor: 'border-emerald-200 group-hover:border-emerald-500',
-    title: 'Improve Study Continuity',
-    desc: 'Improve study continuity with better participant engagement visibility and proactive retention management.',
+    title: 'For Sponsors',
+    desc: 'Improve study continuity with better retention visibility, proactive participant monitoring, and scalable operational oversight across clinical programs.',
     bullets: [
-      { head: 'Retention Oversight', body: 'Gain centralized visibility into participant engagement activity across studies.' },
-      { head: 'Study Continuity Support', body: 'Reduce operational disruption caused by participant disengagement and missed visits.' },
-      { head: 'Engagement Coordination', body: 'Support more consistent participant communication throughout the study lifecycle.' },
-      { head: 'Scalable Operational Support', body: 'Enable retention management across multi-site clinical programs.' }
+      { head: 'Centralized Retention Oversight', body: 'Gain visibility into participant engagement activity and retention risk across studies and sites.' },
+      { head: 'Improved Study Continuity', body: 'Reduce operational disruption associated with disengagement, missed visits, and participant dropout.' },
+      { head: 'Proactive Engagement Management', body: 'Support more consistent participant communication and intervention workflows throughout the study lifecycle.' },
+      { head: 'Multi-Study Operational Support', body: 'Enable scalable retention operations across complex multi-site clinical programs.' }
     ],
     image: DASHBOARD_IMG_SPONSOR,
     imgAlt: 'Sponsor Dashboard',
@@ -61,13 +61,13 @@ const audiences = [
     tagColor: 'bg-violet-50 text-violet-600',
     accentColor: 'border-violet-500',
     dimColor: 'border-violet-200 group-hover:border-violet-500',
-    title: 'Simplify Site Workflows',
-    desc: 'Simplify participant communication workflows and reduce administrative follow-up burden for site teams.',
+    title: 'For Research Sites',
+    desc: 'Reduce manual follow-up burden and simplify participant communication workflows for site coordinators and research teams.',
     bullets: [
-      { head: 'Streamlined Participant Outreach', body: 'Coordinate reminders, updates, and follow-ups from a centralized platform.' },
-      { head: 'Workflow Efficiency', body: 'Reduce repetitive communication tasks through automated engagement workflows.' },
-      { head: 'Coordinator Support', body: 'Improve visibility into participant communication activity and follow-up needs.' },
-      { head: 'Simplified Engagement Management', body: 'Support more organized participant communication throughout active studies.' }
+      { head: 'Streamlined Participant Outreach', body: 'Coordinate reminders, updates, and participant follow-ups from one centralized system.' },
+      { head: 'Workflow Efficiency', body: 'Reduce repetitive communication tasks through configurable engagement automation.' },
+      { head: 'Coordinator Visibility', body: 'Improve visibility into participant communication history, engagement activity, and pending actions.' },
+      { head: 'Simplified Retention Management', body: 'Support more organized and proactive participant engagement throughout active studies.' }
     ],
     image: DASHBOARD_IMG_SITE,
     imgAlt: 'Site Dashboard'
@@ -177,6 +177,7 @@ export default function Solutions() {
     <main className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[75vh] flex items-center justify-center pt-40 pb-32 px-6 overflow-hidden bg-white border-b border-slate-100">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
           <InteractiveGrid cellSize={60} hoverColor="hover:bg-slate-50" gridColor="border-slate-200/50" />
@@ -186,17 +187,16 @@ export default function Solutions() {
         <div className="space-y-8 max-w-5xl mx-auto text-center relative z-10">
           <RevealLine>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
-              Retention{' '}
+              Retention Solutions{' '}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
-                Solutions
+                for Modern
               </span>{' '}
-              for Modern Clinical Trials
+              Clinical Trials
             </h1>
           </RevealLine>
-          <FadeIn delay={0.4} className="max-w-3xl mx-auto">
+          <FadeIn delay={0.4} className="max-w-4xl mx-auto">
             <p className="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-              CliniLink helps sponsors, CROs, and research sites improve participant engagement, streamline operational
-              workflows, and support proactive retention management across clinical studies.
+              CliniLink helps sponsors, CROs, and research sites improve participant retention through predictive intelligence, centralized engagement workflows, and proactive operational oversight across the study lifecycle.
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-4 flex justify-center">
@@ -221,8 +221,8 @@ export default function Solutions() {
             </h2>
           </RevealLine>
           <FadeIn delay={0.2} className="space-y-4 text-xl text-slate-600 font-medium leading-relaxed">
-            <p>Participant disengagement can affect study timelines, operational efficiency, recruitment costs, and protocol adherence across the clinical trial lifecycle.</p>
-            <p>CliniLink helps organizations take a more proactive and coordinated approach to participant engagement and retention management.</p>
+            <p>Participant disengagement and dropout can disrupt study timelines, increase operational burden, reduce protocol adherence, and impact study continuity across clinical programs.</p>
+            <p>CliniLink helps organizations take a more proactive, coordinated, and scalable approach to participant retention management.</p>
           </FadeIn>
         </div>
       </section>
@@ -260,8 +260,8 @@ export default function Solutions() {
             </h2>
           </RevealLine>
           <FadeIn delay={0.2}>
-            <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-              Explore how CliniLink helps clinical organizations manage participant engagement and operational retention workflows across studies.
+            <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-4xl mx-auto">
+              Explore how CliniLink helps sponsors, CROs, and research sites improve participant engagement, streamline retention workflows, and support better study continuity across clinical programs.
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">

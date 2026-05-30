@@ -3,75 +3,75 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const items = [
   {
-    tag: "PREVENT DROPOUTS",
-    title: "Predictive Signals",
-    desc: "Our advanced algorithms analyze behavioral patterns, study engagement metrics, and daily diaries to identify at-risk participants weeks before they drop out.",
+    tag: "AI Prediction",
+    title: "Risk scoring",
+    desc: "AI models identify participants at elevated risk of dropout before it affects trial progress.",
     img: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Behavioral engagement tracking",
-      "AI-powered attrition models",
-      "Historical risk profiling",
-      "Early deviation alerts"
+      "Predictive risk signals",
+      "Historical behavior model",
+      "Custom risk thresholds",
+      "Live score updates"
     ]
   },
   {
-    tag: "STREAMLINE OPERATIONS",
-    title: "Automated Workflows",
-    desc: "Trigger personalized interventions and site alerts automatically. When a deviation is detected, our system immediately deploys tailored outreach, saving coordinators hours.",
+    tag: "Outreach Automation",
+    title: "Workflow automation",
+    desc: "Trigger automated personalized outreach workflows across email, SMS, and messaging channels.",
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "SMS & Email auto-outreach",
-      "Clinical site notifications",
-      "Custom intervention routing",
-      "Real-time coordinator dashboard"
+      "Automated communication",
+      "Site escalation alerts",
+      "Coordinator notification",
+      "Standardized protocols"
     ]
   },
   {
-    tag: "SECURITY & TRUST",
-    title: "Compliance First",
-    desc: "Built on HIPAA and GDPR compliant infrastructure. With end-to-end encryption and decentralized data storage, patient privacy and protocol integrity are guaranteed.",
+    tag: "Site Management",
+    title: "Site oversight",
+    desc: "Empower research sites and coordinators with centralized visibility, reducing administrative burden.",
     img: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "HIPAA & GDPR aligned",
-      "End-to-end data encryption",
-      "SOC 2 Type II compliance",
-      "De-identified patient profiles"
+      "Multi-site dashboard",
+      "Coordinator workflow tools",
+      "Site-level compliance",
+      "Performance tracking"
     ]
   },
   {
-    tag: "COLLABORATIVE WORK",
-    title: "Cross-Site Visibility",
-    desc: "Unified dashboards tailored for CROs, sponsors, and local sites. Gain deep insights into enrollment rates, site performance, and participant health indicators globally.",
+    tag: "Patient Engagement",
+    title: "Engagement tracking",
+    desc: "Continuously monitor participant interaction levels, diaries, and communication responses.",
     img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Multi-centric site tracking",
-      "Sponsor & CRO portals",
-      "Aggregated analytics pipelines",
-      "Customizable PDF/CSV reports"
+      "Real-time engagement feed",
+      "Communication analytics",
+      "Response tracking",
+      "Adherence alerts"
     ]
   },
   {
-    tag: "COMPLIANCE & PROTOCOLS",
-    title: "Protocol Adherence",
-    desc: "Ensure participants stay on track with visit schedules and automated diary entries. Tailored push alerts, calendar synchronization, and interactive support keep protocols simple.",
+    tag: "Chronological Record",
+    title: "Participant timelines",
+    desc: "Visualize the entire participant history, milestone completion progress, and touchpoints.",
     img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Dynamic visit scheduler",
-      "Digital diary sync",
-      "Patient-centric interfaces",
-      "Adherence KPI tracking"
+      "Interactive journey map",
+      "Visit history tracking",
+      "Milestone predictions",
+      "Engagement history"
     ]
   },
   {
-    tag: "GLOBAL DEPLOYMENT",
-    title: "Global Scale",
-    desc: "Deploy across multiple countries and regulatory jurisdictions with ease. Clinilink supports localized messaging, region-specific instances, and international regulatory workflows.",
+    tag: "Performance Insights",
+    title: "Reporting visibility",
+    desc: "Provide sponsors and CROs with portfolio-level retention dashboards and exportable audit-ready data.",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Multi-language translation engine",
-      "Region-specific data residency",
-      "Localized patient SMS channels",
-      "Cross-border regulatory alignment"
+      "Portfolio analytics",
+      "Exportable trial reports",
+      "Audit trail log",
+      "Real-time analytics pipelines"
     ]
   }
 ];
@@ -138,21 +138,21 @@ export default function StickyScrollSection() {
         <div className="lg:col-span-5 lg:sticky lg:top-32 lg:h-[calc(100vh-200px)] flex flex-col justify-between py-4">
           <div>
             <span className="text-primary font-mono text-xs md:text-sm tracking-[0.35em] uppercase mb-4 font-bold block">
-              Platform Capabilities
+              Platform Snapshot
             </span>
             <div className="space-y-1">
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-none uppercase">
-                The Science
+                Operational
               </h2>
               <h2 className="text-4xl md:text-5xl font-black italic tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-500 leading-none uppercase">
-                Of Retention
+                Retention
               </h2>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-none uppercase">
-                System
+                Intelligence
               </h2>
             </div>
             <p className="text-slate-400 text-sm md:text-base leading-relaxed mt-6 max-w-sm font-medium">
-              We've developed a platform that connects clinical trial sponsors, CROs, and sites to identify at-risk participants and deploy automated workflows that keep studies on track.
+              Operational retention intelligence in one centralized platform.
             </p>
           </div>
 

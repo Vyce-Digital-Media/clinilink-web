@@ -10,19 +10,18 @@ const DASHBOARD_IMG =
   'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80'
 
 const capabilities = [
-  { title: 'Participant Engagement', desc: 'Coordinate participant communication across SMS, voice, email, and outreach workflows from a centralized platform.' },
-  { title: 'Retention Monitoring', desc: 'Track participant engagement activity, adherence trends, and study participation signals in real time.' },
-  { title: 'Automated Engagement Workflows', desc: 'Automate reminders, follow-ups, and participant communication tasks to reduce manual coordinator workload.' },
-  { title: 'Operational Visibility', desc: 'Provide study teams with centralized dashboards and engagement oversight across sites and participants.' },
-  { title: 'Configurable Communication', desc: 'Support flexible communication pathways tailored to study protocols and participant needs.' },
-  { title: 'Study Coordination Support', desc: 'Enable more efficient participant management through streamlined engagement workflows and monitoring tools.' }
+  { title: 'Unified participant view', desc: 'Centralize participant communication, logs, and activity records into a single source of truth for clinical teams.' },
+  { title: 'AI-powered retention intelligence', desc: 'Leverage predictive models to accurately forecast participant behavior and dropout probability.' },
+  { title: 'Automated engagement workflows', desc: 'Trigger reminders, scheduling outreach, and surveys automatically based on study milestones.' },
+  { title: 'Real-time monitoring', desc: 'Continuously track response latency, diary compliance, and check-in adherence as data is logged.' },
+  { title: 'Actionable insights for study teams', desc: 'Equip site coordinators and principal investigators with direct indicators on when and how to intervene.' }
 ]
 
 const workflowSteps = [
   { label: 'Upcoming Visit', color: 'bg-slate-800 border-slate-700 text-white' },
-  { label: 'Automated Reminder', sub: '(SMS / Voice / Email)', color: 'bg-blue-500/15 border-blue-500/40 text-blue-300' },
+  { label: 'Automated Reminder', color: 'bg-blue-500/15 border-blue-500/40 text-blue-300' },
   { label: 'Participant Response', color: 'bg-slate-800 border-slate-700 text-white' },
-  { label: 'Coordinator Notification', sub: '(if needed)', color: 'bg-slate-800 border-slate-700 text-white' },
+  { label: 'Coordinator Notification', color: 'bg-slate-800 border-slate-700 text-white' },
   { label: 'Engagement Tracking', color: 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300' }
 ]
 
@@ -173,17 +172,16 @@ export default function Platform() {
         <div className="space-y-8 max-w-5xl mx-auto text-center relative z-10">
           <RevealLine>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
-              Modern{' '}
+              Two Platforms.{' '}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
-                Retention Infrastructure
+                One Goal:
               </span>{' '}
-              for Clinical Trials
+              Better Trial Retention.
             </h1>
           </RevealLine>
-          <FadeIn delay={0.4} className="max-w-3xl mx-auto">
+          <FadeIn delay={0.4} className="max-w-4xl mx-auto">
             <p className="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-              CliniLink helps clinical teams manage participant engagement, monitor retention activity, and streamline
-              engagement workflows throughout the study lifecycle.
+              CliniLink helps clinical teams predict who is likely to stay before enrollment and identify who is at risk of dropping out during the trial — enabling earlier intervention, stronger retention, and better study continuity.
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-4 flex justify-center">
@@ -213,18 +211,97 @@ export default function Platform() {
         </motion.div>
       </section>
 
-      {/* ── PLATFORM OVERVIEW ─────────────────────────────────────────────────── */}
+      {/* ── TWO-PLATFORM SECTION ─────────────────────────────────────────────── */}
       <section className="py-36 bg-slate-50 border-y border-slate-100 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <RevealLine>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              Built for Modern Clinical Operations
-            </h2>
-          </RevealLine>
-          <FadeIn delay={0.2} className="space-y-6 text-xl text-slate-600 font-medium leading-relaxed">
-            <p>Clinical trial teams need more efficient ways to manage participant engagement, monitor retention activity, and support study continuity across active studies.</p>
-            <p>CliniLink centralizes communication, monitoring, and engagement workflows into a unified operational platform designed for modern trial management.</p>
-          </FadeIn>
+        <div className="max-w-7xl mx-auto space-y-20">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <RevealLine>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">
+                Two Platforms, One continuum of retention intelligence
+              </h2>
+            </RevealLine>
+            <FadeIn delay={0.2}>
+              <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+                From predicting who’s most likely to stay, to identifying who’s at risk during the trial – CliniLink gives clinical teams the intelligence to act early and keep studies on track.
+              </p>
+            </FadeIn>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Platform 1 Card */}
+            <div className="bg-white border border-slate-200/60 rounded-[2rem] p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/5 hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-primary tracking-[0.2em] uppercase font-bold px-3.5 py-1 bg-primary/10 rounded-full">
+                    Platform 1
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-500 tracking-[0.2em] uppercase font-bold px-3.5 py-1 bg-slate-100 rounded-full">
+                    Pre-Trial / Enrollment
+                  </span>
+                </div>
+                <h3 className="text-3xl font-black text-slate-900 tracking-tight">
+                  Predict Who Will Stay
+                </h3>
+                <p className="text-slate-600 leading-relaxed font-medium text-lg">
+                  Evaluate participant fit and study completion likelihood before dropout risk emerges. This platform helps clinical teams evaluate which participants are most likely to remain engaged and complete the study.
+                </p>
+
+                <div className="h-px bg-slate-100 my-6" />
+
+                <ul className="space-y-4">
+                  {[
+                    "Uses historical and real-time data signals",
+                    "Predicts participant likelihood of study completion",
+                    "Helps identify stronger-fit participants before or during enrollment",
+                    "Supports better enrollment quality",
+                    "Helps reduce downstream dropout risk"
+                  ].map((bullet, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
+                      <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Platform 2 Card */}
+            <div className="bg-white border border-slate-200/60 rounded-[2rem] p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/5 hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-primary tracking-[0.2em] uppercase font-bold px-3.5 py-1 bg-primary/10 rounded-full">
+                    Platform 2
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-500 tracking-[0.2em] uppercase font-bold px-3.5 py-1 bg-slate-100 rounded-full">
+                    During the Trial
+                  </span>
+                </div>
+                <h3 className="text-3xl font-black text-slate-900 tracking-tight">
+                  Predict Who Will Drop Out
+                </h3>
+                <p className="text-slate-600 leading-relaxed font-medium text-lg">
+                  Monitor active participants, detect disengagement signals, and trigger proactive intervention. This platform monitors active participants during the study and identifies who may be at risk of disengagement or dropout.
+                </p>
+
+                <div className="h-px bg-slate-100 my-6" />
+
+                <ul className="space-y-4">
+                  {[
+                    "Monitors engagement and behavior signals",
+                    "Detects early signs of dropout risk",
+                    "Triggers alerts and proactive intervention workflows",
+                    "Supports site teams with follow-up visibility",
+                    "Helps reduce dropout and protect study continuity"
+                  ].map((bullet, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
+                      <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -232,7 +309,7 @@ export default function Platform() {
       <section className="py-36 px-6 max-w-7xl mx-auto relative z-10 bg-white">
         <div className="mb-20 text-center">
           <RevealLine>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Core Platform Capabilities</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Shared Capabilities</h2>
           </RevealLine>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
@@ -253,8 +330,7 @@ export default function Platform() {
           </RevealLine>
           <FadeIn delay={0.2}>
             <p className="text-xl text-slate-600 font-medium leading-relaxed">
-              Monitor participant engagement activity, communication status, and follow-up visibility across studies
-              from a centralized operational view.
+              A clean, unified interface displaying pending risk alerts, study participation statuses, engagement trends, and actionable follow-ups to maintain study continuity.
             </p>
           </FadeIn>
         </div>
@@ -297,7 +373,7 @@ export default function Platform() {
           </RevealLine>
           <FadeIn delay={0.2}>
             <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-              Explore how CliniLink supports proactive participant engagement and operational retention management across clinical studies.
+              Two connected platforms working together to predict, prevent, and improve retention across every study.
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">
