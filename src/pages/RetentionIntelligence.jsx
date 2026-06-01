@@ -9,7 +9,7 @@ import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-mo
 import { useRef, useState, useEffect } from 'react'
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
-import MagneticButton from '../components/ui/MagneticButton'
+import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
 
 const benefits = [
@@ -109,26 +109,16 @@ const signalsData = [
 
 function LifecycleStep({ step, index, progress }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
   const rangeStart = Math.max(0, index / lifecycleSteps.length - 0.05)
   const rangeEnd = Math.min(1, (index + 0.9) / lifecycleSteps.length)
   const opacity = useTransform(progress, [rangeStart, rangeEnd], [0.2, 1])
   const y = useTransform(progress, [rangeStart, rangeEnd], [12, 0])
 
   return (
-    <motion.div ref={ref} style={{ opacity, y }} className="flex flex-col items-center w-full relative">
-      {index > 0 && (
-        <motion.div
-          initial={{ scaleY: 0, opacity: 0 }}
-          animate={inView ? { scaleY: 1, opacity: 1 } : {}}
-          transition={{ duration: 0.4, delay: index * 0.12 }}
-          className="w-[2px] h-10 bg-gradient-to-b from-slate-300 to-slate-200 rounded-full my-1 origin-top"
-        />
-      )}
-      <div className={`border rounded-2xl font-black text-lg text-center py-4 px-6 w-full max-w-xs shadow-sm
-                       hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3 ${step.style}`}>
-        <span className={`w-2.5 h-2.5 rounded-full ${step.dot}`} />
-        {step.label}
+    <motion.div ref={ref} style={{ opacity, y }} className="relative z-10 w-full">
+      <div className={`border rounded-2xl font-black text-lg py-4 px-8 w-full max-w-xs shadow-sm
+                       hover:scale-105 transition-transform duration-300 flex items-center justify-center text-center relative z-10 bg-white ${step.style}`}>
+        <div>{step.label}</div>
       </div>
     </motion.div>
   )
@@ -136,26 +126,16 @@ function LifecycleStep({ step, index, progress }) {
 
 function WorkflowStep({ step, index, progress }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
   const rangeStart = Math.max(0, index / workflowSteps.length - 0.05)
   const rangeEnd = Math.min(1, (index + 0.9) / workflowSteps.length)
   const opacity = useTransform(progress, [rangeStart, rangeEnd], [0.25, 1])
   const y = useTransform(progress, [rangeStart, rangeEnd], [12, 0])
 
   return (
-    <motion.div ref={ref} style={{ opacity, y }} className="flex flex-col items-center w-full relative">
-      {index > 0 && (
-        <motion.div
-          initial={{ scaleY: 0, opacity: 0 }}
-          animate={inView ? { scaleY: 1, opacity: 1 } : {}}
-          transition={{ duration: 0.4, delay: index * 0.12 }}
-          className="w-[2px] h-8 bg-gradient-to-b from-slate-700 to-slate-800 rounded-full my-1 origin-top"
-        />
-      )}
-      <div className={`border bg-slate-950/80 border-slate-800 rounded-2xl font-black text-lg text-center py-4 px-6 w-full max-w-xs shadow-2xl
-                       hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3 text-slate-100`}>
-        <span className={`w-2.5 h-2.5 rounded-full ${step.dot || 'bg-blue-400'}`} />
-        {step.label}
+    <motion.div ref={ref} style={{ opacity, y }} className="relative z-10 w-full">
+      <div className={`border bg-slate-950 border-slate-800 rounded-2xl font-black text-lg py-4 px-8 w-full max-w-xs shadow-2xl
+                       hover:scale-105 transition-transform duration-300 flex items-center justify-center text-center text-slate-100 relative z-10`}>
+        <div>{step.label}</div>
       </div>
     </motion.div>
   )
@@ -271,45 +251,41 @@ function SignalCard({ signal, index }) {
 }
 
 function LifecycleSection() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 75%', 'end 35%'] })
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'] })
   const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 22 })
 
   return (
-    <section className="py-36 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center relative z-10 bg-white">
-      <div className="space-y-8">
-        <RevealLine>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.1]">
-            Retention risk rarely appears all at once.
-          </h2>
-        </RevealLine>
-        <FadeIn delay={0.2} className="space-y-6 text-xl text-slate-600 font-medium leading-relaxed">
-          <p>
-            Participant disengagement often develops gradually through missed communications, declining responsiveness, inconsistent visit adherence, and operational friction.
-          </p>
-          <p>
-            Without centralized visibility, these early warning signs can be difficult to identify before dropout impacts study continuity.
-          </p>
-          <p>
-            CliniLink helps clinical teams detect and respond to retention risk earlier through continuous monitoring and proactive operational workflows.
-          </p>
-        </FadeIn>
-      </div>
+    <section ref={containerRef} className="relative h-[250vh] z-10 bg-white border-b border-slate-100">
+      <div className="sticky top-0 h-screen flex items-center px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
+          <div className="space-y-8">
+            <RevealLine>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900">
+                Intelligent Interventions
+              </h2>
+            </RevealLine>
+            <RevealLine delay={0.1}>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Anticipate patient needs before they arise. Our predictive intelligence engine analyzes behavioral signals to deploy timely, personalized interventions that keep participants engaged and on track throughout the entire trial lifecycle.
+              </p>
+            </RevealLine>
+          </div>
 
-      {/* Lifecycle visual with scroll-linked connector line */}
-      <div ref={ref} className="flex flex-col items-center relative py-4">
-        {/* Background connector line */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-16 bottom-16 w-[2px] bg-slate-100 rounded-full">
-          <motion.div
-            style={{ scaleY, transformOrigin: 'top' }}
-            className="w-full h-full bg-gradient-to-b from-emerald-400 via-amber-400 to-rose-500 rounded-full"
-          />
-        </div>
+          <div className="flex flex-col items-center relative py-4 lg:order-last">
+            <div className="relative flex flex-col items-center gap-6 py-8 w-full max-w-xs mx-auto">
+              <div className="absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-[2px] bg-slate-100 rounded-full z-0">
+                <motion.div
+                  style={{ scaleY, transformOrigin: 'top' }}
+                  className="w-full h-full bg-gradient-to-b from-emerald-400 via-amber-400 to-rose-500 rounded-full"
+                />
+              </div>
 
-        <div className="w-full max-w-xs space-y-0 relative z-10">
-          {lifecycleSteps.map((step, i) => (
-            <LifecycleStep key={i} step={step} index={i} progress={scrollYProgress} />
-          ))}
+              {lifecycleSteps.map((step, i) => (
+                <LifecycleStep key={i} step={step} index={i} progress={scrollYProgress} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -317,40 +293,41 @@ function LifecycleSection() {
 }
 
 function WorkflowSection() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 80%', 'end 30%'] })
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'] })
   const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 22 })
 
   return (
-    <section className="py-36 px-6 bg-slate-900 text-white relative z-10 border-b border-slate-950">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-        {/* Workflow visual */}
-        <div ref={ref} className="flex flex-col items-center relative lg:order-first">
-          <div className="absolute left-1/2 -translate-x-1/2 top-16 bottom-16 w-[2px] bg-slate-800 rounded-full">
-            <motion.div
-              style={{ scaleY, transformOrigin: 'top' }}
-              className="w-full h-full bg-gradient-to-b from-blue-500 via-indigo-500 to-emerald-400 rounded-full"
-            />
-          </div>
-          <div className="w-full max-w-xs space-y-0 relative z-10">
-            {workflowSteps.map((step, i) => (
-              <WorkflowStep key={i} step={step} index={i} progress={scrollYProgress} />
-            ))}
-          </div>
-        </div>
+    <section ref={containerRef} className="relative h-[250vh] bg-slate-900 text-white z-10">
+      <div className="sticky top-0 h-screen flex items-center px-6">
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
+          <div className="flex flex-col items-center relative lg:order-first">
+            <div className="relative flex flex-col items-center gap-6 py-8 w-full max-w-xs mx-auto">
+              <div className="absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-[2px] bg-slate-800/50 rounded-full z-0">
+                <motion.div
+                  style={{ scaleY, transformOrigin: 'top' }}
+                  className="w-full h-full bg-gradient-to-b from-blue-500 via-indigo-500 to-emerald-400 rounded-full"
+                />
+              </div>
 
-        {/* Text */}
-        <div className="space-y-8">
-          <RevealLine>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.1]">
-              From retention signals to proactive intervention.
-            </h2>
-          </RevealLine>
-          <FadeIn delay={0.2} className="space-y-6 text-xl text-slate-400 font-medium leading-relaxed">
-            <p>
-              CliniLink transforms retention intelligence into operational action by helping teams prioritize outreach, coordinate follow-ups, and intervene earlier across active studies.
-            </p>
-          </FadeIn>
+              {workflowSteps.map((step, i) => (
+                <WorkflowStep key={i} step={step} index={i} progress={scrollYProgress} />
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-8 lg:order-last">
+            <RevealLine>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.1]">
+                From retention signals to proactive intervention.
+              </h2>
+            </RevealLine>
+            <FadeIn delay={0.2} className="space-y-6 text-xl text-slate-400 font-medium leading-relaxed">
+              <p>
+                CliniLink transforms retention intelligence into operational action by helping teams prioritize outreach, coordinate follow-ups, and intervene earlier across active studies.
+              </p>
+            </FadeIn>
+          </div>
         </div>
       </div>
     </section>
@@ -698,14 +675,14 @@ export default function RetentionIntelligence() {
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-4 flex justify-center">
-            <MagneticButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
+            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
                 Schedule a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </MagneticButton>
+
+            </HoverButton>
           </FadeIn>
         </div>
       </section>
@@ -799,14 +776,14 @@ export default function RetentionIntelligence() {
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">
-            <MagneticButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
+            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">
                 Schedule a Demo <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </MagneticButton>
+
+            </HoverButton>
           </FadeIn>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-mo
 import { useRef, useState } from 'react'
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
-import MagneticButton from '../components/ui/MagneticButton'
+import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
 
 /* ─── Data (unchanged) ─────────────────────────────────────────────────────── */
@@ -213,15 +213,15 @@ export default function Resources() {
           </FadeIn>
 
           <FadeIn delay={0.6} className="pt-4 flex justify-center">
-            <MagneticButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
+            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
                 Subscribe for Updates
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </MagneticButton>
+
+            </HoverButton>
           </FadeIn>
         </div>
       </section>
@@ -339,20 +339,20 @@ export default function Resources() {
           </RevealLine>
 
           <FadeIn delay={0.4} className="pt-6 flex flex-col sm:flex-row justify-center gap-4">
-            <MagneticButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
+            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">
                 Subscribe for Updates
               </span>
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </MagneticButton>
-            <MagneticButton className="px-12 py-6 bg-white text-slate-900 border border-slate-200 rounded-full
+
+            </HoverButton>
+            <HoverButton className="px-12 py-6 bg-white text-slate-900 border border-slate-200 rounded-full
                                        font-black text-xl hover:bg-slate-50 transition-colors shadow-md
                                        inline-flex justify-center group gap-3 items-center">
               Book a Demo
               <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
-            </MagneticButton>
+            </HoverButton>
           </FadeIn>
         </div>
       </section>

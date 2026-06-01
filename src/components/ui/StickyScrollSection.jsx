@@ -3,75 +3,75 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const items = [
   {
-    tag: "AI Prediction",
-    title: "Risk scoring",
-    desc: "AI models identify participants at elevated risk of dropout before it affects trial progress.",
+    tag: "Pre-Trial Prediction",
+    title: "Enrollment Filtering",
+    desc: "Evaluate participant fit before dropout risk emerges. Analyze historical and real-time signals to predict study completion likelihood during enrollment.",
     img: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Predictive risk signals",
-      "Historical behavior model",
-      "Custom risk thresholds",
-      "Live score updates"
+      "Completion likelihood scores",
+      "Pre-trial behavioral signals",
+      "Enrollment quality metrics",
+      "Downstream risk reduction"
+    ]
+  },
+  {
+    tag: "Active Monitoring",
+    title: "Real-time Risk Scoring",
+    desc: "Monitor active participants during the study to detect early signs of disengagement and prioritize high-risk profiles before they drop out.",
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+    bullets: [
+      "Engagement monitoring",
+      "Early warning indicators",
+      "Live dropout probability",
+      "Behavioral pattern detection"
     ]
   },
   {
     tag: "Outreach Automation",
-    title: "Workflow automation",
-    desc: "Trigger automated personalized outreach workflows across email, SMS, and messaging channels.",
-    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
-    bullets: [
-      "Automated communication",
-      "Site escalation alerts",
-      "Coordinator notification",
-      "Standardized protocols"
-    ]
-  },
-  {
-    tag: "Site Management",
-    title: "Site oversight",
-    desc: "Empower research sites and coordinators with centralized visibility, reducing administrative burden.",
+    title: "Intervention Workflows",
+    desc: "Transform retention intelligence into operational action by automating personalized outreach and triggering targeted follow-ups across active studies.",
     img: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Multi-site dashboard",
-      "Coordinator workflow tools",
-      "Site-level compliance",
-      "Performance tracking"
+      "Automated patient outreach",
+      "Multi-channel messaging",
+      "Standardized follow-up protocols",
+      "Intervention effectiveness"
     ]
   },
   {
-    tag: "Patient Engagement",
-    title: "Engagement tracking",
-    desc: "Continuously monitor participant interaction levels, diaries, and communication responses.",
+    tag: "Site Enablement",
+    title: "Coordinator Alerts",
+    desc: "Empower clinical teams with automated alerts and centralized task management, reducing administrative burden so staff can focus on high-value patient care.",
     img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Real-time engagement feed",
-      "Communication analytics",
-      "Response tracking",
-      "Adherence alerts"
+      "Instant site notifications",
+      "Centralized task lists",
+      "Patient response tracking",
+      "Reduced manual follow-up"
     ]
   },
   {
-    tag: "Chronological Record",
-    title: "Participant timelines",
-    desc: "Visualize the entire participant history, milestone completion progress, and touchpoints.",
+    tag: "Patient Journey",
+    title: "Participant Timelines",
+    desc: "Visualize the complete history of participant touchpoints, milestones, and engagement activities across the entire trial lifecycle.",
     img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Interactive journey map",
-      "Visit history tracking",
-      "Milestone predictions",
-      "Engagement history"
+      "Interactive timeline view",
+      "Visit adherence tracking",
+      "Communication logs",
+      "Milestone forecasting"
     ]
   },
   {
-    tag: "Performance Insights",
-    title: "Reporting visibility",
-    desc: "Provide sponsors and CROs with portfolio-level retention dashboards and exportable audit-ready data.",
+    tag: "Portfolio Analytics",
+    title: "Sponsor Visibility",
+    desc: "Provide sponsors and CROs with portfolio-level operational visibility, tracking retention metrics and intervention success across all active sites and studies.",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
     bullets: [
-      "Portfolio analytics",
-      "Exportable trial reports",
-      "Audit trail log",
-      "Real-time analytics pipelines"
+      "Multi-site retention dashboards",
+      "Study-level dropout rates",
+      "Intervention ROI tracking",
+      "Audit-ready reporting"
     ]
   }
 ];

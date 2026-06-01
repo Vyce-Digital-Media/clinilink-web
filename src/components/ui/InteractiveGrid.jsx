@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function InteractiveGrid({ cellSize = 60, hoverColor = 'hover:bg-slate-900', gridColor = 'border-slate-900/10' }) {
+export default function InteractiveGrid({ cellSize = 60, hoverColor = 'hover:bg-primary', gridColor = 'border-slate-900/10' }) {
   // A fixed large number of cells to fill any standard viewport.
   // 3000 cells is enough for up to 4K resolutions.
   const totalCells = 3000;

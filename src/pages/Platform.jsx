@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-mo
 import { useRef } from 'react'
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
-import MagneticButton from '../components/ui/MagneticButton'
+import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
 
 const DASHBOARD_IMG =
@@ -67,31 +67,33 @@ function CapabilityCard({ item, index }) {
 }
 
 function WorkflowSection() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 80%', 'end 40%'] })
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'] })
   const scaleY = useSpring(scrollYProgress, { stiffness: 90, damping: 25 })
 
   return (
-    <section ref={ref} className="py-40 bg-slate-900 text-white px-6 relative z-10">
-      <div className="max-w-5xl mx-auto text-center">
-        <RevealLine>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-24">
-            Configurable Engagement Workflows
-          </h2>
-        </RevealLine>
+    <section ref={containerRef} className="relative h-[250vh] bg-slate-900 text-white z-10">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center w-full">
+          <RevealLine>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-16">
+              Configurable Engagement Workflows
+            </h2>
+          </RevealLine>
 
-        <div className="relative inline-flex flex-col items-center gap-0">
-          {/* Animated connector line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-10 bottom-10 w-[2px] bg-slate-800 overflow-hidden rounded-full">
-            <motion.div
-              style={{ scaleY, transformOrigin: 'top' }}
-              className="w-full h-full bg-gradient-to-b from-blue-500 via-indigo-400 to-emerald-400"
-            />
+          <div className="relative flex flex-col items-center gap-6 py-8 w-full max-w-xs mx-auto">
+            {/* Scroll-linked line behind the cards */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-[2px] bg-slate-800/50 rounded-full z-0">
+              <motion.div
+                style={{ scaleY, transformOrigin: 'top' }}
+                className="w-full h-full bg-gradient-to-b from-blue-500 via-indigo-400 to-emerald-400"
+              />
+            </div>
+
+            {workflowSteps.map((step, i) => (
+              <WorkflowStep key={i} step={step} index={i} total={workflowSteps.length} progress={scrollYProgress} />
+            ))}
           </div>
-
-          {workflowSteps.map((step, i) => (
-            <WorkflowStep key={i} step={step} index={i} total={workflowSteps.length} progress={scrollYProgress} />
-          ))}
         </div>
       </div>
     </section>
@@ -100,25 +102,19 @@ function WorkflowSection() {
 
 function WorkflowStep({ step, index, total, progress }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
   const rangeStart = Math.max(0, index / total - 0.05)
   const rangeEnd = Math.min(1, (index + 0.9) / total)
   const opacity = useTransform(progress, [rangeStart, rangeEnd], [0.2, 1])
 
   return (
-    <motion.div ref={ref} style={{ opacity }} className="relative z-10 w-full flex flex-col items-center">
-      {/* Dot */}
-      <motion.div
-        initial={{ scale: 0.6, opacity: 0 }}
-        animate={inView ? { scale: 1, opacity: 1 } : {}}
-        transition={{ duration: 0.4, delay: index * 0.08 }}
-        className="w-3 h-3 rounded-full bg-blue-400 border-2 border-slate-900 my-4 z-10"
-      />
+    <motion.div ref={ref} style={{ opacity }} className="relative z-10 w-full">
       {/* Card */}
       <div className={`px-8 py-4 rounded-2xl border font-bold text-xl shadow-xl
-                       hover:scale-105 transition-transform duration-300 ${step.color}`}>
-        {step.label}
-        {step.sub && <span className="block text-sm font-medium mt-1 opacity-70">{step.sub}</span>}
+                       hover:scale-105 transition-transform duration-300 flex items-center justify-center text-center relative z-10 bg-slate-900 ${step.color}`}>
+        <div>
+          {step.label}
+          {step.sub && <span className="block text-sm font-medium mt-1 opacity-70">{step.sub}</span>}
+        </div>
       </div>
     </motion.div>
   )
@@ -185,14 +181,14 @@ export default function Platform() {
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-4 flex justify-center">
-            <MagneticButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
+            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
                 Book a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </MagneticButton>
+
+            </HoverButton>
           </FadeIn>
         </div>
       </section>
@@ -377,14 +373,14 @@ export default function Platform() {
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">
-            <MagneticButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
+            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">
                 Schedule a Demo <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </MagneticButton>
+
+            </HoverButton>
           </FadeIn>
         </div>
       </section>

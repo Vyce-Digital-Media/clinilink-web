@@ -24,7 +24,7 @@ import {
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
 import { AnimatedCounter } from '../components/ui/AnimatedCounter'
-import MagneticButton from '../components/ui/MagneticButton'
+import HoverButton from '../components/ui/HoverButton'
 import ScrollingText from '../components/sections/ScrollingText'
 import StickyScrollSection from '../components/ui/StickyScrollSection'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
@@ -122,14 +122,14 @@ export default function Home() {
             style={{ y: yBg }}
             className="absolute inset-0 z-0 will-change-transform"
           >
-            <InteractiveGrid cellSize={60} hoverColor="hover:bg-slate-900" gridColor="border-slate-900/10" />
+            <InteractiveGrid cellSize={60} hoverColor="hover:bg-primary" gridColor="border-slate-900/10" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white z-10 pointer-events-none" />
           </motion.div>
 
           <motion.div style={{ opacity: opacityHero }} className="max-w-7xl mx-auto px-6 relative z-10 w-full will-change-opacity pointer-events-none">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
               {/* Left Column: Hero Content */}
-              <div className="lg:col-span-6 flex flex-col items-start text-left pointer-events-auto">
+              <div className="lg:col-span-6 flex flex-col items-start text-left pointer-events-none">
                 <span className="text-xs font-mono text-primary tracking-[0.3em] uppercase font-black block mb-4 animate-pulse">
                   Retention Intelligence Platform
                 </span>
@@ -158,22 +158,22 @@ export default function Home() {
                   </p>
                 </FadeIn>
 
-                <FadeIn delay={0.7} className="mt-10 flex flex-col sm:flex-row gap-4 items-center">
-                  <MagneticButton className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-slate-800 transition-colors shadow-2xl shadow-slate-900/20 group">
+                <FadeIn delay={0.7} className="mt-10 flex flex-col sm:flex-row gap-4 items-center pointer-events-auto">
+                  <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-slate-800 transition-colors shadow-2xl shadow-slate-900/20 group">
                     <span className="flex items-center gap-2 text-sm sm:text-base">
                       Explore the Platform
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </span>
-                  </MagneticButton>
-                  <MagneticButton className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-black/5 group">
+                  </HoverButton>
+                  <HoverButton className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-black/5 group">
                     <span className="text-sm sm:text-base flex items-center gap-2">Book a Demo</span>
-                  </MagneticButton>
+                  </HoverButton>
                 </FadeIn>
               </div>
 
               {/* Right Column: Premium Dashboard Mockup (Increased Size) */}
-              <div className="lg:col-span-6 w-full pointer-events-auto pt-6 lg:pt-0">
-                <div className="relative w-full max-w-2xl lg:max-w-none mx-auto aspect-[4/3] md:aspect-square lg:aspect-auto lg:h-[550px] xl:h-[580px]">
+              <div className="lg:col-span-6 w-full pointer-events-none pt-6 lg:pt-0">
+                <div className="relative w-full max-w-2xl lg:max-w-none mx-auto aspect-[4/3] md:aspect-square lg:aspect-auto lg:h-[550px] xl:h-[580px] pointer-events-auto">
                   {/* Ambient background glow behind the dashboard */}
                   <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-blue-500/20 rounded-3xl blur-3xl opacity-60 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }} />
                   
@@ -1005,12 +1005,11 @@ export default function Home() {
               </p>
             </FadeIn>
             <FadeIn delay={0.4} className="pt-8 flex justify-center">
-              <MagneticButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary hover:text-white transition-colors duration-500 shadow-2xl shadow-primary/20 group overflow-hidden">
+              <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary hover:text-white transition-colors duration-500 shadow-2xl shadow-primary/20 group overflow-hidden">
                 <span className="relative z-10 flex items-center gap-3">
                   Schedule a Demo <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </MagneticButton>
+              </HoverButton>
             </FadeIn>
           </div>
         </section>

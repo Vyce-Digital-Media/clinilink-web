@@ -3,7 +3,7 @@ import { useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
-import MagneticButton from '../components/ui/MagneticButton'
+import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
 
 export default function About() {
@@ -231,12 +231,12 @@ export default function About() {
             </h2>
           </RevealLine>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">
-            <MagneticButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary transition-all duration-500 shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
+            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary transition-all duration-500 shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">
                 Book a Demo <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </MagneticButton>
+
+            </HoverButton>
           </FadeIn>
         </div>
       </section>
