@@ -6,17 +6,17 @@ import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
 
-const DASHBOARD_IMG_CRO     = 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80'
+const DASHBOARD_IMG_CRO = 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80'
 const DASHBOARD_IMG_SPONSOR = 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80'
-const DASHBOARD_IMG_SITE    = 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1600&q=80'
+const DASHBOARD_IMG_SITE = 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1600&q=80'
 
 const crossStudyBenefits = [
   { title: 'Centralized Engagement Management', icon: LayoutGrid },
-  { title: 'Predictive Retention Visibility',   icon: Eye },
+  { title: 'Predictive Retention Visibility', icon: Eye },
   { title: 'Streamlined Communication Workflows', icon: Workflow },
   { title: 'Proactive Participant Intervention', icon: Activity },
-  { title: 'Reduced Manual Coordination',        icon: Clock },
-  { title: 'Scalable Multi-Study Support',       icon: ShieldCheck }
+  { title: 'Reduced Manual Coordination', icon: Clock },
+  { title: 'Scalable Multi-Study Support', icon: ShieldCheck }
 ]
 
 const audiences = [
@@ -178,35 +178,59 @@ export default function Solutions() {
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[75vh] flex items-center justify-center pt-40 pb-32 px-6 overflow-hidden bg-white border-b border-slate-100">
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-          <InteractiveGrid cellSize={60} hoverColor="hover:bg-slate-50" gridColor="border-slate-200/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white z-10" />
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      <section className="relative h-screen px-6 overflow-hidden flex flex-col justify-center items-center border-b border-slate-900 bg-slate-950">
+
+        {/* Floating Dashboard Image in Background */}
+        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none px-6 md:mt-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="w-full max-w-[85rem] h-[80vh] rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(59,130,246,0.15)] border border-slate-800 bg-slate-900 relative opacity-40"
+          >
+            {/* Glossy top bar */}
+            <div className="absolute top-0 inset-x-0 h-12 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 z-10 flex items-center px-6 gap-2">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-slate-600"></div>
+                <div className="w-3 h-3 rounded-full bg-slate-600"></div>
+                <div className="w-3 h-3 rounded-full bg-slate-600"></div>
+              </div>
+            </div>
+            <img
+              src={DASHBOARD_IMG_CRO}
+              alt="Dashboard Background"
+              className="w-full h-full object-cover object-top pt-12"
+            />
+            {/* Subtle dark overlay so text is still legible over the image */}
+            <div className="absolute inset-0 bg-slate-950/40" />
+          </motion.div>
         </div>
 
-        <div className="space-y-8 max-w-5xl mx-auto text-center relative z-10">
-          <RevealLine>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
+        {/* Text Content */}
+        <div className="space-y-6 max-w-5xl mx-auto text-center relative z-10 w-full drop-shadow-2xl md:mt-20">
+          <RevealLine delay={0.1}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-[0.95] uppercase">
               Retention Solutions{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500">
                 for Modern
               </span>{' '}
               Clinical Trials
             </h1>
           </RevealLine>
-          <FadeIn delay={0.4} className="max-w-4xl mx-auto">
-            <p className="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-              CliniLink helps sponsors, CROs, and research sites improve participant retention through predictive intelligence, centralized engagement workflows, and proactive operational oversight across the study lifecycle.
+          <FadeIn delay={0.4} className="max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-slate-300 font-medium leading-relaxed drop-shadow-md">
+              CliniLink helps sponsors, CROs, and research sites improve participant retention through predictive intelligence, centralized engagement workflows, and proactive operational oversight.
             </p>
           </FadeIn>
-          <FadeIn delay={0.6} className="pt-4 flex justify-center">
-            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
-                                       hover:bg-primary transition-all duration-500
-                                       shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
+          <FadeIn delay={0.6} className="pt-2 flex justify-center gap-4">
+            <HoverButton className="px-8 py-4 bg-white text-slate-900 rounded-full font-black
+                                       hover:bg-blue-50 transition-all duration-500
+                                       shadow-[0_0_40px_rgba(59,130,246,0.3)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
-                Book a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                Explore Solutions <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-
             </HoverButton>
           </FadeIn>
         </div>

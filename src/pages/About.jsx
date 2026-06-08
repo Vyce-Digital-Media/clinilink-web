@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Users2 } from 'lucide-react'
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
@@ -57,28 +57,86 @@ export default function About() {
   return (
     <main ref={containerRef} className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
-      {/* HERO SECTION WITH CELLS GRID */}
-      <section className="relative min-h-[75vh] flex items-center justify-center pt-40 pb-32 px-6 overflow-hidden bg-white border-b border-slate-100">
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-          <InteractiveGrid cellSize={60} hoverColor="hover:bg-slate-50" gridColor="border-slate-200/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white z-10" />
-        </div>
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      <section className="relative h-screen flex flex-col justify-center pt-24 pb-12 px-6 overflow-hidden bg-[#F8F9FA] border-b border-slate-200">
 
-        <div className="space-y-8 max-w-5xl mx-auto text-center relative z-10">
-          <RevealLine>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
-              Building Better <br />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
-                Retention Infrastructure
-              </span> <br />
-              for Clinical Trials
-            </h1>
-          </RevealLine>
-          <FadeIn delay={0.4} className="max-w-3xl mx-auto">
-            <p className="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-              CliniLink was founded to help clinical organizations take a more proactive, coordinated, and operationally efficient approach to participant engagement and retention management.
-            </p>
-          </FadeIn>
+        {/* Abstract Background pattern */}
+        <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
+
+          {/* Left: Text Content */}
+          <div className="space-y-8">
+
+            <RevealLine delay={0.1}>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[1.05] uppercase">
+                Building Better <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                  Retention
+                </span>
+                <br /> Infrastructure.
+              </h1>
+            </RevealLine>
+
+            <FadeIn delay={0.4}>
+              <p className="text-lg sm:text-xl text-slate-600 font-medium leading-relaxed max-w-lg border-l-4 border-blue-500 pl-6">
+                CliniLink was founded to help clinical organizations take a more proactive, coordinated, and operationally efficient approach to participant engagement and retention management.
+              </p>
+            </FadeIn>
+
+            {/* Mission Badges */}
+            <FadeIn delay={0.6} className="flex flex-wrap gap-4 pt-4">
+              {["Technology-Driven", "Participant-First", "Operationally-Focused"].map((badge, i) => (
+                <div key={i} className="flex items-center gap-2 text-slate-700 font-bold text-sm bg-white px-4 py-2 rounded-lg shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-100">
+                  <CheckCircle2 size={16} className="text-emerald-500" />
+                  {badge}
+                </div>
+              ))}
+            </FadeIn>
+          </div>
+
+          {/* Right: Image Composition */}
+          <div className="relative h-[600px] hidden lg:block">
+            {/* Background Blob */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[80px]" />
+
+            {/* Main Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 40, rotate: -4 }}
+              animate={{ opacity: 1, y: 0, rotate: -4 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              className="absolute top-10 right-10 w-[80%] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white z-10"
+            >
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Laboratory" className="w-full h-full object-cover grayscale-[10%]" />
+            </motion.div>
+
+            {/* Overlapping Secondary Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 40, rotate: 6 }}
+              animate={{ opacity: 1, y: 0, rotate: 6 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+              className="absolute bottom-10 left-0 w-[60%] aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white z-20"
+            >
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Team" className="w-full h-full object-cover grayscale-[10%]" />
+            </motion.div>
+
+            {/* Floating Element */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+              className="absolute top-1/3 -left-12 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-30 flex items-center gap-4"
+            >
+              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                <Users2 className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Dedicated</p>
+                <p className="text-lg font-black text-slate-900 leading-tight">Study Teams</p>
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </section>
 

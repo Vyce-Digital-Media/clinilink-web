@@ -186,43 +186,97 @@ export default function Resources() {
   return (
     <main className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
-      {/* ── HERO — matches About page style ──────────────────────────────────── */}
-      <section className="relative min-h-[75vh] flex items-center justify-center pt-40 pb-32 px-6 overflow-hidden bg-white border-b border-slate-100">
-        {/* Interactive cell grid background */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-          <InteractiveGrid cellSize={60} hoverColor="hover:bg-slate-50" gridColor="border-slate-200/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white z-10" />
-        </div>
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      <section className="relative h-screen flex items-center pt-24 pb-12 px-6 overflow-hidden bg-[#F8F9FA] border-b border-slate-200">
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
 
-        <div className="space-y-8 max-w-5xl mx-auto text-center relative z-10">
-          <RevealLine>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
-              Retention Insights &{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
-                Resources
-              </span>{' '}
-              for Clinical Trials
-            </h1>
-          </RevealLine>
+          {/* Left Text */}
+          <div className="lg:col-span-5 space-y-6">
+            <RevealLine delay={0.1}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 leading-[1.05]">
+                Insights & <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Resources</span>
+              </h1>
+            </RevealLine>
+            <FadeIn delay={0.4}>
+              <p className="text-lg text-slate-600 font-medium leading-relaxed">
+                Explore perspectives, operational insights, and educational resources focused on modern participant engagement and clinical trial retention.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.6} className="pt-2">
+              <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase
+                                         hover:bg-blue-600 transition-all duration-500 inline-flex group relative overflow-hidden">
+                <span className="flex items-center gap-3 relative z-10">
+                  Subscribe for Updates <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </HoverButton>
+            </FadeIn>
+          </div>
 
-          <FadeIn delay={0.4} className="max-w-3xl mx-auto">
-            <p className="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-              Explore perspectives, operational insights, and educational resources focused on participant engagement,
-              retention management, and modern clinical trial operations.
-            </p>
-          </FadeIn>
+          {/* Right Masonry Collage */}
+          <div className="lg:col-span-7 relative h-[500px] hidden lg:block overflow-hidden rounded-3xl">
+            {/* Overlay gradients for fading edges */}
+            <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
 
-          <FadeIn delay={0.6} className="pt-4 flex justify-center">
-            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
-                                       hover:bg-primary transition-all duration-500
-                                       shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
-              <span className="flex items-center gap-2 relative z-10">
-                Subscribe for Updates
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
+            <div className="flex gap-6 absolute inset-0 -top-[40%] -bottom-[40%] px-12 rotate-[-6deg] z-10 justify-center">
+              {/* Column 1 */}
+              <div className="w-1/3">
+                <motion.div
+                  animate={{ y: ["0%", "-50%"] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="w-full flex flex-col gap-6 pb-6"
+                >
+                  {[...Array(6)].map((_, i) => (
+                    <img 
+                      key={`col1-${i}`} 
+                      src={`https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80`} 
+                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500" 
+                      alt="Resource" 
+                    />
+                  ))}
+                </motion.div>
+              </div>
 
-            </HoverButton>
-          </FadeIn>
+              {/* Column 2 */}
+              <div className="w-1/3 pt-12">
+                <motion.div
+                  animate={{ y: ["-50%", "0%"] }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="w-full flex flex-col gap-6 pb-6"
+                >
+                  {[...Array(6)].map((_, i) => (
+                    <img 
+                      key={`col2-${i}`} 
+                      src={`https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80`} 
+                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500" 
+                      alt="Resource" 
+                    />
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Column 3 */}
+              <div className="w-1/3">
+                <motion.div
+                  animate={{ y: ["0%", "-50%"] }}
+                  transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                  className="w-full flex flex-col gap-6 pb-6"
+                >
+                  {[...Array(6)].map((_, i) => (
+                    <img 
+                      key={`col3-${i}`} 
+                      src={`https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=400&q=80`} 
+                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500" 
+                      alt="Resource" 
+                    />
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -244,7 +298,7 @@ export default function Resources() {
             <InsightCard key={i} insight={insight} index={i} />
           ))}
         </div>
-      </section> 
+      </section>
 
       {/* ── THOUGHT LEADERSHIP ───────────────────────────────────────────────── */}
       <section className="py-36 px-6 max-w-7xl mx-auto relative z-10 bg-white">

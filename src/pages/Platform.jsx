@@ -159,52 +159,105 @@ export default function Platform() {
     <main ref={containerRef} className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[75vh] flex items-center justify-center pt-40 pb-32 px-6 overflow-hidden bg-white border-b border-slate-100">
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-          <InteractiveGrid cellSize={60} hoverColor="hover:bg-slate-50" gridColor="border-slate-200/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white z-10" />
+      <section className="relative h-screen flex items-center pt-24 pb-12 px-6 overflow-hidden bg-white border-b border-slate-100">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <InteractiveGrid cellSize={40} hoverColor="hover:bg-blue-50/50" gridColor="border-slate-100/50" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-white/80 to-white z-10" />
         </div>
 
-        <div className="space-y-8 max-w-5xl mx-auto text-center relative z-10">
-          <RevealLine>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
-              Two Platforms.{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
-                One Goal:
-              </span>{' '}
-              Better Trial Retention.
-            </h1>
-          </RevealLine>
-          <FadeIn delay={0.4} className="max-w-4xl mx-auto">
-            <p className="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-              CliniLink helps clinical teams predict who is likely to stay before enrollment and identify who is at risk of dropping out during the trial — enabling earlier intervention, stronger retention, and better study continuity.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.6} className="pt-4 flex justify-center">
-            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
-                                       hover:bg-primary transition-all duration-500
-                                       shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
-              <span className="flex items-center gap-2 relative z-10">
-                Book a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 items-center relative z-10">
+          <div className="space-y-6 max-w-2xl">
+            <RevealLine delay={0.1}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
+                Two Platforms.<br />
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+                  One Goal:
+                </span><br />
+                Better Trial Retention.
+              </h1>
+            </RevealLine>
+            <FadeIn delay={0.4}>
+              <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-lg">
+                CliniLink helps clinical teams predict who is likely to stay before enrollment and identify who is at risk of dropping out during the trial — enabling earlier intervention and stronger retention.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.6} className="pt-2 flex gap-4 items-center">
+              <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold
+                                         hover:bg-primary transition-all duration-500
+                                         shadow-[0_10px_40px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
+                <span className="flex items-center gap-2 relative z-10">
+                  Explore Platforms <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </HoverButton>
+            </FadeIn>
+          </div>
 
-            </HoverButton>
-          </FadeIn>
+          <div className="relative h-[500px] w-full hidden lg:block perspective-[2000px] xl:scale-100 scale-90 origin-right">
+            {/* Floating Element 1 (Pre-Trial) */}
+            <motion.div
+              initial={{ opacity: 0, x: 50, y: 30, rotateY: -15, rotateX: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0, rotateY: -15, rotateX: 10 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute right-10 top-10 w-80 bg-white/60 backdrop-blur-xl border border-slate-200/60 rounded-3xl p-6 shadow-2xl shadow-blue-500/10 z-20"
+            >
+              <div className="text-[10px] font-mono text-primary tracking-[0.2em] uppercase font-bold px-3 py-1 bg-primary/10 rounded-full inline-block mb-4">
+                Platform 1
+              </div>
+              <h3 className="text-xl font-black text-slate-900 mb-2">Predictive Enrollment</h3>
+              <div className="space-y-3 mt-4">
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-400 rounded-full" style={{ width: `${85 - i * 15}%` }}></div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Floating Element 2 (During Trial) */}
+            <motion.div
+              initial={{ opacity: 0, x: -50, y: -30, rotateY: -15, rotateX: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0, rotateY: -15, rotateX: 10 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute left-0 bottom-20 w-[420px] bg-slate-900/90 backdrop-blur-2xl border border-slate-700 rounded-[2rem] p-8 shadow-[0_30px_60px_rgba(15,23,42,0.4)] z-30"
+            >
+              <div className="flex justify-between items-center mb-6">
+                <div className="text-[10px] font-mono text-emerald-400 tracking-[0.2em] uppercase font-bold px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full inline-block">
+                  Platform 2
+                </div>
+                <span className="flex h-2.5 w-2.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-2">Retention Intelligence</h3>
+              <p className="text-slate-400 text-sm font-medium mb-6">Monitoring active participants and predicting dropout risk.</p>
+
+              <div className="flex items-end gap-3 h-24">
+                {[40, 60, 45, 80, 55, 90, 75].map((h, i) => (
+                  <div key={i} className="w-full bg-slate-800 rounded-t-sm relative group">
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: `${h}%` }}
+                      transition={{ duration: 1, delay: 0.8 + (i * 0.1) }}
+                      className="absolute bottom-0 left-0 right-0 bg-indigo-500 rounded-t-sm group-hover:bg-indigo-400 transition-colors"
+                    />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Background Image / UI Element */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0 rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-2xl -z-10 translate-x-12 translate-y-8"
+            >
+              <img src={DASHBOARD_IMG} alt="Platform Dashboard" className="w-full h-full object-cover object-left-top opacity-60 mix-blend-luminosity" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
+            </motion.div>
+          </div>
         </div>
-      </section>
-
-      {/* ── Dashboard image ───────────────────────────────────────────────────── */}
-      <section className="py-0 px-6 max-w-6xl mx-auto -mt-8 relative z-20">
-        <motion.div
-          style={{ y: yBg }}
-          className="rounded-[2rem] overflow-hidden shadow-[0_40px_100px_rgba(15,23,42,0.12)] border border-slate-200 will-change-transform"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <img src={DASHBOARD_IMG} alt="CliniLink Dashboard" className="w-full h-auto object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent pointer-events-none" />
-        </motion.div>
       </section>
 
       {/* ── TWO-PLATFORM SECTION ─────────────────────────────────────────────── */}

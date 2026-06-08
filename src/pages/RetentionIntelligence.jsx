@@ -654,34 +654,92 @@ export default function RetentionIntelligence() {
     <main className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[80vh] flex items-center justify-center pt-44 pb-36 px-6 overflow-hidden bg-white border-b border-slate-100">
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-          <InteractiveGrid cellSize={60} hoverColor="hover:bg-slate-50" gridColor="border-slate-200/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white z-10" />
+      <section className="relative h-screen flex flex-col justify-center items-center pt-24 pb-12 px-6 overflow-hidden bg-white border-b border-slate-200">
+        
+        {/* Radar / Grid Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+          {/* Radar Circles */}
+          <div className="absolute w-[800px] h-[800px] border border-blue-500/20 rounded-full scale-75 md:scale-100"></div>
+          <div className="absolute w-[600px] h-[600px] border border-blue-500/30 rounded-full scale-75 md:scale-100"></div>
+          <div className="absolute w-[400px] h-[400px] border border-blue-400/40 rounded-full border-dashed scale-75 md:scale-100"></div>
+          
+          {/* Radar Sweep */}
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="absolute w-[800px] h-[800px] rounded-full scale-75 md:scale-100"
+            style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(59, 130, 246, 0.15) 100%)' }}
+          />
+
+          {/* Crosshairs */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-30">
+            <div className="w-full h-px bg-blue-500 absolute"></div>
+            <div className="h-full w-px bg-blue-500 absolute"></div>
+          </div>
+          
+          {/* Glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_white_70%)]" />
         </div>
 
-        <div className="space-y-10 max-w-6xl mx-auto text-center relative z-10">
+        {/* Floating Data Badges */}
+        <div className="absolute inset-0 z-10 pointer-events-none hidden md:block">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1, duration: 0.5 }}
+            className="absolute top-[20%] left-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg flex items-center gap-2"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-xs font-mono text-emerald-600 font-semibold">Signal: Normal</span>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+            className="absolute bottom-[25%] right-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg flex items-center gap-2"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            <span className="text-xs font-mono text-amber-600 font-semibold">Risk Detected</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2, duration: 0.5 }}
+            className="absolute top-[30%] right-[20%] bg-white/80 backdrop-blur border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg flex items-center gap-2"
+          >
+            <Activity size={12} className="text-blue-600" />
+            <span className="text-xs font-mono text-blue-600 font-semibold">Monitoring 1,248 PTs</span>
+          </motion.div>
+        </div>
+
+        <div className="space-y-8 max-w-5xl mx-auto text-center relative z-20 shrink-0">
           <RevealLine>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 border border-blue-100 text-blue-600 font-mono text-xs tracking-widest uppercase mb-2 shadow-sm font-bold">
+              <Zap size={14} className="text-blue-500" /> Live Telemetry Online
+            </div>
+          </RevealLine>
+          <RevealLine delay={0.1}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase drop-shadow-sm">
               Retention Intelligence{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
                 Command Center
               </span>
             </h1>
           </RevealLine>
           <FadeIn delay={0.4} className="max-w-3xl mx-auto">
-            <p className="text-xl sm:text-2xl text-slate-600 font-semibold leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-600 font-semibold leading-relaxed">
               A real-time, actionable mission control for retention operations. Monitor at-risk participant queues, track escalation triggers, implement suggested interventions, and resolve site-level alerts from a single command view.
             </p>
           </FadeIn>
-          <FadeIn delay={0.6} className="pt-4 flex justify-center">
-            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold
-                                       hover:bg-primary transition-all duration-500
-                                       shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
+          <FadeIn delay={0.6} className="pt-4 flex justify-center gap-6">
+            <HoverButton className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold uppercase tracking-wider text-sm
+                                       hover:bg-blue-700 transition-all duration-500
+                                       shadow-[0_10px_30px_rgba(37,99,235,0.2)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
-                Schedule a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                Initialize Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-
             </HoverButton>
           </FadeIn>
         </div>
