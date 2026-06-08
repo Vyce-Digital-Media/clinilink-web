@@ -468,4 +468,4 @@ function FocusAreaCard({ area, index }) {
   )
 }
 
-// FounderCard removed (no longer used)
+// FounderCard removed (no longer used) i am
