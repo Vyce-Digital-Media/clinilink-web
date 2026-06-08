@@ -192,13 +192,47 @@ export default function Platform() {
             </FadeIn>
           </div>
 
-          <div className="relative h-[500px] w-full hidden lg:block perspective-[2000px] xl:scale-100 scale-90 origin-right">
-            {/* Floating Element 1 (Pre-Trial) */}
+          <div className="relative h-[500px] w-full hidden lg:block xl:scale-100 scale-90 origin-right">
+            
+            {/* Dark Card (Retention Intelligence - Back Layer) */}
             <motion.div
-              initial={{ opacity: 0, x: 50, y: 30, rotateY: -15, rotateX: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0, rotateY: -15, rotateX: 10 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-10 top-10 w-80 bg-white/60 backdrop-blur-xl border border-slate-200/60 rounded-3xl p-6 shadow-2xl shadow-blue-500/10 z-20"
+              className="absolute right-0 top-10 w-full max-w-[420px] bg-slate-900/90 backdrop-blur-2xl border border-slate-700 rounded-[2rem] p-8 shadow-[0_30px_60px_rgba(15,23,42,0.4)] z-20"
+            >
+              <div className="flex justify-between items-center mb-6">
+                <div className="text-[10px] font-mono text-emerald-400 tracking-[0.2em] uppercase font-bold px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full inline-block">
+                  Platform 2
+                </div>
+                <span className="flex h-2.5 w-2.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-2">Retention Intelligence</h3>
+              <p className="text-slate-400 text-sm font-medium mb-6">Monitoring active participants and predicting dropout risk.</p>
+
+              <div className="flex items-end gap-3 h-16">
+                {[40, 60, 45, 80, 55, 90, 75].map((h, i) => (
+                  <div key={i} className="w-full bg-slate-800 rounded-t-sm relative group">
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: `${h}%` }}
+                      transition={{ duration: 1, delay: 0.8 + (i * 0.1) }}
+                      className="absolute bottom-0 left-0 right-0 bg-indigo-500 rounded-t-sm group-hover:bg-indigo-400 transition-colors"
+                    />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Light Card (Predictive Enrollment - Front Layer) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute left-10 bottom-10 w-full max-w-[420px] bg-white/80 backdrop-blur-xl border border-slate-200/60 rounded-3xl p-6 shadow-2xl shadow-blue-500/10 z-30"
             >
               <div className="text-[10px] font-mono text-primary tracking-[0.2em] uppercase font-bold px-3 py-1 bg-primary/10 rounded-full inline-block mb-4">
                 Platform 1
@@ -213,49 +247,6 @@ export default function Platform() {
               </div>
             </motion.div>
 
-            {/* Floating Element 2 (During Trial) */}
-            <motion.div
-              initial={{ opacity: 0, x: -50, y: -30, rotateY: -15, rotateX: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0, rotateY: -15, rotateX: 10 }}
-              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-0 bottom-20 w-[420px] bg-slate-900/90 backdrop-blur-2xl border border-slate-700 rounded-[2rem] p-8 shadow-[0_30px_60px_rgba(15,23,42,0.4)] z-30"
-            >
-              <div className="flex justify-between items-center mb-6">
-                <div className="text-[10px] font-mono text-emerald-400 tracking-[0.2em] uppercase font-bold px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full inline-block">
-                  Platform 2
-                </div>
-                <span className="flex h-2.5 w-2.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-              </div>
-              <h3 className="text-2xl font-black text-white mb-2">Retention Intelligence</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Monitoring active participants and predicting dropout risk.</p>
-
-              <div className="flex items-end gap-3 h-24">
-                {[40, 60, 45, 80, 55, 90, 75].map((h, i) => (
-                  <div key={i} className="w-full bg-slate-800 rounded-t-sm relative group">
-                    <motion.div
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ duration: 1, delay: 0.8 + (i * 0.1) }}
-                      className="absolute bottom-0 left-0 right-0 bg-indigo-500 rounded-t-sm group-hover:bg-indigo-400 transition-colors"
-                    />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Background Image / UI Element */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0 rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-2xl -z-10 translate-x-12 translate-y-8"
-            >
-              <img src={DASHBOARD_IMG} alt="Platform Dashboard" className="w-full h-full object-cover object-left-top opacity-60 mix-blend-luminosity" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
-            </motion.div>
           </div>
         </div>
       </section>

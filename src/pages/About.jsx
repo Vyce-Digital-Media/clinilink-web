@@ -125,7 +125,7 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-              className="absolute top-1/3 -left-12 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-30 flex items-center gap-4"
+              className="absolute top-12 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-30 flex items-center gap-4"
             >
               <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
                 <Users2 className="text-blue-600" size={24} />

@@ -687,30 +687,40 @@ export default function RetentionIntelligence() {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
-            className="absolute top-[20%] left-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg flex items-center gap-2"
+            className="absolute top-[20%] left-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-xs font-mono text-emerald-600 font-semibold">Signal: Normal</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-sm font-mono text-emerald-600 font-bold tracking-tight">Signal: Normal</span>
           </motion.div>
           
           <motion.div 
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.5, duration: 0.5 }}
-            className="absolute bottom-[25%] right-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg flex items-center gap-2"
+            className="absolute bottom-[25%] right-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-            <span className="text-xs font-mono text-amber-600 font-semibold">Risk Detected</span>
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            <span className="text-sm font-mono text-amber-600 font-bold tracking-tight">Risk Detected</span>
           </motion.div>
 
           <motion.div 
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 2, duration: 0.5 }}
-            className="absolute top-[30%] right-[20%] bg-white/80 backdrop-blur border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg flex items-center gap-2"
+            className="absolute top-[20%] right-[18%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
           >
-            <Activity size={12} className="text-blue-600" />
-            <span className="text-xs font-mono text-blue-600 font-semibold">Monitoring 1,248 PTs</span>
+            <Activity size={16} className="text-blue-600" />
+            <span className="text-sm font-mono text-blue-600 font-bold tracking-tight">Monitoring 1,248 PTs</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.5, duration: 0.5 }}
+            className="absolute bottom-[20%] left-[20%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
+          >
+            <ShieldCheck size={16} className="text-indigo-600" />
+            <span className="text-sm font-mono text-indigo-600 font-bold tracking-tight">System Secured</span>
           </motion.div>
         </div>
 

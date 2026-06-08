@@ -226,10 +226,10 @@ export default function Resources() {
               <div className="w-1/3">
                 <motion.div
                   animate={{ y: ["0%", "-50%"] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
                   className="w-full flex flex-col gap-6 pb-6"
                 >
-                  {[...Array(6)].map((_, i) => (
+                  {[...Array(16)].map((_, i) => (
                     <img 
                       key={`col1-${i}`} 
                       src={`https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80`} 
@@ -244,10 +244,10 @@ export default function Resources() {
               <div className="w-1/3 pt-12">
                 <motion.div
                   animate={{ y: ["-50%", "0%"] }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 95, repeat: Infinity, ease: "linear" }}
                   className="w-full flex flex-col gap-6 pb-6"
                 >
-                  {[...Array(6)].map((_, i) => (
+                  {[...Array(16)].map((_, i) => (
                     <img 
                       key={`col2-${i}`} 
                       src={`https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80`} 
@@ -262,10 +262,10 @@ export default function Resources() {
               <div className="w-1/3">
                 <motion.div
                   animate={{ y: ["0%", "-50%"] }}
-                  transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
                   className="w-full flex flex-col gap-6 pb-6"
                 >
-                  {[...Array(6)].map((_, i) => (
+                  {[...Array(16)].map((_, i) => (
                     <img 
                       key={`col3-${i}`} 
                       src={`https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=400&q=80`} 
