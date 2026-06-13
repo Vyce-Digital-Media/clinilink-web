@@ -92,7 +92,7 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-base md:text-lg text-slate-300 font-medium leading-relaxed"
               >
-                Optimize participant retention and streamline your clinical trial operations. Reach out to learn how CliniLink can improve patient engagement in your studies.
+                Optimize retention and streamline operations. Reach out to learn how we can help.
               </motion.p>
             </div>
 
@@ -165,7 +165,7 @@ export default function Contact() {
                 >
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
                   <h3 className="text-xl font-bold text-slate-900">Request Submitted</h3>
-                  <p className="text-sm text-slate-500 max-w-xs mx-auto font-medium">Thank you! A CliniLink operations specialist will get in touch with you shortly.</p>
+                  <p className="text-sm text-slate-500 max-w-xs mx-auto font-medium">Thank you! A specialist will contact you shortly.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -265,7 +265,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center md:text-left mb-8 space-y-2">
             <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Our Headquarters</h2>
-            <p className="text-slate-500 font-medium text-sm md:text-base">Visit us in the heart of Boston's clinical innovation sector.</p>
+            <p className="text-slate-500 font-medium text-sm md:text-base">Visit us in Boston's clinical innovation sector.</p>
           </div>
 
           <div className="h-[550px] w-full rounded-[2.5rem] overflow-hidden relative shadow-xl border border-slate-200/50 bg-slate-100">

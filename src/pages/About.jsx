@@ -43,15 +43,15 @@ export default function About() {
   ]
 
   const whyParagraphs = [
-    "Participant disengagement remains one of the most persistent operational challenges in clinical research.",
-    "Missed visits, inconsistent communication, and delayed follow-up workflows can impact study continuity, increase operational burden, and contribute to costly trial delays.",
-    "CliniLink was created to help sponsors, CROs, and research sites improve visibility into participant engagement activity and support more proactive retention operations across clinical studies."
+    "Participant disengagement is a persistent challenge in clinical research.",
+    "Missed visits and delayed follow-ups impact study continuity and increase costs.",
+    "CliniLink helps trial teams gain visibility into engagement and proactively manage retention."
   ]
 
   const approachParagraphs = [
-    "We believe participant retention requires more than isolated communication tools.",
-    "Modern clinical trials need centralized engagement workflows, operational visibility, and coordinated retention management designed to support both participants and study teams throughout the trial lifecycle.",
-    "CliniLink combines participant engagement infrastructure, workflow coordination, and retention-focused operational support into a unified platform built for modern clinical operations."
+    "Retention requires more than isolated communication tools.",
+    "Trials need centralized workflows, visibility, and coordinated management to support teams and participants.",
+    "CliniLink unifies engagement, coordination, and operational support into one platform."
   ]
 
   return (
@@ -80,7 +80,7 @@ export default function About() {
 
             <FadeIn delay={0.4}>
               <p className="text-lg sm:text-xl text-slate-600 font-medium leading-relaxed max-w-lg border-l-4 border-blue-500 pl-6">
-                CliniLink was founded to help clinical organizations take a more proactive, coordinated, and operationally efficient approach to participant engagement and retention management.
+                CliniLink helps clinical organizations take a proactive and efficient approach to engagement and retention.
               </p>
             </FadeIn>
 
@@ -235,7 +235,7 @@ export default function About() {
               Co-Founder & CEO
             </p>
             <p className="text-sm sm:text-base text-slate-300 font-medium leading-relaxed">
-              Focused on improving participant engagement and operational retention workflows across clinical research through technology infrastructure and modern engagement systems.
+              Focused on improving engagement and retention workflows through modern technology.
             </p>
           </motion.div>
 
@@ -251,7 +251,7 @@ export default function About() {
               Co-Founder & CTO
             </p>
             <p className="text-sm sm:text-base text-slate-300 font-medium leading-relaxed">
-              Bringing over a decade of enterprise software architecture experience to build secure, HIPAA-compliant platforms for the clinical trial industry.
+              Bringing over a decade of experience to build secure platforms for clinical trials.
             </p>
           </motion.div>
 
@@ -274,8 +274,8 @@ export default function About() {
             </h2>
           </RevealLine>
           <div className="space-y-8 text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-            <p>We believe the future of clinical trial retention will be driven by more proactive engagement strategies, better operational coordination, and improved visibility into participant activity throughout the study lifecycle.</p>
-            <p>CliniLink is building infrastructure designed to support more connected and efficient retention operations across modern clinical research.</p>
+            <p>The future of trial retention relies on proactive engagement, coordination, and visibility.</p>
+            <p>CliniLink builds infrastructure for connected, efficient retention operations.</p>
           </div>
         </div>
       </section>

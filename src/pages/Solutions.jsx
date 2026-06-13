@@ -27,7 +27,7 @@ const audiences = [
     accentColor: 'border-blue-500',
     dimColor: 'border-blue-200 group-hover:border-blue-500',
     title: 'Support sponsors with scalable retention operations',
-    desc: 'Support sponsors with scalable retention operations, centralized participant oversight, and more standardized engagement workflows across studies and sites.',
+    desc: 'Support sponsors with scalable retention operations, centralized oversight, and standardized engagement workflows across studies and sites.',
     bullets: [
       { head: 'Operational Visibility', body: 'Monitor participant engagement activity, follow-ups, alerts, and retention workflows across active studies.' },
       { head: 'Standardized Engagement Processes', body: 'Create more consistent participant communication and retention management workflows across programs.' },
@@ -44,7 +44,7 @@ const audiences = [
     accentColor: 'border-emerald-500',
     dimColor: 'border-emerald-200 group-hover:border-emerald-500',
     title: 'For Sponsors',
-    desc: 'Improve study continuity with better retention visibility, proactive participant monitoring, and scalable operational oversight across clinical programs.',
+    desc: 'Improve study continuity with better visibility, proactive monitoring, and scalable operational oversight.',
     bullets: [
       { head: 'Centralized Retention Oversight', body: 'Gain visibility into participant engagement activity and retention risk across studies and sites.' },
       { head: 'Improved Study Continuity', body: 'Reduce operational disruption associated with disengagement, missed visits, and participant dropout.' },
@@ -62,7 +62,7 @@ const audiences = [
     accentColor: 'border-violet-500',
     dimColor: 'border-violet-200 group-hover:border-violet-500',
     title: 'For Research Sites',
-    desc: 'Reduce manual follow-up burden and simplify participant communication workflows for site coordinators and research teams.',
+    desc: 'Reduce manual follow-up burden and simplify communication workflows for site teams.',
     bullets: [
       { head: 'Streamlined Participant Outreach', body: 'Coordinate reminders, updates, and participant follow-ups from one centralized system.' },
       { head: 'Workflow Efficiency', body: 'Reduce repetitive communication tasks through configurable engagement automation.' },
@@ -221,7 +221,7 @@ export default function Solutions() {
           </RevealLine>
           <FadeIn delay={0.4} className="max-w-3xl mx-auto">
             <p className="text-lg sm:text-xl text-slate-300 font-medium leading-relaxed drop-shadow-md">
-              CliniLink helps sponsors, CROs, and research sites improve participant retention through predictive intelligence, centralized engagement workflows, and proactive operational oversight.
+              CliniLink helps teams improve retention through predictive intelligence, centralized workflows, and proactive oversight.
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-2 flex justify-center gap-4">
@@ -229,7 +229,7 @@ export default function Solutions() {
                                        hover:bg-blue-50 transition-all duration-500
                                        shadow-[0_0_40px_rgba(59,130,246,0.3)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
-                Explore Solutions <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                Book a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </HoverButton>
           </FadeIn>
@@ -245,8 +245,8 @@ export default function Solutions() {
             </h2>
           </RevealLine>
           <FadeIn delay={0.2} className="space-y-4 text-xl text-slate-600 font-medium leading-relaxed">
-            <p>Participant disengagement and dropout can disrupt study timelines, increase operational burden, reduce protocol adherence, and impact study continuity across clinical programs.</p>
-            <p>CliniLink helps organizations take a more proactive, coordinated, and scalable approach to participant retention management.</p>
+            <p>Disengagement disrupts timelines, increases burden, and impacts study continuity.</p>
+            <p>CliniLink helps organizations take a proactive, scalable approach to retention management.</p>
           </FadeIn>
         </div>
       </section>
@@ -285,7 +285,7 @@ export default function Solutions() {
           </RevealLine>
           <FadeIn delay={0.2}>
             <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-4xl mx-auto">
-              Explore how CliniLink helps sponsors, CROs, and research sites improve participant engagement, streamline retention workflows, and support better study continuity across clinical programs.
+              Explore how CliniLink helps teams improve engagement, streamline workflows, and support better study continuity.
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">

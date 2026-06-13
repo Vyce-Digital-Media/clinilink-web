@@ -10,11 +10,11 @@ const DASHBOARD_IMG =
   'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80'
 
 const capabilities = [
-  { title: 'Unified participant view', desc: 'Centralize participant communication, logs, and activity records into a single source of truth for clinical teams.' },
-  { title: 'AI-powered retention intelligence', desc: 'Leverage predictive models to accurately forecast participant behavior and dropout probability.' },
-  { title: 'Automated engagement workflows', desc: 'Trigger reminders, scheduling outreach, and surveys automatically based on study milestones.' },
-  { title: 'Real-time monitoring', desc: 'Continuously track response latency, diary compliance, and check-in adherence as data is logged.' },
-  { title: 'Actionable insights for study teams', desc: 'Equip site coordinators and principal investigators with direct indicators on when and how to intervene.' }
+  { title: 'Unified participant view' },
+  { title: 'AI-powered retention intelligence' },
+  { title: 'Automated engagement workflows' },
+  { title: 'Real-time monitoring' },
+  { title: 'Actionable insights for study teams' }
 ]
 
 const workflowSteps = [
@@ -61,7 +61,6 @@ function CapabilityCard({ item, index }) {
                      group-hover:text-blue-600 transition-colors duration-300">
         {item.title}
       </h3>
-      <p className="text-lg text-slate-600 font-medium leading-relaxed">{item.desc}</p>
     </motion.div>
   )
 }
@@ -178,7 +177,7 @@ export default function Platform() {
             </RevealLine>
             <FadeIn delay={0.4}>
               <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-lg">
-                CliniLink helps clinical teams predict who is likely to stay before enrollment and identify who is at risk of dropping out during the trial — enabling earlier intervention and stronger retention.
+                CliniLink helps teams predict engagement before enrollment and identify dropout risks during the trial for earlier intervention.
               </p>
             </FadeIn>
             <FadeIn delay={0.6} className="pt-2 flex gap-4 items-center">
@@ -186,7 +185,7 @@ export default function Platform() {
                                          hover:bg-primary transition-all duration-500
                                          shadow-[0_10px_40px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
                 <span className="flex items-center gap-2 relative z-10">
-                  Explore Platforms <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  Book a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </HoverButton>
             </FadeIn>
@@ -211,7 +210,7 @@ export default function Platform() {
                 </span>
               </div>
               <h3 className="text-2xl font-black text-white mb-2">Retention Intelligence</h3>
-              <p className="text-slate-400 text-sm font-medium mb-6">Monitoring active participants and predicting dropout risk.</p>
+              <p className="text-slate-400 text-sm font-medium mb-6">Monitoring participants and predicting risk.</p>
 
               <div className="flex items-end gap-3 h-16">
                 {[40, 60, 45, 80, 55, 90, 75].map((h, i) => (
@@ -262,7 +261,7 @@ export default function Platform() {
             </RevealLine>
             <FadeIn delay={0.2}>
               <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
-                From predicting who’s most likely to stay, to identifying who’s at risk during the trial – CliniLink gives clinical teams the intelligence to act early and keep studies on track.
+                From predicting engagement to identifying risk, CliniLink empowers teams to act early and keep studies on track.
               </p>
             </FadeIn>
           </div>
@@ -283,7 +282,7 @@ export default function Platform() {
                   Predict Who Will Stay
                 </h3>
                 <p className="text-slate-600 leading-relaxed font-medium text-lg">
-                  Evaluate participant fit and study completion likelihood before dropout risk emerges. This platform helps clinical teams evaluate which participants are most likely to remain engaged and complete the study.
+                  Evaluate participant fit and completion likelihood before enrollment to reduce downstream dropout.
                 </p>
 
                 <div className="h-px bg-slate-100 my-6" />
@@ -320,7 +319,7 @@ export default function Platform() {
                   Predict Who Will Drop Out
                 </h3>
                 <p className="text-slate-600 leading-relaxed font-medium text-lg">
-                  Monitor active participants, detect disengagement signals, and trigger proactive intervention. This platform monitors active participants during the study and identifies who may be at risk of disengagement or dropout.
+                  Monitor participants, detect disengagement signals, and trigger proactive interventions to prevent dropout.
                 </p>
 
                 <div className="h-px bg-slate-100 my-6" />
@@ -370,7 +369,7 @@ export default function Platform() {
           </RevealLine>
           <FadeIn delay={0.2}>
             <p className="text-xl text-slate-600 font-medium leading-relaxed">
-              A clean, unified interface displaying pending risk alerts, study participation statuses, engagement trends, and actionable follow-ups to maintain study continuity.
+              A unified interface displaying risk alerts, engagement trends, and actionable follow-ups to maintain continuity.
             </p>
           </FadeIn>
         </div>
@@ -413,7 +412,7 @@ export default function Platform() {
           </RevealLine>
           <FadeIn delay={0.2}>
             <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-              Two connected platforms working together to predict, prevent, and improve retention across every study.
+              Connected platforms working together to predict, prevent, and improve retention.
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">

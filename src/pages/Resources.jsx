@@ -11,19 +11,19 @@ import InteractiveGrid from '../components/ui/InteractiveGrid'
 const insights = [
   {
     title: "Understanding Participant Dropout in Clinical Trials",
-    desc: "Explore common operational and engagement-related factors that contribute to participant disengagement across clinical studies."
+    desc: "Explore the factors that contribute to participant disengagement."
   },
   {
     title: "Why Retention Requires More Than Communication",
-    desc: "Retention challenges often emerge through operational complexity, inconsistent engagement, and delayed follow-up visibility."
+    desc: "Challenges emerge from complexity, inconsistent engagement, and lack of visibility."
   },
   {
     title: "Improving Participant Engagement Across Multi-Site Trials",
-    desc: "Learn how centralized engagement workflows can support study coordination and participant continuity."
+    desc: "Learn how centralized workflows support study coordination and continuity."
   },
   {
     title: "The Operational Cost of Missed Visits",
-    desc: "Understand how missed participant activity can affect study timelines, coordination burden, and operational continuity."
+    desc: "Understand how missed activities affect timelines and operational continuity."
   }
 ]
 
@@ -200,7 +200,7 @@ export default function Resources() {
             </RevealLine>
             <FadeIn delay={0.4}>
               <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                Explore perspectives, operational insights, and educational resources focused on modern participant engagement and clinical trial retention.
+                Explore perspectives, operational insights, and resources on participant engagement and retention.
               </p>
             </FadeIn>
             <FadeIn delay={0.6} className="pt-2">
@@ -230,11 +230,11 @@ export default function Resources() {
                   className="w-full flex flex-col gap-6 pb-6"
                 >
                   {[...Array(16)].map((_, i) => (
-                    <img 
-                      key={`col1-${i}`} 
-                      src={`https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80`} 
-                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500" 
-                      alt="Resource" 
+                    <img
+                      key={`col1-${i}`}
+                      src={`https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80`}
+                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+                      alt="Resource"
                     />
                   ))}
                 </motion.div>
@@ -248,11 +248,11 @@ export default function Resources() {
                   className="w-full flex flex-col gap-6 pb-6"
                 >
                   {[...Array(16)].map((_, i) => (
-                    <img 
-                      key={`col2-${i}`} 
-                      src={`https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80`} 
-                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500" 
-                      alt="Resource" 
+                    <img
+                      key={`col2-${i}`}
+                      src={`https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80`}
+                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+                      alt="Resource"
                     />
                   ))}
                 </motion.div>
@@ -266,11 +266,11 @@ export default function Resources() {
                   className="w-full flex flex-col gap-6 pb-6"
                 >
                   {[...Array(16)].map((_, i) => (
-                    <img 
-                      key={`col3-${i}`} 
-                      src={`https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=400&q=80`} 
-                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500" 
-                      alt="Resource" 
+                    <img
+                      key={`col3-${i}`}
+                      src={`https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=400&q=80`}
+                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+                      alt="Resource"
                     />
                   ))}
                 </motion.div>
@@ -318,7 +318,7 @@ export default function Resources() {
             </RevealLine>
             <FadeIn delay={0.2}>
               <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                Conference participation, webinars, founder insights, operational commentary, and industry observations.
+                Insights, commentary, and observations on clinical trial retention.
               </p>
             </FadeIn>
           </div>
@@ -345,7 +345,7 @@ export default function Resources() {
             delay={0.1}
             icon={FileText}
             title="Case Studies & Operational Learnings"
-            desc="Pilot results, workflow improvements, operational efficiencies, and engagement outcomes."
+            desc="Pilot results, workflow improvements, and engagement outcomes."
             footer={
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
                               bg-white/5 border border-white/10 text-slate-400 text-sm font-bold">
@@ -357,7 +357,7 @@ export default function Resources() {
             delay={0.2}
             icon={Download}
             title="Downloadable Content"
-            desc="Retention playbooks, operational checklists, sponsor guides, site workflow templates, and whitepapers."
+            desc="Playbooks, checklists, templates, and whitepapers."
             footer={
               <div className="space-y-3">
                 {['Retention Playbook 2026', 'Site Workflow Templates'].map((label, i) => (

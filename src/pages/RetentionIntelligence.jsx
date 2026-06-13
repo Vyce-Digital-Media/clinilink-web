@@ -262,13 +262,15 @@ function LifecycleSection() {
           <div className="space-y-8">
             <RevealLine>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900">
-                Intelligent Interventions
+                Retention risk rarely appears all at once.
               </h2>
             </RevealLine>
             <RevealLine delay={0.1}>
-              <p className="text-xl text-slate-600 leading-relaxed">
-                Anticipate patient needs before they arise. Our predictive intelligence engine analyzes behavioral signals to deploy timely, personalized interventions that keep participants engaged and on track throughout the entire trial lifecycle.
-              </p>
+              <div className="text-xl text-slate-600 leading-relaxed space-y-4">
+                <p>Disengagement develops gradually through missed communications and friction.</p>
+                <p>Without visibility, early warning signs are difficult to identify.</p>
+                <p>CliniLink helps teams detect and respond to risk earlier through continuous monitoring.</p>
+              </div>
             </RevealLine>
           </div>
 
@@ -324,7 +326,7 @@ function WorkflowSection() {
             </RevealLine>
             <FadeIn delay={0.2} className="space-y-6 text-xl text-slate-400 font-medium leading-relaxed">
               <p>
-                CliniLink transforms retention intelligence into operational action by helping teams prioritize outreach, coordinate follow-ups, and intervene earlier across active studies.
+                CliniLink transforms intelligence into action by helping teams prioritize outreach and intervene earlier.
               </p>
             </FadeIn>
           </div>
@@ -740,7 +742,7 @@ export default function RetentionIntelligence() {
           </RevealLine>
           <FadeIn delay={0.4} className="max-w-3xl mx-auto">
             <p className="text-lg sm:text-xl text-slate-600 font-semibold leading-relaxed">
-              A real-time, actionable mission control for retention operations. Monitor at-risk participant queues, track escalation triggers, implement suggested interventions, and resolve site-level alerts from a single command view.
+              A real-time mission control for retention operations. Monitor queues, track escalations, and resolve alerts from a single view.
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-4 flex justify-center gap-6">
@@ -769,7 +771,7 @@ export default function RetentionIntelligence() {
             </RevealLine>
             <FadeIn delay={0.2}>
               <p className="text-xl text-slate-600 font-semibold leading-relaxed">
-                CliniLink monitors operational, behavioral, and engagement-related signals across the participant journey to identify emerging retention risk in real time.
+                CliniLink monitors signals across the participant journey to identify emerging retention risk in real time.
               </p>
             </FadeIn>
           </div>
@@ -795,7 +797,7 @@ export default function RetentionIntelligence() {
           </RevealLine>
           <FadeIn delay={0.2} className="space-y-6 text-xl text-slate-600 font-semibold leading-relaxed">
             <p>
-              Monitor retention activity, engagement trends, alerts, and intervention workflows from one centralized operational view.
+              Monitor retention activity, trends, and alerts from one centralized view.
             </p>
           </FadeIn>
         </div>
@@ -840,7 +842,7 @@ export default function RetentionIntelligence() {
           </RevealLine>
           <FadeIn delay={0.2}>
             <p className="text-xl text-slate-600 font-semibold leading-relaxed max-w-2xl mx-auto">
-              Explore how CliniLink helps clinical teams identify dropout risk earlier and support proactive retention management across studies.
+              Explore how CliniLink helps teams identify risk earlier and support proactive retention management.
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">

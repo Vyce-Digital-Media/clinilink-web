@@ -130,10 +130,8 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
               {/* Left Column: Hero Content */}
               <div className="lg:col-span-6 flex flex-col items-start text-left pointer-events-none">
-                <span className="text-xs font-mono text-primary tracking-[0.3em] uppercase font-black block mb-4 animate-pulse">
-                  Retention Intelligence Platform
-                </span>
-                
+                {/* Removed extra text as per text file */}
+
                 <div className="space-y-1 mb-6">
                   <RevealLine delay={0.1}>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[1.05]">
@@ -154,7 +152,7 @@ export default function Home() {
 
                 <FadeIn delay={0.5} className="max-w-xl">
                   <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                    CliniLink helps sponsors, CROs, and research sites identify participant disengagement early and automate proactive retention workflows before missed visits and dropout impact timelines, costs, and study continuity.
+                    CliniLink helps trial teams spot disengagement early and automate retention workflows to keep studies on track.
                   </p>
                 </FadeIn>
 
@@ -176,12 +174,12 @@ export default function Home() {
                 <div className="relative w-full max-w-2xl lg:max-w-none mx-auto aspect-[4/3] md:aspect-square lg:aspect-auto lg:h-[550px] xl:h-[580px] pointer-events-auto">
                   {/* Ambient background glow behind the dashboard */}
                   <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-blue-500/20 rounded-3xl blur-3xl opacity-60 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }} />
-                  
+
                   {/* The main dashboard card */}
                   <div className="w-full h-full bg-slate-950 border border-slate-900 rounded-2xl shadow-2xl p-6 relative overflow-hidden flex flex-col justify-between">
                     {/* Ambient glow inside the card */}
                     <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-[60px] pointer-events-none" />
-                    
+
                     {/* Window Header */}
                     <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-4">
                       <div className="flex gap-1.5">
@@ -229,17 +227,17 @@ export default function Home() {
                         <span className="text-xs font-bold text-slate-200">Patient Risk Probability</span>
                         <span className="text-[9px] bg-primary/20 text-primary px-2 py-0.5 rounded font-mono font-bold">AI Predictive</span>
                       </div>
-                      
+
                       {/* Visual Chart Wave */}
                       <div className="flex-1 flex items-end gap-1.5 py-4 h-24">
                         {[40, 25, 45, 60, 55, 75, 40, 65, 80, 95, 70, 85, 90, 100].map((h, i) => (
-                          <div 
-                            key={i} 
+                          <div
+                            key={i}
                             className="flex-1 rounded-t-sm transition-all duration-500 hover:bg-primary cursor-pointer"
-                            style={{ 
+                            style={{
                               height: `${h}%`,
                               backgroundColor: i === 9 ? '#f43f5e' : i === 13 ? '#10b981' : 'rgba(56,189,248,0.2)'
-                            }} 
+                            }}
                           />
                         ))}
                       </div>
@@ -251,7 +249,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Floating glassmorphic card 1 (AI Risk Warning) */}
                   <div className="absolute -bottom-4 -left-4 bg-slate-900/90 backdrop-blur-md border border-white/10 p-3 rounded-xl shadow-2xl flex items-center gap-3 w-56 animate-bounce" style={{ animationDuration: '6s' }}>
                     <div className="w-8 h-8 rounded-full bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400 shrink-0">
@@ -343,9 +341,6 @@ export default function Home() {
 
             {/* Title & Description centered and well-spaced */}
             <div className="max-w-7xl mx-auto px-6 w-full text-center space-y-4">
-              <span className="text-xs font-mono text-primary tracking-[0.3em] uppercase font-bold block animate-pulse">
-                Security & Infrastructure
-              </span>
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
                 “Built for sponsors, CROs, and modern research operations.”
               </h3>
@@ -368,27 +363,27 @@ export default function Home() {
                   </h2>
                 </div>
 
-                 {/* 3-column layout */}
+                {/* 3-column layout */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="space-y-3 group cursor-pointer">
                     <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-red-500 font-black transition-all duration-300 group-hover:bg-red-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-red-500/20">01</div>
                     <h3 className="text-lg font-bold text-slate-900 transition-colors duration-300 group-hover:text-red-500">Delayed Timelines</h3>
                     <p className="text-slate-600 text-sm leading-relaxed font-medium">
-                      Missed visits and participant disengagement delay milestone completion and study progression.
+                      Missed visits and disengagement stall study milestones.
                     </p>
                   </div>
                   <div className="space-y-3 group cursor-pointer">
                     <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-red-500 font-black transition-all duration-300 group-hover:bg-red-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-red-500/20">02</div>
                     <h3 className="text-lg font-bold text-slate-900 transition-colors duration-300 group-hover:text-red-500">Increased Costs</h3>
                     <p className="text-slate-600 text-sm leading-relaxed font-medium">
-                      Replacing participants and recovering protocol deviations increases operational burden and trial spend.
+                      Replacing dropouts increases operational burden and spend.
                     </p>
                   </div>
                   <div className="space-y-3 group cursor-pointer">
                     <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-red-500 font-black transition-all duration-300 group-hover:bg-red-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-red-500/20">03</div>
                     <h3 className="text-lg font-bold text-slate-900 transition-colors duration-300 group-hover:text-red-500">Reduced Study Integrity</h3>
                     <p className="text-slate-600 text-sm leading-relaxed font-medium">
-                      Dropout and inconsistent engagement threaten data continuity and statistical reliability.
+                      Dropout threatens data continuity and reliability.
                     </p>
                   </div>
                 </div>
@@ -412,7 +407,7 @@ export default function Home() {
                   </div>
 
                   <h4 className="text-base font-bold text-white leading-snug mb-6">
-                    CliniLink continuously monitors retention-risk signals throughout the participant journey.
+                    Continuously monitoring retention risk across the participant journey.
                   </h4>
 
                   {/* List of 6 signals with status bars */}
@@ -463,10 +458,10 @@ export default function Home() {
 
                   <div className="flex flex-col gap-6">
                     {[
-                      { step: "Detect", desc: "AI models identify participants at elevated risk of dropout." },
-                      { step: "Prioritize", desc: "Sites and coordinators receive retention alerts and visibility into risk." },
-                      { step: "Engage", desc: "Automated personalized outreach workflows are triggered across communication channels." },
-                      { step: "Retain", desc: "Teams intervene earlier to improve adherence and reduce participant loss." }
+                      { step: "Detect", desc: "AI identifies participants at risk." },
+                      { step: "Prioritize", desc: "Teams receive retention alerts and risk visibility." },
+                      { step: "Engage", desc: "Automated workflows trigger personalized outreach." },
+                      { step: "Retain", desc: "Early intervention improves adherence and retention." }
                     ].map((item, idx) => {
                       const isActive = activeStep === idx;
                       return (
@@ -474,8 +469,8 @@ export default function Home() {
                           key={idx}
                           onClick={() => scrollToStep(idx)}
                           className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex gap-4 group ${isActive
-                              ? "bg-white border-slate-200 shadow-xl shadow-slate-200/50 translate-x-2"
-                              : "bg-transparent border-transparent hover:bg-slate-100/50"
+                            ? "bg-white border-slate-200 shadow-xl shadow-slate-200/50 translate-x-2"
+                            : "bg-transparent border-transparent hover:bg-slate-100/50"
                             }`}
                         >
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0 transition-all duration-300 ${isActive ? "bg-primary text-white" : "bg-slate-200 text-slate-500 group-hover:bg-primary/20 group-hover:text-primary group-hover:scale-110"
@@ -654,10 +649,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-20 space-y-4">
               <RevealLine>
-                <h2 className="text-5xl md:text-6xl font-black tracking-tight">Operational Visibility</h2>
+                <h2 className="text-5xl md:text-6xl font-black tracking-tight">Platform Snapshot</h2>
               </RevealLine>
               <FadeIn delay={0.2}>
-                <p className="text-xl text-slate-400 font-medium">Real-time participant oversight and risk mitigation.</p>
+                <p className="text-xl text-slate-400 font-medium">Retention intelligence in one platform.</p>
               </FadeIn>
             </div>
 
@@ -677,11 +672,12 @@ export default function Home() {
                 {/* Sidebar */}
                 <div className="hidden md:flex flex-col gap-2 border-r border-white/10 pr-6">
                   {[
-                    "Participant Risk Score",
-                    "Alert Escalation",
-                    "Missed Visit Prediction",
-                    "Engagement Timeline",
-                    "Intervention Workflow"
+                    "Risk scoring",
+                    "Workflow automation",
+                    "Site oversight",
+                    "Engagement tracking",
+                    "Participant timelines",
+                    "Reporting visibility"
                   ].map((tab, idx) => (
                     <button
                       key={tab}
@@ -930,11 +926,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* SCROLLING TEXT LIKE VYCE */}
-        <ScrollingText />
-
-        {/* STICKY SPLIT-SCROLL RETENTION SECTION */}
-        <StickyScrollSection />
+        {/* EXTRA SECTIONS REMOVED AS PER INSTRUCTIONS */}
 
         {/* G. WHO IT’S FOR (NEW) */}
         <section className="py-32 px-6 bg-slate-50 relative z-20 border-b border-slate-200" id="who-its-for">
@@ -946,28 +938,25 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
                 Who it's for.
               </h2>
-              <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
-                Tailored solutions for every stakeholder in modern clinical operations.
-              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
                   title: "Sponsors",
-                  desc: "Portfolio-level retention visibility across studies.",
+                  desc: "Portfolio-wide retention visibility.",
                   icon: Sparkles,
                   color: "border-blue-500/20 bg-blue-500/5 text-blue-500"
                 },
                 {
                   title: "CROs",
-                  desc: "Operational coordination and proactive participant management.",
+                  desc: "Proactive participant management.",
                   icon: Building2,
                   color: "border-indigo-500/20 bg-indigo-500/5 text-indigo-500"
                 },
                 {
                   title: "Research Sites",
-                  desc: "Reduced coordinator burden and earlier intervention workflows.",
+                  desc: "Automated intervention workflows.",
                   icon: Users,
                   color: "border-primary/20 bg-primary/5 text-primary"
                 }
@@ -993,15 +982,16 @@ export default function Home() {
 
         {/* H. FINAL CTA WITH MAGNETIC BUTTON */}
         <section className="py-40 px-6 bg-white relative overflow-hidden text-center border-t border-slate-100">
-          <div className="max-w-4xl mx-auto relative z-10 space-y-12">
+          <div className="max-w-7xl mx-auto px-4 relative z-10 space-y-6">
             <RevealLine>
-              <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[1.1]">
-                Retention management should not <br /><span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">start after participants disengage.</span>
+              <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-black text-slate-900 tracking-tighter leading-[1.1]">
+                Retention management should not <br />
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">start after participants disengage.</span>
               </h2>
             </RevealLine>
             <FadeIn delay={0.2}>
               <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
-                CliniLink enables proactive retention operations before dropout impacts trial performance.
+                Enable proactive retention before dropout impacts your trial.
               </p>
             </FadeIn>
             <FadeIn delay={0.4} className="pt-8 flex justify-center">

@@ -1,0 +1,442 @@
+Home | Platform | Solution | Retention Intelligence | Resources | About Us | Contact 
+Home
+
+(Headline)
+Predict patient dropout before it disrupts your trial.
+(Subheadline)
+CliniLink helps sponsors, CROs, and research sites identify participant disengagement early and automate proactive retention workflows before missed visits and dropout impact timelines, costs, and study continuity.
+(CTA Buttons)
+Book a Demo 
+Explore the Platform 
+(Right-side Visual) - B
+(the dashboard mockup).
+(Show only:
+participant risk score 
+alert escalation 
+missed visit prediction 
+engagement timeline 
+intervention workflow )
+
+ (TRUST BAR (NEW))
+“Built for sponsors, CROs, and modern research operations.”
+Then:
+HIPAA-ready 
+Role-based access 
+Multi-site coordination 
+Workflow automation 
+Predictive retention intelligence 
+
+D. THE COST OF DROPOUT (REPLACE CURRENT “PROBLEM” SECTION)
+(Heading)Retention failures impact every stage of a clinical trial.
+Then a 3-column layout:
+-Delayed Timelines
+Missed visits and participant disengagement delay milestone completion and study progression.
+-Increased Costs
+Replacing participants and recovering protocol deviations increases operational burden and trial spend.
+-Reduced Study Integrity
+Dropout and inconsistent engagement threaten data continuity and statistical reliability.
+On the right – video (To be provided)
+
+(Video – To be provided)
+Title
+CliniLink continuously monitors retention-risk signals throughout the participant journey.
+Then show:
+Missed visits 
+Communication gaps 
+Reduced engagement 
+Transportation barriers 
+Protocol confusion 
+Adherence decline 
+
+
+E. HOW CLINILINK INTERVENES (NEW)
+(Title)
+From prediction to intervention.
+(Then a 4-step workflow)
+Detect
+AI models identify participants at elevated risk of dropout.
+Prioritize
+Sites and coordinators receive retention alerts and visibility into risk.
+Engage
+Automated personalized outreach workflows are triggered across communication channels.
+Retain
+Teams intervene earlier to improve adherence and reduce participant loss.
+(On the right a visual – to be provided)
+
+F. PLATFORM SNAPSHOT
+Operational retention intelligence in one centralized platform.
+Then show:
+Risk scoring 
+Workflow automation 
+Site oversight 
+Engagement tracking 
+Participant timelines 
+Reporting visibility 
+
+G. WHO IT’S FOR (NEW)
+Sponsors
+Portfolio-level retention visibility across studies.
+CROs
+Operational coordination and proactive participant management.
+Research Sites
+Reduced coordinator burden and earlier intervention workflows.
+
+H.  
+(Headline)
+Retention management should not start after participants disengage.
+(Subheadline)
+CliniLink enables proactive retention operations before dropout impacts trial performance.
+CTA:
+Schedule a Demo 
+
+
+II Platform
+
+One Goal – Better Trial Retention.
+From predicting who’s most likely to stay, to identifying who’s at risk during the trial – CliniLink gives clinical teams the intelligences to act early and keep studies on track. 
+A box – Book a demo.
+On the right a visual – statistical chart (see picture above)
+Two Platforms, One continuum of retention intelligence
+Platform 1: Predict Who Will Stay
+Stage: Pre-trial / enrollment
+This platform helps clinical teams evaluate which participants are most likely to remain engaged and complete the study.
+Key points:
+Uses historical and real-time data signals 
+Predicts participant likelihood of study completion 
+Helps identify stronger-fit participants before or during enrollment 
+Supports better enrollment quality 
+Helps reduce downstream dropout risk 
+Platform 2: Predict Who Will Drop Out
+Stage: During the trial
+This platform monitors active participants during the study and identifies who may be at risk of disengagement or dropout.
+Key points:
+Monitors engagement and behavior signals 
+Detects early signs of dropout risk 
+Triggers alerts and proactive intervention workflows 
+Supports site teams with follow-up visibility 
+Helps reduce dropout and protect study continuity 
+Page Direction
+The main message should be:
+Two Platforms. One Goal: Better Trial Retention.
+Subheadline:
+CliniLink helps clinical teams predict who is likely to stay before enrollment and identify who is at risk of dropping out during the trial — enabling earlier intervention, stronger retention, and better study continuity.
+Recommended Platform Page Structure
+Hero section
+Headline: Two Platforms. One Goal: Better Trial Retention.
+Subheadline as above.
+CTA: Book a Demo
+Visual: one clean dashboard mockup showing participant status, risk alerts, engagement activity, follow-ups, and retention overview. 
+Two-platform section
+Show two side-by-side cards: 
+Platform 1 — Predict Who Will Stay
+Pre-Trial / Enrollment
+Evaluate participant fit and study completion likelihood before dropout risk emerges.
+Platform 2 — Predict Who Will Drop Out
+During the Trial
+Monitor active participants, detect disengagement signals, and trigger proactive intervention.
+(Shared capabilities section
+Show capabilities that support both platforms): 
+Unified participant view 
+AI-powered retention intelligence 
+Automated engagement workflows 
+Real-time monitoring 
+Actionable insights for study teams 
+Engagement Workflow
+Use one simple workflow:
+Upcoming Visit → Automated Reminder → Participant Response → Coordinator Notification → Engagement Tracking 
+Operational visibility section
+Use one clean dashboard mockup showing alerts, statuses, engagement trends, pending actions, and participant activity. 
+Infrastructure & security section
+Include: 
+HIPAA-ready architecture 
+Secure participant data handling 
+Role-based access controls 
+Integration-ready workflows 
+Configurable operational support 
+Final CTA
+Headline: See the CliniLink Platform in Action
+Copy: Two connected platforms working together to predict, prevent, and improve retention across every study.
+CTA: Schedule a Demo 
+Design should be clean, enterprise-grade, and minimal. Avoid complicated diagrams. We want the page to feel like clinical operations infrastructure, not a generic patient engagement app.
+
+III Solution
+
+Headline
+Retention Solutions for Modern Clinical Trials
+Recommended Subheadline
+CliniLink helps sponsors, CROs, and research sites improve participant retention through predictive intelligence, centralized engagement workflows, and proactive operational oversight across the study lifecycle.
+CTA
+Book a Demo
+
+SECTION 1 — WHY RETENTION MATTERS
+Header
+Retention Challenges Impact Every Clinical Trial Stakeholder
+Copy
+Participant disengagement and dropout can disrupt study timelines, increase operational burden, reduce protocol adherence, and impact study continuity across clinical programs.
+CliniLink helps organizations take a more proactive, coordinated, and scalable approach to participant retention management.
+Keep this section concise and visually clean.
+Suggested visual direction:
+operational metrics 
+retention overview 
+subtle data visualization 
+no complex diagrams 
+(a video – to be provided)
+
+SECTION 2 — FOR CROs
+Header
+For CROs
+Short Intro
+Support sponsors with scalable retention operations, centralized participant oversight, and more standardized engagement workflows across studies and sites.
+Capability Highlights
+Operational Visibility
+Monitor participant engagement activity, follow-ups, alerts, and retention workflows across active studies.
+Standardized Engagement Processes
+Create more consistent participant communication and retention management workflows across programs.
+Reduced Coordinator Burden
+Automate outreach, reminders, and follow-up workflows to improve operational efficiency.
+Sponsor Transparency
+Provide sponsors with stronger retention oversight and operational visibility throughout the study lifecycle.
+Visual
+Use:
+ONE clean operational dashboard 
+centralized study visibility 
+alerts 
+engagement trends 
+follow-up tracking 
+No workflow diagrams.
+
+SECTION 3 — FOR SPONSORS
+Header
+For Sponsors
+Short Intro
+Improve study continuity with better retention visibility, proactive participant monitoring, and scalable operational oversight across clinical programs.
+Capability Highlights
+Centralized Retention Oversight
+Gain visibility into participant engagement activity and retention risk across studies and sites.
+Improved Study Continuity
+Reduce operational disruption associated with disengagement, missed visits, and participant dropout.
+Proactive Engagement Management
+Support more consistent participant communication and intervention workflows throughout the study lifecycle.
+Multi-Study Operational Support
+Enable scalable retention operations across complex multi-site clinical programs.
+Visual
+Use:
+trial oversight dashboard 
+study monitoring UI 
+retention trend visualization 
+operational alerts 
+Keep visuals clean and enterprise-oriented.
+
+SECTION 4 — FOR RESEARCH SITES
+Header
+For Research Sites
+Short Intro
+Reduce manual follow-up burden and simplify participant communication workflows for site coordinators and research teams.
+Capability Highlights
+Streamlined Participant Outreach
+Coordinate reminders, updates, and participant follow-ups from one centralized system.
+Workflow Efficiency
+Reduce repetitive communication tasks through configurable engagement automation.
+Coordinator Visibility
+Improve visibility into participant communication history, engagement activity, and pending actions.
+Simplified Retention Management
+Support more organized and proactive participant engagement throughout active studies.
+Visual
+Use:
+coordinator dashboard 
+communication activity view 
+participant engagement interface 
+Avoid cluttered workflow visuals.
+
+SECTION 5 — CROSS-STUDY OPERATIONAL BENEFITS
+Header
+Built to Support Better Trial Operations
+Use simple, minimal benefit cards.
+Suggested Benefit Cards
+Centralized Engagement Management 
+Predictive Retention Visibility 
+Streamlined Communication Workflows 
+Proactive Participant Intervention 
+Reduced Manual Coordination 
+Scalable Multi-Study Support 
+Minimal design.
+No diagrams.
+
+SECTION 6 — FINAL CTA
+Header
+See How CliniLink Supports Modern Retention Operations
+Copy
+Explore how CliniLink helps sponsors, CROs, and research sites improve participant engagement, streamline retention workflows, and support better study continuity across clinical programs.
+CTA
+Schedule a Demo
+
+
+IV Retention Intelligence
+
+
+Retention Intelligence Command Center”
+Show:
+At-risk participant queue 
+Risk categories 
+Escalation triggers 
+Suggested interventions 
+Site-level alerts 
+Communication activity 
+Coordinator actions 
+This should feel:
+operational 
+live 
+actionable 
+Think:
+“mission control for retention operations.”
+
+SECTION 1 — THE RETENTION CHALLENGE
+Header
+Retention risk rarely appears all at once.
+
+Copy
+Participant disengagement often develops gradually through missed communications, declining responsiveness, inconsistent visit adherence, and operational friction.
+Without centralized visibility, these early warning signs can be difficult to identify before dropout impacts study continuity.
+CliniLink helps clinical teams detect and respond to retention risk earlier through continuous monitoring and proactive operational workflows.
+
+Visual Direction
+NOT charts.
+Use:
+participant journey timeline 
+subtle signal progression 
+engagement decline stages 
+Example:
+Engaged → Reduced Response → Missed Reminder → Missed Visit Risk → Escalation
+Minimal.
+Elegant.
+
+SECTION 2 — CONTINUOUS SIGNAL MONITORING
+This is the heart of the page.
+Header
+Continuous Retention Signal Monitoring
+
+Copy
+CliniLink monitors operational, behavioral, and engagement-related signals across the participant journey to identify emerging retention risk in real time.
+
+Suggested Signal Cards
+Communication Gaps
+Missed responses, delayed follow-ups, declining engagement frequency.
+Visit Adherence Risk
+Late confirmations, cancellations, missed appointments.
+Protocol Friction
+Repeated clarification requests, incomplete activities, adherence inconsistencies.
+Coordinator Activity
+Unresolved follow-ups, delayed outreach, escalation backlog.
+Participant Behavior Trends
+Engagement decline patterns across study activity.
+
+Visual
+Use:
+signal monitoring cards 
+status indicators 
+operational flags 
+risk scoring 
+Avoid:
+complex AI diagrams 
+neural network graphics 
+futuristic visuals 
+
+SECTION 3 — FROM SIGNAL TO INTERVENTION
+This is the MOST important section.
+This explains:
+how intelligence becomes action.
+Header
+From retention signals to proactive intervention.
+
+Workflow Visual
+Simple vertical flow:
+Signal Detected
+↓
+Risk Prioritized
+↓
+Coordinator Alerted
+↓
+Participant Outreach Triggered
+↓
+Intervention Logged
+↓
+Retention Status Updated
+
+Supporting Copy
+CliniLink transforms retention intelligence into operational action by helping teams prioritize outreach, coordinate follow-ups, and intervene earlier across active studies.
+
+SECTION 4 — CENTRALIZED RETENTION OVERSIGHT
+Header
+Operational visibility across participants, sites, and studies.
+
+Copy
+Monitor retention activity, engagement trends, alerts, and intervention workflows from one centralized operational view.
+
+Visual
+Large operational dashboard.
+Should show:
+participant risk queue 
+site performance 
+pending follow-ups 
+escalations 
+intervention status 
+engagement health 
+This should be the strongest visual section on the page.
+
+SECTION 5 — OPERATIONAL BENEFITS
+Header
+Built for proactive retention operations.
+
+Benefit Cards
+Earlier Risk Detection
+Identify retention concerns before disengagement escalates.
+Faster Coordinator Response
+Improve follow-up speed and operational prioritization.
+Improved Study Continuity
+Reduce operational disruption caused by participant dropout.
+Centralized Visibility
+Support retention oversight across studies and sites.
+Reduced Manual Coordination
+Automate retention workflows and communication tasks.
+Scalable Retention Operations
+Support growing clinical programs with standardized processes.
+
+FINAL CTA
+Header
+See Retention Intelligence in Action
+
+Copy
+Explore how CliniLink helps clinical teams identify dropout risk earlier and support proactive retention management across studies.
+
+CTA
+Schedule a Demo
+
+MOST IMPORTANT DESIGN DIRECTION
+This page should feel:
+intelligent 
+operational 
+predictive 
+workflow-driven 
+NOT:
+marketing-heavy 
+AI hype 
+analytics overload 
+generic SaaS dashboard page 
+The visual identity should communicate:
+early warning system for clinical retention risk.
+That’s the real category you’re building.
+
+
+V. Resources
+
+
+We can create this page, and when someone clicks on explore – we have few items we can upload, the rest – we can say [under development]
+
+
+
+About Us
+(we will modify this page…I want  your ideas)
+
+Contact Us
+I need ideas for this page…..
+
