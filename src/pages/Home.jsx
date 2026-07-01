@@ -38,7 +38,7 @@ export default function Home() {
   const textRevealRef = useRef(null)
   const stepsContainerRef = useRef(null)
 
-  const [activeTab, setActiveTab] = useState(0)
+
   const [activeStep, setActiveStep] = useState(0)
 
   const { scrollYProgress: stepsProgress } = useScroll({
@@ -449,10 +449,10 @@ export default function Home() {
                 <div className="lg:col-span-5 space-y-12">
                   <div className="space-y-4">
                     <span className="text-primary font-mono text-xs md:text-sm tracking-[0.35em] uppercase font-bold block">
-                      Intervention Workflow
+                      Identifies Workflow
                     </span>
                     <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.1]">
-                      From prediction to intervention.
+                      From prediction to Identification.
                     </h2>
                   </div>
 
@@ -461,7 +461,7 @@ export default function Home() {
                       { step: "Detect", desc: "AI identifies participants at risk." },
                       { step: "Prioritize", desc: "Teams receive retention alerts and risk visibility." },
                       { step: "Engage", desc: "Automated workflows trigger personalized outreach." },
-                      { step: "Retain", desc: "Early intervention improves adherence and retention." }
+                      { step: "Retain", desc: "Early identification improves adherence and retention." }
                     ].map((item, idx) => {
                       const isActive = activeStep === idx;
                       return (
@@ -656,272 +656,8 @@ export default function Home() {
               </FadeIn>
             </div>
 
-            <motion.div style={{ y: dashY }} className="relative max-w-5xl mx-auto rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md shadow-2xl overflow-hidden group hover:shadow-primary/20 transition-shadow duration-700 will-change-transform">
-              <div className="h-14 border-b border-white/10 flex items-center justify-between px-6">
-                <div className="flex gap-2">
-                  <div className="w-3.5 h-3.5 rounded-full bg-red-50/80"></div>
-                  <div className="w-3.5 h-3.5 rounded-full bg-amber-50/80"></div>
-                  <div className="w-3.5 h-3.5 rounded-full bg-green-50/80"></div>
-                </div>
-                <div className="bg-white/5 border border-white/10 text-slate-400 text-xs px-4 py-1.5 rounded-md flex items-center gap-2">
-                  <ShieldCheck size={14} className="text-primary" /> clinilink-os.app
-                </div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-secondary"></div>
-              </div>
-              <div className="p-8 grid grid-cols-1 md:grid-cols-4 gap-8 h-[600px] text-left">
-                {/* Sidebar */}
-                <div className="hidden md:flex flex-col gap-2 border-r border-white/10 pr-6">
-                  {[
-                    "Risk scoring",
-                    "Workflow automation",
-                    "Site oversight",
-                    "Engagement tracking",
-                    "Participant timelines",
-                    "Reporting visibility"
-                  ].map((tab, idx) => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(idx)}
-                      className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 text-left ${activeTab === idx
-                        ? 'bg-primary/20 border border-primary/30 text-primary translate-x-1'
-                        : 'text-slate-400 hover:text-white hover:bg-white/5'
-                        }`}
-                    >
-                      {tab}
-                    </button>
-                  ))}
-                </div>
-                {/* Main Content */}
-                <div className="md:col-span-3 flex flex-col gap-6">
-                  <div className="flex gap-6">
-                    <div className="bg-white/5 border border-white/10 rounded-2xl flex-1 flex flex-col justify-center p-6 relative overflow-hidden group-hover:bg-white/10 transition-all duration-500">
-                      <span className="text-[10px] text-slate-400 font-black uppercase tracking-wider">Active Participants</span>
-                      <span className="text-3xl font-black text-white mt-1">1,248</span>
-                      <span className="text-[10px] text-emerald-400 mt-1 font-semibold flex items-center gap-1">
-                        <span>↑ 12.4%</span> this month
-                      </span>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-transparent"></div>
-                    </div>
-                    <div className="bg-primary/10 border border-primary/20 rounded-2xl flex-1 flex flex-col justify-center p-6 relative overflow-hidden group-hover:bg-primary/20 transition-all duration-500">
-                      <span className="text-[10px] text-slate-300 font-black uppercase tracking-wider">Average Retention</span>
-                      <span className="text-3xl font-black text-white mt-1">94.8%</span>
-                      <span className="text-[10px] text-slate-400 mt-1 font-semibold">
-                        Industry Average: 85%
-                      </span>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent"></div>
-                    </div>
-                  </div>
-
-                  <div className="flex-1 bg-white/5 border border-white/10 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
-                    <AnimatePresence mode="wait">
-                      {activeTab === 0 && (
-                        <motion.div
-                          key="tab0"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="h-full flex flex-col justify-between"
-                        >
-                          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-                            <span className="text-xs font-bold text-slate-200">Participant Risk Score</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 font-bold">
-                              Live Risk Analysis
-                            </span>
-                          </div>
-                          <div className="space-y-2 overflow-y-auto max-h-[220px] pr-1">
-                            {[
-                              { id: "P-8291", site: "Boston Clinic", score: "94%", risk: "High Risk", color: "bg-red-500/20 text-red-400 border border-red-500/30" },
-                              { id: "P-9011", site: "Boston Clinic", score: "88%", risk: "High Risk", color: "bg-red-500/20 text-red-400 border border-red-500/30" },
-                              { id: "P-1049", site: "SF Medical", score: "78%", risk: "Medium Risk", color: "bg-amber-500/20 text-amber-400 border border-amber-500/30" },
-                              { id: "P-3882", site: "Chicago Center", score: "24%", risk: "Low Risk", color: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" }
-                            ].map((row) => (
-                              <div key={row.id} className="w-full h-11 bg-white/5 border border-white/5 rounded-xl flex items-center px-4 justify-between hover:bg-white/10 transition-colors">
-                                <div className="flex items-center gap-3">
-                                  <div className="w-6 h-6 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center text-[10px] font-bold text-slate-400">
-                                    {row.id.split('-')[1]}
-                                  </div>
-                                  <div>
-                                    <span className="text-xs font-bold text-white block">{row.id}</span>
-                                    <span className="text-[9px] text-slate-400 block -mt-1">{row.site}</span>
-                                  </div>
-                                </div>
-                                <div className="text-xs font-semibold text-slate-300">Score: {row.score}</div>
-                                <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${row.color}`}>
-                                  {row.risk}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-
-                      {activeTab === 1 && (
-                        <motion.div
-                          key="tab1"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="h-full flex flex-col justify-between"
-                        >
-                          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-                            <span className="text-xs font-bold text-slate-200">Alert Escalation Log</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold">
-                              Active Escalations
-                            </span>
-                          </div>
-                          <div className="space-y-2 overflow-y-auto max-h-[220px] pr-1">
-                            {[
-                              { id: "P-8291", event: "Missed Visit 3", escalatedTo: "Principal Investigator", status: "Escalated", color: "bg-red-500/20 text-red-400 border border-red-500/30" },
-                              { id: "P-9011", event: "Diary Delay > 4d", escalatedTo: "Coordinator Phone Call", status: "In Progress", color: "bg-amber-500/20 text-amber-400 border border-amber-500/30" },
-                              { id: "P-1049", event: "Transport Barrier", escalatedTo: "Automated Uber Voucher", status: "Dispatched", color: "bg-blue-500/20 text-blue-400 border border-blue-500/30" },
-                              { id: "P-2234", event: "Device Offline", escalatedTo: "Technical Support", status: "Resolved", color: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" }
-                            ].map((row, idx) => (
-                              <div key={idx} className="w-full h-11 bg-white/5 border border-white/5 rounded-xl flex items-center px-4 justify-between hover:bg-white/10 transition-colors">
-                                <div className="flex items-center gap-2">
-                                  <span className="text-xs font-bold text-white">{row.id}</span>
-                                  <span className="text-slate-500 text-[10px]">|</span>
-                                  <span className="text-slate-300 text-xs font-medium">{row.event}</span>
-                                </div>
-                                <div className="text-[10px] text-slate-400 hidden sm:block">To: {row.escalatedTo}</div>
-                                <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${row.color}`}>
-                                  {row.status}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-
-                      {activeTab === 2 && (
-                        <motion.div
-                          key="tab2"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="h-full flex flex-col justify-between"
-                        >
-                          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-                            <span className="text-xs font-bold text-slate-200">Missed Visit Prediction</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold">
-                              Predictive Engine
-                            </span>
-                          </div>
-                          <div className="p-4 bg-white/5 border border-white/5 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 my-auto">
-                            <div className="space-y-1">
-                              <div className="flex items-center gap-2">
-                                <span className="text-sm font-black text-white">Patient P-8291 (Boston Clinic)</span>
-                                <span className="text-[9px] font-mono bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded">High Probability</span>
-                              </div>
-                              <p className="text-[11px] text-slate-400 leading-relaxed max-w-md">
-                                AI model predicts 89% chance of missing Visit 4 on June 5th based on 3 missed diaries, transport barriers, and response latency.
-                              </p>
-                            </div>
-                            <div className="text-right shrink-0">
-                              <span className="text-[10px] text-slate-400 uppercase block">Prediction Confidence</span>
-                              <span className="text-2xl font-black text-red-400">89% At-Risk</span>
-                            </div>
-                          </div>
-                          <div className="flex gap-4 text-[10px] text-slate-400 border-t border-white/5 pt-3 mt-3">
-                            <div className="flex items-center gap-1.5">
-                              <div className="w-1.5 h-1.5 rounded-full bg-red-50" />
-                              <span>Missed Diaries (3)</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                              <span>Transport Issue</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                              <span>No Contact for 48h</span>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-
-                      {activeTab === 3 && (
-                        <motion.div
-                          key="tab3"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="h-full flex flex-col justify-between"
-                        >
-                          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-                            <span className="text-xs font-bold text-slate-200">Engagement Timeline</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 font-bold">
-                              Patient Journey Touchpoints
-                            </span>
-                          </div>
-                          <div className="relative pl-6 border-l border-white/10 space-y-3 max-h-[190px] overflow-y-auto py-1 my-auto text-left">
-                            {[
-                              { day: "Day 18", event: "Automated SMS outreach sent (Retention workflow)", color: "bg-blue-500" },
-                              { day: "Day 17", event: "Daily Diary missed (Alert triggered)", color: "bg-red-500" },
-                              { day: "Day 15", event: "SMS compliance reminder dispatched", color: "bg-slate-600" },
-                              { day: "Day 14", event: "Visit 2 completed successfully (On-site)", color: "bg-emerald-500" }
-                            ].map((step, idx) => (
-                              <div key={idx} className="relative">
-                                <div className={`absolute -left-[30px] top-1 w-2.5 h-2.5 rounded-full ${step.color} border border-slate-950`} />
-                                <div>
-                                  <span className="text-[9px] font-mono text-primary font-bold">{step.day}</span>
-                                  <p className="text-xs text-slate-200 font-semibold">{step.event}</p>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-
-                      {activeTab === 4 && (
-                        <motion.div
-                          key="tab4"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="h-full flex flex-col justify-between"
-                        >
-                          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-                            <span className="text-xs font-bold text-slate-200">Intervention Workflow</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">
-                              Triggered Sequences
-                            </span>
-                          </div>
-                          <div className="space-y-3 my-auto">
-                            <div className="flex items-center justify-between bg-white/5 border border-white/5 p-3 rounded-xl">
-                              <div className="space-y-0.5">
-                                <span className="text-[9px] text-primary font-bold uppercase tracking-wider block">Rule: High Attrition Risk</span>
-                                <span className="text-xs font-bold text-white">Trigger: Risk Score &gt; 80%</span>
-                              </div>
-                              <span className="text-[9px] font-mono px-2 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded font-bold">Active</span>
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-                              {[
-                                { step: "1. Detect & Score", status: "Completed", icon: "✓" },
-                                { step: "2. Alert Site Team", status: "Completed", icon: "✓" },
-                                { step: "3. Auto-Outreach", status: "Pending", icon: "⋯" }
-                              ].map((wStep, idx) => (
-                                <div key={idx} className="p-2.5 bg-white/5 border border-white/5 rounded-xl flex items-center gap-2">
-                                  <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold ${wStep.status === "Completed" ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" : "bg-white/5 text-slate-500 border border-white/10"}`}>
-                                    {wStep.icon}
-                                  </div>
-                                  <div>
-                                    <span className="text-[9px] text-slate-400 block">{wStep.step}</span>
-                                    <span className="text-[10px] font-bold text-white leading-none">{wStep.status}</span>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
-              </div>
+            <motion.div style={{ y: dashY }} className="relative max-w-6xl mx-auto mt-12 md:mt-16 rounded-2xl overflow-hidden shadow-2xl group hover:shadow-primary/20 transition-all duration-700 will-change-transform border border-white/10">
+              <img src="/home-dashboard.png" alt="Platform Snapshot" className="w-full h-auto object-cover" />
             </motion.div>
           </div>
         </motion.section>
@@ -949,14 +685,14 @@ export default function Home() {
                   color: "border-blue-500/20 bg-blue-500/5 text-blue-500"
                 },
                 {
-                  title: "CROs",
+                  title: "CRO(s)",
                   desc: "Proactive participant management.",
                   icon: Building2,
                   color: "border-indigo-500/20 bg-indigo-500/5 text-indigo-500"
                 },
                 {
                   title: "Research Sites",
-                  desc: "Automated intervention workflows.",
+                  desc: "Automated identification workflows.",
                   icon: Users,
                   color: "border-primary/20 bg-primary/5 text-primary"
                 }
@@ -968,7 +704,7 @@ export default function Home() {
                       <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center ${item.color}`}>
                         <IconComponent size={24} />
                       </div>
-                      <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight">{item.title}</h3>
+                      <h3 className="text-2xl font-black text-slate-900 tracking-tight">{item.title}</h3>
                       <p className="text-slate-500 text-sm leading-relaxed font-medium">
                         {item.desc}
                       </p>
