@@ -207,15 +207,15 @@ export default function Home() {
                       <div className="bg-primary/10 border border-primary/20 rounded-xl p-3 flex flex-col justify-between">
                         <span className="text-[9px] text-slate-300 uppercase font-bold tracking-wider">Retention</span>
                         <div>
-                          <span className="text-xl font-black text-white">94.8%</span>
-                          <span className="text-[8px] text-slate-400 block mt-0.5">Avg: 85%</span>
+                          <span className="text-xl font-black text-white">20%</span>
+                          <span className="text-[8px] text-slate-400 block mt-0.5">Avg: 20%</span>
                         </div>
                       </div>
                       {/* Metric 3 */}
                       <div className="bg-white/5 border border-white/5 rounded-xl p-3 flex flex-col justify-between">
                         <span className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Risk level</span>
                         <div>
-                          <span className="text-xl font-black text-rose-400">Low</span>
+                          <span className="text-xl font-black text-rose-400">High</span>
                           <span className="text-[8px] text-slate-400 block mt-0.5">8 flagged</span>
                         </div>
                       </div>
@@ -225,7 +225,6 @@ export default function Home() {
                     <div className="mt-4 flex-1 bg-white/5 border border-white/5 rounded-xl p-4 flex flex-col justify-between min-h-[160px]">
                       <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
                         <span className="text-xs font-bold text-slate-200">Patient Risk Probability</span>
-                        <span className="text-[9px] bg-primary/20 text-primary px-2 py-0.5 rounded font-mono font-bold">AI Predictive</span>
                       </div>
 
                       {/* Visual Chart Wave */}
@@ -664,57 +663,6 @@ export default function Home() {
 
         {/* EXTRA SECTIONS REMOVED AS PER INSTRUCTIONS */}
 
-        {/* G. WHO IT’S FOR (NEW) */}
-        <section className="py-32 px-6 bg-slate-50 relative z-20 border-b border-slate-200" id="who-its-for">
-          <div className="max-w-7xl mx-auto space-y-16">
-            <div className="text-center space-y-4 max-w-3xl mx-auto">
-              <span className="text-primary font-mono text-xs md:text-sm tracking-[0.35em] uppercase font-bold block">
-                Target Audience
-              </span>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
-                Who it's for.
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Sponsors",
-                  desc: "Portfolio-wide retention visibility.",
-                  icon: Sparkles,
-                  color: "border-blue-500/20 bg-blue-500/5 text-blue-500"
-                },
-                {
-                  title: "CRO(s)",
-                  desc: "Proactive participant management.",
-                  icon: Building2,
-                  color: "border-indigo-500/20 bg-indigo-500/5 text-indigo-500"
-                },
-                {
-                  title: "Research Sites",
-                  desc: "Automated identification workflows.",
-                  icon: Users,
-                  color: "border-primary/20 bg-primary/5 text-primary"
-                }
-              ].map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <div key={idx} className="bg-white border border-slate-200 rounded-3xl p-8 shadow-xl shadow-slate-200/20 hover:-translate-y-1 transition-all duration-300 space-y-6 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center ${item.color}`}>
-                        <IconComponent size={24} />
-                      </div>
-                      <h3 className="text-2xl font-black text-slate-900 tracking-tight">{item.title}</h3>
-                      <p className="text-slate-500 text-sm leading-relaxed font-medium">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
 
         {/* H. FINAL CTA WITH MAGNETIC BUTTON */}
         <section className="py-40 px-6 bg-white relative overflow-hidden text-center border-t border-slate-100">
