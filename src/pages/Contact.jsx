@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
+import HoverButton from '../components/ui/HoverButton';
 
 export default function Contact() {
   const mapRef = useRef(null);
@@ -72,17 +73,27 @@ export default function Contact() {
           </div>
 
           {/* Left Panel: Information & Contacts */}
-          <div className="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col justify-between z-10 relative text-white">
+          <div className="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col justify-center z-10 relative text-white">
 
             {/* Top Text Details */}
             <div className="space-y-6 max-w-xl">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <span className="text-blue-500 font-bold uppercase tracking-widest text-sm">
+                  Contact CliniLink
+                </span>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[1.1] text-white">
-                  You Have Questions,<br />We Have Answers
+                  Let’s Talk About Trial Retention
                 </h1>
               </motion.div>
 
@@ -92,55 +103,27 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-base md:text-lg text-slate-300 font-medium leading-relaxed"
               >
-                Optimize retention and streamline operations. Reach out to learn how we can help.
+                Interested in improving participant retention, reducing dropout risk, or exploring a pilot? We’d be glad to connect.
               </motion.p>
             </div>
 
-            {/* Bottom Contact Details Grid */}
+            {/* Middle CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10 mt-16 lg:mt-0"
+              className="py-10 flex flex-wrap items-center gap-4"
             >
-              {/* Location */}
-              <div className="space-y-2">
-                <h4 className="font-bold text-white uppercase tracking-wider text-xs opacity-60">Location</h4>
-                <p className="text-sm leading-relaxed text-slate-300 font-medium">
-                  Clinical Innovation District<br />
-                  100 Clinical Way<br />
-                  Boston, MA 02110
-                </p>
-                <span className="block text-[11px] text-slate-400 font-semibold mt-1">Monday–Friday | 08:00 - 18:00 (EST)</span>
-              </div>
-
-              {/* Social Media */}
-              <div className="space-y-2">
-                <h4 className="font-bold text-white uppercase tracking-wider text-xs opacity-60">Social Media</h4>
-                <div className="grid grid-cols-2 gap-2 text-sm text-slate-300 font-medium">
-                  <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
-                  <a href="#" className="hover:text-primary transition-colors">Twitter</a>
-                  <a href="#" className="hover:text-primary transition-colors">Instagram</a>
-                  <a href="#" className="hover:text-primary transition-colors">Facebook</a>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="space-y-2">
-                <h4 className="font-bold text-white uppercase tracking-wider text-xs opacity-60">Email</h4>
-                <a href="mailto:hello@clinilink-os.app" className="text-sm font-semibold text-slate-300 hover:text-primary transition-colors">
-                  hello@clinilink-os.app
-                </a>
-              </div>
-
-              {/* Contact */}
-              <div className="space-y-2">
-                <h4 className="font-bold text-white uppercase tracking-wider text-xs opacity-60">Contact</h4>
-                <a href="tel:+18005550199" className="text-sm font-semibold text-slate-300 hover:text-primary transition-colors">
-                  +1 (800) 555-0199
-                </a>
-              </div>
+              <HoverButton className="px-6 py-3 bg-blue-600 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-500 transition-all duration-500 inline-flex group relative overflow-hidden">
+                <span className="flex items-center gap-2 relative z-10">
+                  Explore a Pilot Partnership <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </HoverButton>
+              <button className="px-6 py-3 bg-transparent text-white rounded-none font-bold text-sm tracking-wide uppercase hover:text-blue-400 border-2 border-white hover:border-blue-400 transition-all duration-300 inline-flex items-center gap-2">
+                Book a Demo
+              </button>
             </motion.div>
+
 
           </div>
 
@@ -153,8 +136,8 @@ export default function Contact() {
               className="bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(15,23,42,0.15)] border border-slate-100 w-full"
             >
               <motion.div variants={formItemVariants} className="mb-6">
-                <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-1">Tell Us What You Need</h2>
-                <p className="text-xs text-slate-500 font-medium">Our team is ready to assist you with every detail, big or small.</p>
+                <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-1">Send Us a Message</h2>
+                <p className="text-xs text-slate-500 font-medium leading-relaxed">Tell us a little about your organization and what you’d like to discuss.</p>
               </motion.div>
 
               {formSubmitted ? (
@@ -190,31 +173,31 @@ export default function Contact() {
                     </div>
                   </motion.div>
 
-                  {/* Email & Phone Fields */}
+                  {/* Email & Company Fields */}
                   <motion.div variants={formItemVariants} className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <input
                         type="email"
                         required
-                        placeholder="Email Address"
+                        placeholder="Work email"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-sm focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400"
                       />
                     </div>
                     <div className="space-y-1">
                       <input
-                        type="tel"
+                        type="text"
                         required
-                        placeholder="Phone Number"
+                        placeholder="Company"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-sm focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400"
                       />
                     </div>
                   </motion.div>
 
-                  {/* Inquiry Type Select Pills */}
+                  {/* Organization Type Select Pills */}
                   <motion.div variants={formItemVariants} className="space-y-2">
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Type of Inquiry</span>
+                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Organization type</span>
                     <div className="flex flex-wrap gap-2 pt-0.5">
-                      {["Sponsor", "CRO", "Site", "Others"].map((type) => {
+                      {["Sponsor", "CRO", "Research site", "Site network", "Partner", "Other"].map((type) => {
                         const isActive = inquiryType === type;
                         return (
                           <div
@@ -246,9 +229,9 @@ export default function Contact() {
                   <motion.div variants={formItemVariants} className="pt-1">
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-full border border-slate-900 text-slate-900 font-bold hover:bg-slate-900 hover:text-white hover:shadow-xl hover:shadow-slate-950/10 transition-all duration-300 text-xs tracking-wide"
+                      className="w-full py-3.5 rounded-full border border-slate-900 text-slate-900 font-bold hover:bg-slate-900 hover:text-white hover:shadow-xl hover:shadow-slate-950/10 transition-all duration-300 text-xs tracking-wide uppercase"
                     >
-                      Submit
+                      Contact Us
                     </button>
                   </motion.div>
 
@@ -260,45 +243,96 @@ export default function Contact() {
         </motion.div>
       </section>
 
-      {/* MAP SECTION */}
-      <section className="w-full relative py-12" ref={mapRef}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center md:text-left mb-8 space-y-2">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Our Headquarters</h2>
-            <p className="text-slate-500 font-medium text-sm md:text-base">Visit us in Boston's clinical innovation sector.</p>
+      {/* HOW CAN WE HELP SECTION */}
+      <section className="w-full relative py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">How Can We Help?</h2>
           </div>
-
-          <div className="h-[550px] w-full rounded-[2.5rem] overflow-hidden relative shadow-xl border border-slate-200/50 bg-slate-100">
-            {/* Google Map iframe */}
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.138407421867!2d-71.06208572421375!3d42.36008247119047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708a514d232b%3A0xe54e60fc7986968c!2sMassachusetts%20General%20Hospital!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "grayscale(70%) contrast(95%) opacity(90%)" }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 w-full h-full"
-            />
-
-            {/* Floating Marker Card */}
-            <div className="absolute top-6 left-6 z-10 p-2 pointer-events-none">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Explore a Pilot",
+                desc: "For sponsors, CROs, or research sites interested in testing CliniLink in a real trial workflow."
+              },
+              {
+                title: "Request a Demo",
+                desc: "See how CliniLink helps teams identify retention risk and coordinate follow-up."
+              },
+              {
+                title: "Partner With Us",
+                desc: "For sites, CROs, advisors, or technology partners interested in collaboration."
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                className="bg-white/95 backdrop-blur-md p-5 rounded-3xl shadow-2xl flex items-center gap-5 border border-white/50 max-w-sm pointer-events-auto"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-slate-50 p-10 rounded-[2rem] border border-slate-100 hover:shadow-xl transition-all duration-300 text-center"
               >
-                <div className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg shrink-0">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <p className="font-black text-lg text-slate-900 leading-tight">Boston HQ</p>
-                  <p className="text-[11px] text-slate-500 font-semibold mt-1">Clinical Innovation District</p>
-                  <p className="text-[11px] text-slate-400 font-medium mt-0.5">100 Clinical Way, Boston, MA</p>
-                </div>
+                <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight mb-4">{item.title}</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">{item.desc}</p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DIRECT CONTACT & MAP SECTION */}
+      <section className="w-full relative py-24 bg-slate-50 border-t border-slate-100" ref={mapRef}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Contact Info */}
+            <div className="space-y-12">
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">Direct Contact</h2>
+                <p className="text-slate-600 text-lg font-medium">Email: <a href="mailto:hello@clinilinkhealth.com" className="text-blue-600 hover:text-blue-700 transition-colors">hello@clinilinkhealth.com</a></p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-black text-slate-900 uppercase">Address</h3>
+                <div className="text-slate-600 text-lg leading-relaxed space-y-1">
+                  <p>59 Lowe’s Way, Ste 104-B</p>
+                  <p>Lowell, MA 01851</p>
+                  <p className="pt-2">Tel : <a href="tel:8574128030" className="hover:text-blue-600 transition-colors">857.412.8030</a></p>
+                  <p>Email : <a href="mailto:info@clinilinkhealth.com" className="text-blue-600 hover:text-blue-700 transition-colors">info@clinilinkhealth.com</a></p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Map */}
+            <div className="h-[400px] lg:h-[500px] w-full rounded-[2.5rem] overflow-hidden relative shadow-2xl border border-slate-200/50 bg-slate-100">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.138407421867!2d-71.06208572421375!3d42.36008247119047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708a514d232b%3A0xe54e60fc7986968c!2sMassachusetts%20General%20Hospital!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "grayscale(70%) contrast(95%) opacity(90%)" }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 w-full h-full"
+              />
+              {/* Floating Marker Card */}
+              <div className="absolute top-6 left-6 z-10 p-2 pointer-events-none">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                  className="bg-white/95 backdrop-blur-md p-5 rounded-3xl shadow-2xl flex items-center gap-5 border border-white/50 max-w-xs pointer-events-auto"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg shrink-0">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <p className="font-black text-lg text-slate-900 leading-tight">CliniLink</p>
+                    <p className="text-[11px] text-slate-500 font-semibold mt-1">59 Lowe’s Way, Ste 104-B</p>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>

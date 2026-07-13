@@ -306,7 +306,7 @@ export default function Home() {
                     return (
                       <div
                         key={idx}
-                        className={`flex items-center gap-3 text-xs font-bold border px-6 py-4 rounded-2xl shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 shrink-0 ${item.color}`}
+                        className={`flex items-center gap-3 text-xs font-bold border px-6 py-4 rounded-2xl shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-105 shrink-0 ${item.color}`}
                       >
                         <IconComponent size={18} className="shrink-0" />
                         <span>{item.label}</span>
@@ -327,7 +327,7 @@ export default function Home() {
                     return (
                       <div
                         key={`dup-${idx}`}
-                        className={`flex items-center gap-3 text-xs font-bold border px-6 py-4 rounded-2xl shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 shrink-0 ${item.color}`}
+                        className={`flex items-center gap-3 text-xs font-bold border px-6 py-4 rounded-2xl shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-105 shrink-0 ${item.color}`}
                       >
                         <IconComponent size={18} className="shrink-0" />
                         <span>{item.label}</span>

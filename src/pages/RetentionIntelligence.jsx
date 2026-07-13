@@ -1,8 +1,8 @@
-import { 
+import {
   ArrowRight, Activity, Eye, FileSearch, ShieldCheck, Clock, Users,
   MessageSquare, Calendar, ClipboardList, TrendingDown,
-  Search, Bell, Settings, AlertTriangle, CheckSquare, 
-  Send, FileText, LayoutDashboard, Zap, ShieldAlert, HeartPulse, 
+  Search, Bell, Settings, AlertTriangle, CheckSquare,
+  Send, FileText, LayoutDashboard, Zap, ShieldAlert, HeartPulse,
   Layers, Cpu, Compass, RefreshCw, AlertCircle, CheckCircle2, Check
 } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
@@ -20,27 +20,27 @@ const benefits = [
   },
   {
     title: 'Faster Coordinator Response',
-    desc: 'Improve follow-up speed and operational prioritization.',
+    desc: 'Help teams prioritize who needs follow-up now.',
     icon: Zap
   },
   {
     title: 'Improved Study Continuity',
-    desc: 'Reduce operational disruption caused by participant dropout.',
+    desc: 'Reduce disruption caused by missed visits and participant dropout.',
     icon: HeartPulse
   },
   {
     title: 'Centralized Visibility',
-    desc: 'Support retention oversight across studies and sites.',
+    desc: 'Support oversight across participants, sites, and studies.',
     icon: Layers
   },
   {
     title: 'Reduced Manual Coordination',
-    desc: 'Automate retention workflows and communication tasks.',
+    desc: 'Automate reminders, alerts, and follow-up workflows.',
     icon: Cpu
   },
   {
     title: 'Scalable Retention Operations',
-    desc: 'Support growing clinical programs with standardized processes.',
+    desc: 'Standardize retention processes across growing clinical programs.',
     icon: Compass
   }
 ]
@@ -49,7 +49,7 @@ const lifecycleSteps = [
   { label: 'Engaged', style: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600', dot: 'bg-emerald-500' },
   { label: 'Reduced Response', style: 'bg-blue-500/10 border-blue-500/20 text-blue-600', dot: 'bg-blue-500' },
   { label: 'Missed Reminder', style: 'bg-amber-500/10 border-amber-500/20 text-amber-600', dot: 'bg-amber-500' },
-  { label: 'Missed Visit Risk', style: 'bg-orange-500/10 border-orange-500/20 text-orange-600', dot: 'bg-orange-500' },
+  { label: 'Visit Risk', style: 'bg-orange-500/10 border-orange-500/20 text-orange-600', dot: 'bg-orange-500' },
   { label: 'Escalation', style: 'bg-rose-500/10 border-rose-500/20 text-rose-600', dot: 'bg-rose-500' }
 ]
 
@@ -57,48 +57,48 @@ const workflowSteps = [
   { label: 'Signal Detected', dot: 'bg-blue-400' },
   { label: 'Risk Prioritized', dot: 'bg-indigo-400' },
   { label: 'Coordinator Alerted', dot: 'bg-amber-400' },
-  { label: 'Participant Outreach Triggered', dot: 'bg-orange-400' },
+  { label: 'Outreach Triggered', dot: 'bg-orange-400' },
   { label: 'Intervention Logged', dot: 'bg-emerald-400' },
-  { label: 'Retention Status Updated', dot: 'bg-cyan-400' }
+  { label: 'Status Updated', dot: 'bg-cyan-400' }
 ]
 
 const signalsData = [
   {
     title: 'Communication Gaps',
-    desc: 'Missed responses, delayed follow-ups, declining engagement frequency.',
-    metric: 'Response Rate: 42% (Normal >80%)',
+    desc: 'Missed responses, delayed replies, or declining engagement frequency.',
+    metric: 'Response rate declining',
     alert: 'Critical Delay',
     color: 'amber',
     icon: MessageSquare
   },
   {
     title: 'Visit Adherence Risk',
-    desc: 'Late confirmations, cancellations, missed appointments.',
-    metric: 'Next Visit Confidence: 30%',
+    desc: 'Late confirmations, cancellations, missed appointments, or visit uncertainty.',
+    metric: 'Next visit confidence low',
     alert: 'Adherence Threat',
     color: 'rose',
     icon: Calendar
   },
   {
     title: 'Protocol Friction',
-    desc: 'Repeated clarification requests, incomplete activities, adherence inconsistencies.',
-    metric: 'Unfinished Tasks: 4 / 10',
+    desc: 'Repeated clarification requests, incomplete activities, or adherence inconsistencies.',
+    metric: 'Unfinished tasks increasing',
     alert: 'Friction Warning',
     color: 'orange',
     icon: ClipboardList
   },
   {
-    title: 'Coordinator Activity',
-    desc: 'Unresolved follow-ups, delayed outreach, escalation backlog.',
-    metric: 'Backlog: 8 cases pending',
+    title: 'Coordinator Follow-Up Gaps',
+    desc: 'Unresolved follow-ups, delayed outreach, or open escalation queues.',
+    metric: 'Follow-up backlog growing',
     alert: 'Attention Needed',
     color: 'blue',
     icon: Users
   },
   {
-    title: 'Participant Behavior Trends',
-    desc: 'Engagement decline patterns across study activity.',
-    metric: 'Activity Score: -35% over 14d',
+    title: 'Engagement Trends',
+    desc: 'Declining activity patterns across study touchpoints.',
+    metric: 'Activity score down over time',
     alert: 'Decline Pattern',
     color: 'rose',
     icon: TrendingDown
@@ -153,7 +153,7 @@ function BenefitCard({ benefit, index }) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       className="group bg-white border border-slate-250/80 p-8 rounded-[2rem]
-                 shadow-lg shadow-slate-200/40 hover:-translate-y-2 hover:shadow-2xl
+                 shadow-lg shadow-slate-200/40 hover:shadow-2xl
                  hover:shadow-blue-500/10 hover:border-blue-200
                  transition-all duration-400 cursor-default"
     >
@@ -237,7 +237,7 @@ function SignalCard({ signal, index }) {
       </div>
 
       <div className="border-t border-slate-100 pt-5 mt-auto">
-        <span className="text-[10px] text-slate-400 font-black uppercase tracking-widest block mb-2">Live Telemetry</span>
+        <span className="text-[10px] text-slate-400 font-black uppercase tracking-widest block mb-2">Signal Example</span>
         <span className="text-sm font-black text-slate-800 block mb-3">{signal.metric}</span>
         <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
           <div
@@ -262,14 +262,15 @@ function LifecycleSection() {
           <div className="space-y-8">
             <RevealLine>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900">
-                Retention risk rarely appears all at once.
+                Retention Risk Builds Gradually
               </h2>
             </RevealLine>
             <RevealLine delay={0.1}>
               <div className="text-xl text-slate-600 leading-relaxed space-y-4">
-                <p>Disengagement develops gradually through missed communications and friction.</p>
-                <p>Without visibility, early warning signs are difficult to identify.</p>
-                <p>CliniLink helps teams detect and respond to risk earlier through continuous monitoring.</p>
+                <p>Participant dropout rarely happens all at once.</p>
+                <p>It often begins with small signals:</p>
+                <p>Slower responses. Missed reminders. Delayed confirmations. Incomplete activities. Follow-up gaps.</p>
+                <p>Without a centralized view, these signals are easy to miss until risk becomes urgent.</p>
               </div>
             </RevealLine>
           </div>
@@ -321,12 +322,15 @@ function WorkflowSection() {
           <div className="space-y-8 lg:order-last">
             <RevealLine>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.1]">
-                From retention signals to proactive intervention.
+                From Signals to Action
               </h2>
             </RevealLine>
             <FadeIn delay={0.2} className="space-y-6 text-xl text-slate-400 font-medium leading-relaxed">
+              <p className="text-white font-bold">
+                Turn retention signals into timely intervention.
+              </p>
               <p>
-                CliniLink transforms intelligence into action by helping teams prioritize outreach and intervene earlier.
+                CliniLink helps teams move from scattered risk signals to structured follow-up actions.
               </p>
             </FadeIn>
           </div>
@@ -370,7 +374,7 @@ function RetentionDashboardMockup() {
       'Alert: Site 102 reporting increased missed visit rate (+5%).',
       'Signal: Response received from PT-1109 (Pending review).'
     ]
-    
+
     const interval = setInterval(() => {
       const randomMsg = messages[Math.floor(Math.random() * messages.length)]
       const now = new Date()
@@ -407,7 +411,7 @@ function RetentionDashboardMockup() {
     <div className="bg-slate-950 text-slate-100 rounded-[2.5rem] p-6 md:p-10 border border-slate-800 shadow-2xl font-sans relative overflow-hidden select-none">
       {/* Glow highlight */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-      
+
       {/* Top Header */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
         <div className="flex items-center gap-3">
@@ -426,16 +430,16 @@ function RetentionDashboardMockup() {
             <h3 className="text-2xl font-black tracking-tight text-white mt-1">Retention Command Center</h3>
           </div>
         </div>
-        
+
         {/* Controls */}
         <div className="flex items-center gap-3 w-full md:w-auto">
           <div className="relative flex-1 md:flex-initial">
             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500 pointer-events-none">
               <Search size={14} />
             </span>
-            <input 
-              type="text" 
-              placeholder="Search participants or sites..." 
+            <input
+              type="text"
+              placeholder="Search participants or sites..."
               className="bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-300 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors w-full md:w-64"
               disabled
             />
@@ -465,7 +469,7 @@ function RetentionDashboardMockup() {
 
       {/* Main Grid content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
-        
+
         {/* At-risk Queue (Cols 1 & 2) */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -509,7 +513,7 @@ function RetentionDashboardMockup() {
                     const isHigh = p.category === 'High'
                     const isMed = p.category === 'Medium'
                     const barColor = isHigh ? 'bg-rose-500' : isMed ? 'bg-amber-500' : 'bg-blue-500'
-                    
+
                     return (
                       <tr key={p.id} className="hover:bg-slate-900/20 transition-colors">
                         <td className="py-4 px-5 font-bold text-white flex items-center gap-2">
@@ -552,7 +556,7 @@ function RetentionDashboardMockup() {
               </table>
             </div>
           </div>
-          
+
           {/* Live Telemetry Logs */}
           <div className="bg-slate-900/20 border border-slate-850 p-5 rounded-[1.5rem]">
             <h5 className="text-[10px] uppercase font-black tracking-widest text-slate-500 mb-4 flex items-center justify-between">
@@ -574,7 +578,7 @@ function RetentionDashboardMockup() {
 
         {/* Right Sidebar Columns */}
         <div className="space-y-6">
-          
+
           {/* Site-Level Alerts */}
           <div className="bg-slate-900/20 border border-slate-850 p-6 rounded-[1.5rem]">
             <h4 className="text-sm font-black text-slate-300 uppercase tracking-widest mb-5 flex items-center gap-2">
@@ -606,25 +610,25 @@ function RetentionDashboardMockup() {
             </h4>
             <div className="space-y-3.5">
               {actions.map(act => (
-                <div 
-                  key={act.id} 
+                <div
+                  key={act.id}
                   onClick={() => handleActionClick(act.id)}
                   className={`flex items-start gap-3.5 p-4 border rounded-xl cursor-pointer transition-all duration-300 select-none
-                             ${act.completed 
-                               ? 'border-slate-900 bg-slate-900/10 text-slate-500 line-through' 
-                               : 'border-slate-800/80 hover:border-slate-700 bg-slate-900/35 text-slate-200'}`}
+                             ${act.completed
+                      ? 'border-slate-900 bg-slate-900/10 text-slate-500 line-through'
+                      : 'border-slate-800/80 hover:border-slate-700 bg-slate-900/35 text-slate-200'}`}
                 >
                   <div className={`mt-0.5 w-4.5 h-4.5 rounded border flex items-center justify-center transition-colors
-                                  ${act.completed 
-                                    ? 'bg-emerald-600 border-emerald-500 text-white' 
-                                    : 'border-slate-700 bg-slate-950 text-transparent'}`}>
+                                  ${act.completed
+                      ? 'bg-emerald-600 border-emerald-500 text-white'
+                      : 'border-slate-700 bg-slate-950 text-transparent'}`}>
                     <Check size={10} strokeWidth={4} />
                   </div>
                   <span className="text-xs font-bold leading-snug">{act.text}</span>
                 </div>
               ))}
             </div>
-            
+
             <div className="border-t border-slate-800/80 pt-5 mt-5 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 p-4 rounded-2xl border border-blue-500/10">
               <span className="text-[9px] uppercase font-black text-blue-450 tracking-wider block mb-1.5">Recommended Outreach Platform</span>
               <p className="text-xs text-slate-350 leading-relaxed font-semibold">
@@ -632,7 +636,7 @@ function RetentionDashboardMockup() {
               </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -657,16 +661,16 @@ export default function RetentionIntelligence() {
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="relative h-screen flex flex-col justify-center items-center pt-24 pb-12 px-6 overflow-hidden bg-white border-b border-slate-200">
-        
+
         {/* Radar / Grid Background */}
         <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
           {/* Radar Circles */}
           <div className="absolute w-[800px] h-[800px] border border-blue-500/20 rounded-full scale-75 md:scale-100"></div>
           <div className="absolute w-[600px] h-[600px] border border-blue-500/30 rounded-full scale-75 md:scale-100"></div>
           <div className="absolute w-[400px] h-[400px] border border-blue-400/40 rounded-full border-dashed scale-75 md:scale-100"></div>
-          
+
           {/* Radar Sweep */}
-          <motion.div 
+          <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             className="absolute w-[800px] h-[800px] rounded-full scale-75 md:scale-100"
@@ -678,14 +682,14 @@ export default function RetentionIntelligence() {
             <div className="w-full h-px bg-blue-500 absolute"></div>
             <div className="h-full w-px bg-blue-500 absolute"></div>
           </div>
-          
+
           {/* Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_white_70%)]" />
         </div>
 
         {/* Floating Data Badges */}
         <div className="absolute inset-0 z-10 pointer-events-none hidden md:block">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
@@ -694,8 +698,8 @@ export default function RetentionIntelligence() {
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span className="text-sm font-mono text-emerald-600 font-bold tracking-tight">Signal: Normal</span>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.5, duration: 0.5 }}
@@ -705,7 +709,7 @@ export default function RetentionIntelligence() {
             <span className="text-sm font-mono text-amber-600 font-bold tracking-tight">Risk Detected</span>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 2, duration: 0.5 }}
@@ -715,7 +719,7 @@ export default function RetentionIntelligence() {
             <span className="text-sm font-mono text-blue-600 font-bold tracking-tight">Monitoring 1,248 PTs</span>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 2.5, duration: 0.5 }}
@@ -766,16 +770,17 @@ export default function RetentionIntelligence() {
           <div className="text-center max-w-4xl mx-auto space-y-8 mb-20">
             <RevealLine>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.1]">
-                Continuous Retention Signal Monitoring
+                Continuous Signal Monitoring
               </h2>
             </RevealLine>
             <FadeIn delay={0.2}>
-              <p className="text-xl text-slate-600 font-semibold leading-relaxed">
-                CliniLink monitors signals across the participant journey to identify emerging retention risk in real time.
-              </p>
+              <div className="text-xl text-slate-600 font-semibold leading-relaxed space-y-4">
+                <p>Monitor the signals that indicate retention risk.</p>
+                <p>CliniLink tracks participant engagement, visit behavior, workflow activity, and coordinator follow-up signals in one place.</p>
+              </div>
             </FadeIn>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {signalsData.map((sig, i) => (
               <SignalCard key={i} signal={sig} index={i} />
@@ -813,12 +818,17 @@ export default function RetentionIntelligence() {
       {/* ── SECTION 5: OPERATIONAL BENEFITS GRID ─────────────────────────────── */}
       <section className="py-36 px-6 bg-slate-50 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 space-y-6">
             <RevealLine>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
                 Built for proactive retention operations.
               </h2>
             </RevealLine>
+            <FadeIn delay={0.2}>
+              <p className="text-xl text-slate-600 font-semibold leading-relaxed">
+                Earlier visibility. Faster follow-up. Better continuity.
+              </p>
+            </FadeIn>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((b, i) => (

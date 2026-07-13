@@ -5,53 +5,59 @@ import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
+import ABOUT_IMG from '../assets/about_infographic.png'
 
 export default function About() {
   const containerRef = useRef(null)
-  const foundersRef = useRef(null)
-
-  const { scrollYProgress: foundersProgressRaw } = useScroll({
-    target: foundersRef,
-    offset: ['start start', 'end end']
-  })
-
-  const foundersProgress = useSpring(foundersProgressRaw, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  })
-
-  const img1Opacity = useTransform(foundersProgress, [0, 0.45, 0.55, 1], [1, 1, 0, 0])
-  const img1Scale = useTransform(foundersProgress, [0, 0.45, 0.55, 1], [1, 1, 1.05, 1.05])
-
-  const img2Opacity = useTransform(foundersProgress, [0, 0.45, 0.55, 1], [0, 0, 1, 1])
-  const img2Scale = useTransform(foundersProgress, [0, 0.45, 0.55, 1], [1.05, 1.05, 1, 1])
-
-  const box1Opacity = useTransform(foundersProgress, [0, 0.08, 0.42, 0.5], [0, 1, 1, 0])
-  const box1Y = useTransform(foundersProgress, [0, 0.08, 0.42, 0.5], [50, 0, 0, -50])
-
-  const box2Opacity = useTransform(foundersProgress, [0.5, 0.58, 1], [0, 1, 1])
-  const box2Y = useTransform(foundersProgress, [0.5, 0.58, 1], [50, 0, 0])
 
   const focusAreas = [
-    "Participant Engagement",
-    "Retention Operations",
-    "Workflow Coordination",
-    "Operational Visibility",
-    "Study Continuity",
-    "Clinical Trial Support"
+    {
+      title: "Participant Engagement",
+      desc: "Support consistent communication and engagement throughout the study journey."
+    },
+    {
+      title: "Retention Risk Detection",
+      desc: "Identify early signs of disengagement before dropout occurs."
+    },
+    {
+      title: "Coordinator Workflows",
+      desc: "Help site teams manage reminders, follow-ups, alerts, and intervention steps."
+    },
+    {
+      title: "Operational Visibility",
+      desc: "Give study leaders a clearer view of participant risk, site activity, and follow-up status."
+    },
+    {
+      title: "Study Continuity",
+      desc: "Help teams reduce disruption caused by missed visits, disengagement, and participant dropout."
+    }
   ]
 
   const whyParagraphs = [
-    "Participant disengagement is a persistent challenge in clinical research.",
-    "Missed visits and delayed follow-ups impact study continuity and increase costs.",
-    "CliniLink helps trial teams gain visibility into engagement and proactively manage retention."
+    "Clinical trials depend on participants staying engaged through study completion.",
+    "But retention is difficult to manage when risk signals are scattered across communication tools, site notes, visit schedules, and coordinator follow-up.",
+    "By the time a participant misses a visit or stops responding, the opportunity for early intervention may already be closing.",
+    "CliniLink exists to help clinical trial teams move from reactive follow-up to proactive retention management."
+  ]
+
+  const missionParagraphs = [
+    "Our mission is to give sponsors, CROs, and research sites earlier visibility into participant-level retention risk.",
+    "We help teams answer three important questions:",
+    "Who may be at risk?",
+    "Why are they at risk?",
+    "What action should happen next?"
   ]
 
   const approachParagraphs = [
-    "Retention requires more than isolated communication tools.",
-    "Trials need centralized workflows, visibility, and coordinated management to support teams and participants.",
-    "CliniLink unifies engagement, coordination, and operational support into one platform."
+    "Retention requires more than reminders.",
+    "Trial teams need a connected way to monitor engagement, prioritize risk, coordinate follow-up, and track whether interventions are working.",
+    "CliniLink brings retention signals, alerts, workflows, and oversight into one platform designed for clinical trial operations."
+  ]
+
+  const founderParagraphs = [
+    "CliniLink is founder-led and focused on solving a practical operational challenge in clinical research: helping trial teams retain participants more effectively.",
+    "We are building the platform around the realities of trial execution — site workload, participant communication gaps, missed visits, and limited visibility across studies and sites.",
+    "Our goal is to work closely with sponsors, CROs, research sites, and clinical operations leaders to validate retention workflows that are practical, scalable, and useful in real trial settings."
   ]
 
   return (
@@ -93,48 +99,29 @@ export default function About() {
                 </div>
               ))}
             </FadeIn>
+
+            {/* CTA Buttons */}
+            <FadeIn delay={0.8} className="flex flex-wrap items-center gap-6 pt-4">
+              <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex group relative overflow-hidden">
+                <span className="flex items-center gap-3 relative z-10">
+                  Explore a Pilot Partnership <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </HoverButton>
+              <button className="px-8 py-4 bg-transparent text-slate-900 rounded-none font-bold text-sm tracking-wide uppercase hover:text-blue-600 border-2 border-slate-900 hover:border-blue-600 transition-all duration-300 inline-flex items-center gap-3">
+                Book a Demo
+              </button>
+            </FadeIn>
           </div>
 
-          {/* Right: Image Composition */}
-          <div className="relative h-[600px] hidden lg:block">
-            {/* Background Blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[80px]" />
-
-            {/* Main Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 40, rotate: -4 }}
-              animate={{ opacity: 1, y: 0, rotate: -4 }}
-              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="absolute top-10 right-10 w-[80%] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white z-10"
-            >
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Laboratory" className="w-full h-full object-cover grayscale-[10%]" />
-            </motion.div>
-
-            {/* Overlapping Secondary Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 40, rotate: 6 }}
-              animate={{ opacity: 1, y: 0, rotate: 6 }}
-              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="absolute bottom-10 left-0 w-[60%] aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white z-20"
-            >
-              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Team" className="w-full h-full object-cover grayscale-[10%]" />
-            </motion.div>
-
-            {/* Floating Element */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-              className="absolute top-12 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-30 flex items-center gap-4"
-            >
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
-                <Users2 className="text-blue-600" size={24} />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Dedicated</p>
-                <p className="text-lg font-black text-slate-900 leading-tight">Study Teams</p>
-              </div>
-            </motion.div>
+          {/* Right Hero Image */}
+          <div className="relative h-[600px] hidden lg:flex items-center justify-center">
+            <FadeIn delay={0.4} className="w-full h-full p-12 xl:p-16">
+              <img
+                src={ABOUT_IMG}
+                alt="Built to Help Trials Stay on Track"
+                className="w-full h-full object-contain drop-shadow-xl"
+              />
+            </FadeIn>
           </div>
 
         </div>
@@ -145,7 +132,18 @@ export default function About() {
         <TimelineSection
           tag="Why CliniLink"
           title="Why We Exist"
+          rightTitle="Retention Risk Is an Execution Problem"
           paragraphs={whyParagraphs}
+        />
+      </section>
+
+      {/* SECTION 1.5 - OUR MISSION (TIMELINE LAYOUT) */}
+      <section className="py-24 px-6 md:px-12 bg-white relative z-10">
+        <TimelineSection
+          tag="Mission"
+          title="Our Mission"
+          rightTitle="Help Trial Teams Intervene Earlier"
+          paragraphs={missionParagraphs}
         />
       </section>
 
@@ -154,6 +152,7 @@ export default function About() {
         <TimelineSection
           tag="Our Approach"
           title="How We Work"
+          rightTitle="Earlier Signals. Clearer Workflows. Better Continuity."
           paragraphs={approachParagraphs}
         />
       </section>
@@ -167,10 +166,10 @@ export default function About() {
         <div className="max-w-6xl mx-auto relative z-10">
           <RevealLine className="mb-20 text-center">
             <span className="text-primary font-mono text-xs md:text-sm tracking-[0.35em] uppercase mb-4 block font-bold">
-              Core Capabilities
+              Built Around the Real Work of Retention
             </span>
             <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-none text-white">
-              Our Focus Areas
+              What We Focus On
             </h2>
           </RevealLine>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -181,80 +180,72 @@ export default function About() {
         </div>
       </section>
 
-      {/* SECTION 4 - LEADERSHIP / FOUNDERS (CINEMATIC STICKY WIPE) */}
-      <section className="relative z-10 bg-black" ref={foundersRef} style={{ height: "300vh" }}>
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
-
-          {/* Background Image 1 (Dr. James) */}
-          <motion.div
-            style={{ opacity: img1Opacity, willChange: 'opacity' }}
-            className="absolute inset-0 z-0 bg-[#0a0a0a]"
-          >
-            <motion.img
-              style={{ scale: img1Scale, willChange: 'transform' }}
-              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1920&q=80"
-              alt="Dr. James Founder"
-              className="absolute inset-0 w-full h-full object-cover object-top opacity-60 grayscale-[10%]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-90" />
-          </motion.div>
-
-          {/* Background Image 2 (Sarah) */}
-          <motion.div
-            style={{ opacity: img2Opacity, willChange: 'opacity' }}
-            className="absolute inset-0 z-0 bg-[#0a0a0a]"
-          >
-            <motion.img
-              style={{ scale: img2Scale, willChange: 'transform' }}
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1920&q=80"
-              alt="Sarah Technical"
-              className="absolute inset-0 w-full h-full object-cover object-top opacity-60 grayscale-[10%]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-90" />
-          </motion.div>
-
-          {/* Sticky Section Heading */}
-          <div className="absolute top-32 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none">
-            <span className="text-blue-500 font-mono text-xs md:text-sm tracking-[0.35em] uppercase mb-2 block font-bold">
-              Who We Are
-            </span>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white uppercase leading-none">
-              Leadership
+      {/* SECTION 4 - FOUNDER LED */}
+      <section className="py-32 px-6 md:px-12 bg-white relative z-10 border-b border-slate-100">
+        <div className="max-w-5xl mx-auto">
+          <RevealLine className="mb-12 text-center">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-none text-slate-900">
+              Founder-Led
             </h2>
+          </RevealLine>
+          
+          <div className="space-y-8 text-center max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-black tracking-tight text-blue-600 uppercase">
+              Built for the Next Generation of Trial Operations
+            </h3>
+            <div className="space-y-6">
+              {founderParagraphs.map((para, idx) => (
+                <p key={idx} className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed">
+                  {para}
+                </p>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* Details Box 1 (Dr. James) - Left Bottom */}
-          <motion.div
-            style={{ opacity: box1Opacity, y: box1Y, willChange: 'transform, opacity' }}
-            className="absolute left-6 md:left-24 bottom-6 md:bottom-24 max-w-[calc(100vw-3rem)] sm:max-w-md bg-black/45 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl text-left shadow-2xl z-10"
-          >
-            <h3 className="text-2xl sm:text-3xl font-black text-white mb-1 uppercase">
-              Dr. James Founder
-            </h3>
-            <p className="text-blue-400 font-bold tracking-widest uppercase text-xs mb-4 font-mono">
-              Co-Founder & CEO
-            </p>
-            <p className="text-sm sm:text-base text-slate-300 font-medium leading-relaxed">
-              Focused on improving engagement and retention workflows through modern technology.
-            </p>
-          </motion.div>
-
-          {/* Details Box 2 (Sarah) - Right Bottom */}
-          <motion.div
-            style={{ opacity: box2Opacity, y: box2Y, willChange: 'transform, opacity' }}
-            className="absolute right-6 md:right-24 bottom-6 md:bottom-24 max-w-[calc(100vw-3rem)] sm:max-w-md bg-black/45 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl text-left shadow-2xl z-10"
-          >
-            <h3 className="text-2xl sm:text-3xl font-black text-white mb-1 uppercase">
-              Sarah Technical
-            </h3>
-            <p className="text-blue-400 font-bold tracking-widest uppercase text-xs mb-4 font-mono">
-              Co-Founder & CTO
-            </p>
-            <p className="text-sm sm:text-base text-slate-300 font-medium leading-relaxed">
-              Bringing over a decade of experience to build secure platforms for clinical trials.
-            </p>
-          </motion.div>
-
+      {/* SECTION 4.5 - WHO WE SERVE */}
+      <section className="py-24 px-6 md:px-12 bg-white relative z-10 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <RevealLine className="mb-16 text-center">
+            <span className="text-primary font-mono text-xs md:text-sm tracking-[0.35em] uppercase mb-4 block font-bold">
+              Designed for the Teams Responsible for Retention
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase leading-none text-slate-900">
+              Who We Serve
+            </h2>
+          </RevealLine>
+          
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {[
+              {
+                title: "Sponsors",
+                desc: "Gain earlier visibility into retention risk and study continuity."
+              },
+              {
+                title: "CROs",
+                desc: "Standardize retention workflows across sites and studies."
+              },
+              {
+                title: "Research Sites",
+                desc: "Reduce manual follow-up burden and help coordinators prioritize outreach."
+              },
+              {
+                title: "Study Teams",
+                desc: "Track participant risk, follow-up activity, and intervention outcomes in one place."
+              }
+            ].map((item, i) => (
+              <FadeIn key={i} delay={0.2 + (i * 0.1)} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300">
+                <div className="flex flex-col gap-4">
+                  <h3 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-500" />
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-lg leading-relaxed pl-5">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -274,27 +265,36 @@ export default function About() {
             </h2>
           </RevealLine>
           <div className="space-y-8 text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed">
-            <p>The future of trial retention relies on proactive engagement, coordination, and visibility.</p>
-            <p>CliniLink builds infrastructure for connected, efficient retention operations.</p>
+            <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">A More Proactive Future for Trial Retention</h3>
+            <p>We believe clinical trial retention should be proactive, coordinated, and data-informed.</p>
+            <p>The future of retention will not depend only on reminders or late-stage escalation. It will depend on earlier signals, better workflows, and clearer operational visibility.</p>
+            <p>CliniLink is building toward that future.</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 6 - FINAL CTA (MAGNETIC BUTTONS) */}
-      <section className="py-32 text-center px-6 relative z-10 bg-white">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <section className="py-32 text-center px-6 relative z-10 bg-white border-t border-slate-100">
+        <div className="max-w-4xl mx-auto space-y-8">
           <RevealLine>
-            <h2 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-none uppercase">
-              Learn More About CliniLink
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-none uppercase">
+              Partner With Us to Improve Trial Retention
             </h2>
           </RevealLine>
-          <FadeIn delay={0.4} className="pt-6 flex justify-center">
-            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary transition-all duration-500 shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
+          <FadeIn delay={0.2}>
+            <p className="text-xl sm:text-2xl text-slate-600 font-medium leading-relaxed max-w-3xl mx-auto">
+              We are looking to work with clinical research partners who want to improve participant engagement, reduce avoidable dropout, and create more proactive retention workflows.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.4} className="pt-6 flex flex-wrap items-center justify-center gap-6">
+            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-none font-bold text-base tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">
-                Book a Demo <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
+                Explore a Pilot Partnership <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-
             </HoverButton>
+            <button className="px-10 py-5 bg-transparent text-slate-900 rounded-none font-bold text-base tracking-wide uppercase hover:text-blue-600 border-2 border-slate-900 hover:border-blue-600 transition-all duration-300 inline-flex items-center gap-3">
+              Book a Demo
+            </button>
           </FadeIn>
         </div>
       </section>
@@ -305,7 +305,7 @@ export default function About() {
 
 /* ────────── SUB-COMPONENTS ────────── */
 
-function TimelineSection({ tag, title, paragraphs }) {
+function TimelineSection({ tag, title, rightTitle, paragraphs }) {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -340,6 +340,11 @@ function TimelineSection({ tag, title, paragraphs }) {
 
         {/* Paragraph blocks */}
         <div className="space-y-16">
+          {rightTitle && (
+            <h3 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-8">
+              {rightTitle}
+            </h3>
+          )}
           {paragraphs.map((p, idx) => {
             return (
               <TimelineParagraph key={idx} text={p} index={idx} total={paragraphs.length} progress={scrollYProgress} />
@@ -435,7 +440,7 @@ function FocusAreaCard({ area, index }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative overflow-hidden rounded-[2.5rem] bg-slate-900/40 border border-slate-800/80 p-10 transition-all duration-500 hover:border-blue-500/30 hover:bg-slate-900/60 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/5 group cursor-default"
+      className="relative overflow-hidden rounded-[2.5rem] bg-slate-900/40 border border-slate-800/80 p-10 transition-all duration-500 hover:border-blue-500/30 hover:bg-slate-900/60 hover:shadow-2xl hover:shadow-blue-500/5 group cursor-default"
     >
       {/* Cursor spotlight glow */}
       <div
@@ -455,14 +460,17 @@ function FocusAreaCard({ area, index }) {
         {String(index + 1).padStart(2, "0")}
       </div>
 
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+      <div className="flex items-start gap-3 mb-2">
+        <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-3 flex-shrink-0" />
         <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight uppercase group-hover:text-blue-400 transition-colors duration-300">
-          {area}
+          {area.title}
         </h3>
       </div>
-      <p className="text-[10px] text-slate-500 font-mono tracking-widest uppercase">
+      <p className="text-[10px] text-slate-500 font-mono tracking-widest uppercase mb-4 pl-4.5">
         CLINILINK CAPABILITY
+      </p>
+      <p className="text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300 pl-4.5">
+        {area.desc}
       </p>
     </div>
   )

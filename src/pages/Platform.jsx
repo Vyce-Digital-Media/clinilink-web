@@ -6,15 +6,29 @@ import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
 
-const DASHBOARD_IMG =
-  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80'
+import DASHBOARD_IMG from '../assets/openart-image_1783352807969_f358b38c_1783352808233_13c3bc99.png'
 
 const capabilities = [
-  { title: 'Unified participant view' },
-  { title: 'AI-powered retention intelligence' },
-  { title: 'Automated engagement workflows' },
-  { title: 'Real-time monitoring' },
-  { title: 'Actionable insights for study teams' }
+  {
+    title: 'Unified participant view',
+    subtitle: 'See participant risk, engagement history, and follow-up activity in one place.'
+  },
+  {
+    title: 'AI-powered retention intelligence',
+    subtitle: 'Identify patterns that may indicate an increased risk of dropout.'
+  },
+  {
+    title: 'Automated engagement workflows',
+    subtitle: 'Trigger reminders, alerts, and follow-up steps.'
+  },
+  {
+    title: 'Real-time monitoring',
+    subtitle: 'Track risk signals as they change throughout the study.'
+  },
+  {
+    title: 'Actionable insights',
+    subtitle: 'Help study teams know who needs attention and what to do next.'
+  }
 ]
 
 const workflowSteps = [
@@ -47,7 +61,7 @@ function CapabilityCard({ item, index }) {
       transition={{ duration: 0.65, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       className="group relative p-10 rounded-[2rem] bg-white border border-slate-100
                  shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-blue-500/8
-                 hover:-translate-y-1.5 transition-all duration-500 overflow-hidden cursor-default"
+                 transition-all duration-500 overflow-hidden cursor-default"
     >
       {/* Left accent bar */}
       <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-r-full bg-gradient-to-b from-blue-500 to-indigo-500
@@ -57,10 +71,15 @@ function CapabilityCard({ item, index }) {
                        leading-none select-none pointer-events-none">
         {String(index + 1).padStart(2, '0')}
       </span>
-      <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight
+      <h3 className="text-2xl font-black text-slate-900 mb-2 tracking-tight
                      group-hover:text-blue-600 transition-colors duration-300">
         {item.title}
       </h3>
+      {item.subtitle && (
+        <p className="text-slate-600 leading-relaxed font-medium relative z-10">
+          {item.subtitle}
+        </p>
+      )}
     </motion.div>
   )
 }
@@ -68,23 +87,31 @@ function CapabilityCard({ item, index }) {
 function WorkflowSection() {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'] })
-  const scaleY = useSpring(scrollYProgress, { stiffness: 90, damping: 25 })
+  const scaleX = useSpring(scrollYProgress, { stiffness: 90, damping: 25 })
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-slate-900 text-white z-10">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center w-full">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4 md:px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto text-center w-full">
           <RevealLine>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-16">
               Configurable Engagement Workflows
             </h2>
           </RevealLine>
 
-          <div className="relative flex flex-col items-center gap-6 py-8 w-full max-w-xs mx-auto">
-            {/* Scroll-linked line behind the cards */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-[2px] bg-slate-800/50 rounded-full z-0">
+          <div className="relative flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 md:gap-4 py-8 w-full max-w-sm md:max-w-none mx-auto">
+            {/* Scroll-linked horizontal line behind the cards (hidden on mobile, shown on md+) */}
+            <div className="hidden md:block absolute top-1/2 -translate-y-1/2 left-8 right-8 h-[2px] bg-slate-800/50 rounded-full z-0">
               <motion.div
-                style={{ scaleY, transformOrigin: 'top' }}
+                style={{ scaleX, transformOrigin: 'left' }}
+                className="w-full h-full bg-gradient-to-r from-blue-500 via-indigo-400 to-emerald-400"
+              />
+            </div>
+
+            {/* Scroll-linked vertical line behind the cards (shown on mobile, hidden on md+) */}
+            <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-8 bottom-8 w-[2px] bg-slate-800/50 rounded-full z-0">
+              <motion.div
+                style={{ scaleY: scaleX, transformOrigin: 'top' }}
                 className="w-full h-full bg-gradient-to-b from-blue-500 via-indigo-400 to-emerald-400"
               />
             </div>
@@ -93,6 +120,12 @@ function WorkflowSection() {
               <WorkflowStep key={i} step={step} index={i} total={workflowSteps.length} progress={scrollYProgress} />
             ))}
           </div>
+
+          <FadeIn delay={0.4}>
+            <p className="mt-12 text-lg md:text-xl text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto">
+              CliniLink turns participant signals into clear retention actions for study teams.
+            </p>
+          </FadeIn>
         </div>
       </div>
     </section>
@@ -106,13 +139,13 @@ function WorkflowStep({ step, index, total, progress }) {
   const opacity = useTransform(progress, [rangeStart, rangeEnd], [0.2, 1])
 
   return (
-    <motion.div ref={ref} style={{ opacity }} className="relative z-10 w-full">
+    <motion.div ref={ref} style={{ opacity }} className="relative z-10 w-full md:flex-1">
       {/* Card */}
-      <div className={`px-8 py-4 rounded-2xl border font-bold text-xl shadow-xl
+      <div className={`px-4 py-4 md:py-6 h-full min-h-[5rem] md:min-h-[8rem] rounded-2xl border font-bold text-sm md:text-base lg:text-lg shadow-xl
                        hover:scale-105 transition-transform duration-300 flex items-center justify-center text-center relative z-10 bg-slate-900 ${step.color}`}>
         <div>
           {step.label}
-          {step.sub && <span className="block text-sm font-medium mt-1 opacity-70">{step.sub}</span>}
+          {step.sub && <span className="block text-xs md:text-sm font-medium mt-1 opacity-70">{step.sub}</span>}
         </div>
       </div>
     </motion.div>
@@ -177,7 +210,7 @@ export default function Platform() {
             </RevealLine>
             <FadeIn delay={0.4}>
               <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-lg">
-                CliniLink helps teams predict engagement before enrollment and identify dropout risks during the trial for earlier intervention.
+
               </p>
             </FadeIn>
             <FadeIn delay={0.6} className="pt-2 flex gap-4 items-center">
@@ -192,7 +225,7 @@ export default function Platform() {
           </div>
 
           <div className="relative h-[500px] w-full hidden lg:block xl:scale-100 scale-90 origin-right">
-            
+
             {/* Dark Card (Retention Intelligence - Back Layer) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -256,7 +289,7 @@ export default function Platform() {
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <RevealLine>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">
-                Two Platforms, One continuum of retention intelligence
+                Platform Preview, One continuum of retention intelligence
               </h2>
             </RevealLine>
             <FadeIn delay={0.2}>
@@ -268,7 +301,7 @@ export default function Platform() {
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Platform 1 Card */}
-            <div className="bg-white border border-slate-200/60 rounded-[2rem] p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/5 hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between">
+            <div className="bg-white border border-slate-200/60 rounded-[2rem] p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500 flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono text-primary tracking-[0.2em] uppercase font-bold px-3.5 py-1 bg-primary/10 rounded-full">
@@ -282,18 +315,19 @@ export default function Platform() {
                   Predict Who Will Stay
                 </h3>
                 <p className="text-slate-600 leading-relaxed font-medium text-lg">
-                  Evaluate participant fit and completion likelihood before enrollment to reduce downstream dropout.
+                  Evaluate participant fit, study burden, and completion likelihood before enrollment to improve enrollment quality and reduce downstream dropout risk.
                 </p>
 
                 <div className="h-px bg-slate-100 my-6" />
 
                 <ul className="space-y-4">
                   {[
-                    "Uses historical and real-time data signals",
-                    "Predicts participant likelihood of study completion",
-                    "Helps identify stronger-fit participants before or during enrollment",
-                    "Supports better enrollment quality",
-                    "Helps reduce downstream dropout risk"
+                    "Key signals:",
+                    "Participant fit · Study burden · Engagement likelihood · Completion risk",
+                    "What it helps teams do:",
+                    "Identify stronger-fit participants",
+                    "Improve enrollment quality",
+                    "Reduce avoidable dropout risk"
                   ].map((bullet, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
                       <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
@@ -305,7 +339,7 @@ export default function Platform() {
             </div>
 
             {/* Platform 2 Card */}
-            <div className="bg-white border border-slate-200/60 rounded-[2rem] p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/5 hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between">
+            <div className="bg-white border border-slate-200/60 rounded-[2rem] p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500 flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono text-primary tracking-[0.2em] uppercase font-bold px-3.5 py-1 bg-primary/10 rounded-full">
@@ -316,21 +350,23 @@ export default function Platform() {
                   </span>
                 </div>
                 <h3 className="text-3xl font-black text-slate-900 tracking-tight">
-                  Predict Who Will Drop Out
+                  Detect Who May Drop Out
                 </h3>
                 <p className="text-slate-600 leading-relaxed font-medium text-lg">
-                  Monitor participants, detect disengagement signals, and trigger proactive interventions to prevent dropout.
+                  Monitor engagement patterns, missed touchpoints, and follow-up gaps to identify participants at risk of dropout before it occurs.
                 </p>
 
                 <div className="h-px bg-slate-100 my-6" />
 
                 <ul className="space-y-4">
                   {[
-                    "Monitors engagement and behavior signals",
-                    "Detects early signs of dropout risk",
-                    "Triggers alerts and proactive intervention workflows",
-                    "Supports site teams with follow-up visibility",
-                    "Helps reduce dropout and protect study continuity"
+                    "Key signals:",
+                    "Missed touchpoints · Low response · Visit risk · Disengagement · Follow-up gaps",
+                    "What it helps teams do:",
+                    "Detect risk earlier",
+                    "Prioritize coordinator follow-up",
+                    "Trigger intervention workflows",
+                    "Protect study continuity"
                   ].map((bullet, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
                       <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
@@ -350,6 +386,11 @@ export default function Platform() {
           <RevealLine>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Shared Capabilities</h2>
           </RevealLine>
+          <FadeIn delay={0.2}>
+            <p className="mt-6 text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+              Built for Proactive Retention Management
+            </p>
+          </FadeIn>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           {capabilities.map((item, i) => (
@@ -362,24 +403,51 @@ export default function Platform() {
       <WorkflowSection />
 
       {/* ── OPERATIONAL VISIBILITY ────────────────────────────────────────────── */}
-      <section className="py-36 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center bg-white relative z-10">
-        <div className="space-y-8">
+      <section className="py-36 px-6 max-w-7xl mx-auto bg-white relative z-10">
+        <div className="mb-16 text-center">
           <RevealLine>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Centralized Retention Oversight</h2>
           </RevealLine>
-          <FadeIn delay={0.2}>
-            <p className="text-xl text-slate-600 font-medium leading-relaxed">
-              A unified interface displaying risk alerts, engagement trends, and actionable follow-ups to maintain continuity.
-            </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <FadeIn delay={0.2}>
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
+                See Risk Across Participants, Sites, and Workflows
+              </h3>
+              <p className="mt-4 text-xl text-slate-600 font-medium leading-relaxed">
+                A unified interface helps study leaders monitor risk alerts, engagement trends, follow-up status, and intervention outcomes.
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <h4 className="text-lg font-bold text-slate-900 mb-4">Operational visibility into:</h4>
+              <ul className="space-y-4">
+                {[
+                  "Participant risk",
+                  "Missed touchpoints",
+                  "Site follow-up",
+                  "Intervention status",
+                  "Engagement trends"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-slate-700 font-semibold text-lg">
+                    <CheckCircle2 className="text-emerald-500 shrink-0" size={20} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.4} className="rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 group">
+            <img
+              src={DASHBOARD_IMG}
+              alt="Operational Visibility"
+              className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
           </FadeIn>
         </div>
-        <FadeIn delay={0.4} className="rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 group">
-          <img
-            src={DASHBOARD_IMG}
-            alt="Operational Visibility"
-            className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
-          />
-        </FadeIn>
       </section>
 
       {/* ── INFRASTRUCTURE ────────────────────────────────────────────────────── */}
@@ -402,7 +470,7 @@ export default function Platform() {
       <section className="py-32 text-center px-6 bg-white relative z-10">
         <div className="max-w-4xl mx-auto space-y-12">
           <RevealLine>
-            <h2 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
               See the{' '}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
                 CliniLink Platform

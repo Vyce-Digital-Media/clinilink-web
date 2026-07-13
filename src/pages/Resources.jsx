@@ -5,25 +5,22 @@ import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
+import RESOURCES_IMG from '../assets/resources_infographic.png'
 
 /* ─── Data (unchanged) ─────────────────────────────────────────────────────── */
 
 const insights = [
   {
-    title: "Understanding Participant Dropout in Clinical Trials",
-    desc: "Explore the factors that contribute to participant disengagement."
+    title: "Participant Retention",
+    desc: "How trial teams can identify disengagement earlier and reduce avoidable dropout."
   },
   {
-    title: "Why Retention Requires More Than Communication",
-    desc: "Challenges emerge from complexity, inconsistent engagement, and lack of visibility."
+    title: "Site Workflows",
+    desc: "Ways to reduce manual follow-up and help coordinators prioritize participant outreach."
   },
   {
-    title: "Improving Participant Engagement Across Multi-Site Trials",
-    desc: "Learn how centralized workflows support study coordination and continuity."
-  },
-  {
-    title: "The Operational Cost of Missed Visits",
-    desc: "Understand how missed activities affect timelines and operational continuity."
+    title: "Retention Intelligence",
+    desc: "How early signals, risk scoring, and centralized oversight can support better study continuity."
   }
 ]
 
@@ -56,8 +53,8 @@ function InsightCard({ insight, index }) {
       transition={{ duration: 0.65, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="group cursor-pointer h-full"
     >
-      <div className="relative h-full rounded-[2rem] border border-slate-800 bg-slate-900 p-10 overflow-hidden
-                      transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_60px_rgba(59,130,246,0.08)] hover:-translate-y-1">
+      <div className="bg-white border border-slate-200 rounded-[2rem] p-10 cursor-default
+                      transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_60px_rgba(59,130,246,0.08)]">
 
         {/* Top accent line — pure CSS, no motion */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500
@@ -198,9 +195,14 @@ export default function Resources() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Resources</span>
               </h1>
             </RevealLine>
+            <FadeIn delay={0.3}>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mt-6">
+                Practical ideas for improving clinical trial retention.
+              </h2>
+            </FadeIn>
             <FadeIn delay={0.4}>
-              <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                Explore perspectives, operational insights, and resources on participant engagement and retention.
+              <p className="text-lg text-slate-600 font-medium leading-relaxed mt-4">
+                Explore short insights, tools, and updates on participant engagement, retention risk, and proactive trial operations.
               </p>
             </FadeIn>
             <FadeIn delay={0.6} className="pt-2">
@@ -213,74 +215,20 @@ export default function Resources() {
             </FadeIn>
           </div>
 
-          {/* Right Masonry Collage */}
-          <div className="lg:col-span-7 relative h-[500px] hidden lg:block overflow-hidden rounded-3xl">
-            {/* Overlay gradients for fading edges */}
-            <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F8F9FA] to-transparent z-20 pointer-events-none"></div>
-
-            <div className="flex gap-6 absolute inset-0 -top-[40%] -bottom-[40%] px-12 rotate-[-6deg] z-10 justify-center">
-              {/* Column 1 */}
-              <div className="w-1/3">
-                <motion.div
-                  animate={{ y: ["0%", "-50%"] }}
-                  transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-                  className="w-full flex flex-col gap-6 pb-6"
-                >
-                  {[...Array(16)].map((_, i) => (
-                    <img
-                      key={`col1-${i}`}
-                      src={`https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80`}
-                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500"
-                      alt="Resource"
-                    />
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* Column 2 */}
-              <div className="w-1/3 pt-12">
-                <motion.div
-                  animate={{ y: ["-50%", "0%"] }}
-                  transition={{ duration: 95, repeat: Infinity, ease: "linear" }}
-                  className="w-full flex flex-col gap-6 pb-6"
-                >
-                  {[...Array(16)].map((_, i) => (
-                    <img
-                      key={`col2-${i}`}
-                      src={`https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80`}
-                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500"
-                      alt="Resource"
-                    />
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* Column 3 */}
-              <div className="w-1/3">
-                <motion.div
-                  animate={{ y: ["0%", "-50%"] }}
-                  transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-                  className="w-full flex flex-col gap-6 pb-6"
-                >
-                  {[...Array(16)].map((_, i) => (
-                    <img
-                      key={`col3-${i}`}
-                      src={`https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=400&q=80`}
-                      className="w-full h-auto rounded-2xl shadow-lg shadow-slate-200/50 grayscale-[30%] hover:grayscale-0 transition-all duration-500"
-                      alt="Resource"
-                    />
-                  ))}
-                </motion.div>
-              </div>
-            </div>
+          {/* Right Hero Image */}
+          <div className="lg:col-span-7 relative h-[500px] hidden lg:flex items-center justify-center overflow-hidden rounded-3xl">
+            <FadeIn delay={0.4} className="w-full h-full p-4">
+              <img
+                src={RESOURCES_IMG}
+                alt="Insights & Resources Infographic"
+                className="w-full h-full object-contain drop-shadow-xl"
+              />
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ── FEATURED INSIGHTS ─────────────────────────────────────────────────── */}
+      {/* ── FEATURED TOPICS ─────────────────────────────────────────────────── */}
       <section className="py-36 px-6 max-w-7xl mx-auto relative z-10 bg-white">
         <div className="mb-20">
           <RevealLine>
@@ -288,12 +236,12 @@ export default function Resources() {
               <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
                 <BookOpen className="text-blue-500" size={24} />
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Featured Insights</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Featured Topics</h2>
             </div>
           </RevealLine>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
           {insights.map((insight, i) => (
             <InsightCard key={i} insight={insight} index={i} />
           ))}
