@@ -173,7 +173,7 @@ function BenefitCard({ benefit, index }) {
   )
 }
 
-function SignalCard({ signal, index }) {
+function SignalCard({ signal, index, colClass = "" }) {
   const Icon = signal.icon
   const colorMap = {
     rose: {
@@ -214,7 +214,7 @@ function SignalCard({ signal, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`border rounded-[2rem] p-8 bg-white shadow-lg hover:shadow-2xl transition-all duration-400 flex flex-col justify-between ${currentTheme.border}`}
+      className={`border rounded-[2rem] p-8 bg-white shadow-lg hover:shadow-2xl transition-all duration-400 flex flex-col justify-between ${currentTheme.border} ${colClass}`}
     >
       <div>
         <div className="flex items-center justify-between mb-6">
@@ -222,10 +222,7 @@ function SignalCard({ signal, index }) {
             <Icon size={24} />
           </div>
           <div className="flex items-center gap-2 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-full">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentTheme.glow}`}></span>
-              <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${currentTheme.glow}`}></span>
-            </span>
+            <span className={`h-2.5 w-2.5 rounded-full ${currentTheme.glow}`}></span>
             <span className={`text-[10px] font-black tracking-wider uppercase ${currentTheme.badge}`}>
               {signal.alert}
             </span>
@@ -781,10 +778,12 @@ export default function RetentionIntelligence() {
             </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {signalsData.map((sig, i) => (
-              <SignalCard key={i} signal={sig} index={i} />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+            {signalsData.map((sig, i) => {
+              let colClass = "col-span-1 md:col-span-1 lg:col-span-2"
+              if (i === 3) colClass += " lg:col-start-2"
+              return <SignalCard key={i} signal={sig} index={i} colClass={colClass} />
+            })}
           </div>
         </div>
       </section>

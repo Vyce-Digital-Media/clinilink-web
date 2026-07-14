@@ -152,7 +152,7 @@ function WorkflowStep({ step, index, total, progress }) {
   )
 }
 
-function InfraItem({ label, index }) {
+function InfraItem({ label, index, colClass = "" }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-50px' })
 
@@ -162,10 +162,10 @@ function InfraItem({ label, index }) {
       initial={{ opacity: 0, x: -24 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="flex items-center gap-4 text-lg font-bold text-slate-700
+      className={`flex items-center gap-4 text-lg font-bold text-slate-700
                  bg-white p-6 rounded-2xl shadow-md shadow-slate-200/50 border border-slate-100
                  hover:shadow-xl hover:shadow-blue-500/8 hover:-translate-x-1
-                 hover:border-blue-100 transition-all duration-400 group cursor-default"
+                 hover:border-blue-100 transition-all duration-400 group cursor-default ${colClass}`}
     >
       <CheckCircle2
         className="text-emerald-500 shrink-0 group-hover:scale-110 transition-transform duration-300"
@@ -458,10 +458,12 @@ export default function Platform() {
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Enterprise-Ready Infrastructure</h2>
             </RevealLine>
           </div>
-          <ul className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
-            {infraItems.map((item, i) => (
-              <InfraItem key={i} label={item} index={i} />
-            ))}
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-6 gap-5 max-w-5xl mx-auto">
+            {infraItems.map((item, i) => {
+              let colClass = "col-span-1 sm:col-span-1 lg:col-span-2"
+              if (i === 3) colClass += " lg:col-start-2"
+              return <InfraItem key={i} label={item} index={i} colClass={colClass} />
+            })}
           </ul>
         </div>
       </section>

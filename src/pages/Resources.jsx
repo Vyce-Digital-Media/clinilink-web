@@ -63,8 +63,7 @@ function InsightCard({ insight, index }) {
         <div className="relative z-10 flex flex-col gap-6 h-full">
 
 
-          <h3 className="text-2xl md:text-3xl font-black text-white leading-tight
-                         group-hover:text-blue-300 transition-colors duration-300">
+          <h3 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">
             {insight.title}
           </h3>
 

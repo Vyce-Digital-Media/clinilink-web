@@ -172,10 +172,17 @@ export default function About() {
               What We Focus On
             </h2>
           </RevealLine>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {focusAreas.map((area, i) => (
-              <FocusAreaCard key={i} area={area} index={i} />
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
+            {focusAreas.map((area, i) => {
+              // 3 items on top row, 2 items on bottom row centered for large screens
+              let colClass = "col-span-1 md:col-span-1 lg:col-span-2"
+              if (i === 3) colClass += " lg:col-start-2"
+              return (
+                <div key={i} className={colClass}>
+                  <FocusAreaCard area={area} index={i} />
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -440,7 +447,7 @@ function FocusAreaCard({ area, index }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative overflow-hidden rounded-[2.5rem] bg-slate-900/40 border border-slate-800/80 p-10 transition-all duration-500 hover:border-blue-500/30 hover:bg-slate-900/60 hover:shadow-2xl hover:shadow-blue-500/5 group cursor-default"
+      className="relative h-full overflow-hidden rounded-[2.5rem] bg-slate-900/40 border border-slate-800/80 p-10 transition-all duration-500 hover:border-blue-500/30 hover:bg-slate-900/60 hover:shadow-2xl hover:shadow-blue-500/5 group cursor-default"
     >
       {/* Cursor spotlight glow */}
       <div
