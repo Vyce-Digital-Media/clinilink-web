@@ -5,6 +5,7 @@ import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
+import SubscribeForm from '../components/ui/SubscribeForm'
 import RESOURCES_IMG from '../assets/resources_infographic.png'
 
 /* ─── Data (unchanged) ─────────────────────────────────────────────────────── */
@@ -53,7 +54,7 @@ function InsightCard({ insight, index }) {
       transition={{ duration: 0.65, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="group cursor-pointer h-full"
     >
-      <div className="bg-white border border-slate-200 rounded-[2rem] p-10 cursor-default
+      <div className="bg-white border border-slate-200 rounded-[2rem] p-10 cursor-default h-full
                       transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_60px_rgba(59,130,246,0.08)]">
 
         {/* Top accent line — pure CSS, no motion */}
@@ -144,37 +145,6 @@ function ThoughtLeadershipRow({ item, index }) {
   )
 }
 
-function DarkCard({ delay, icon: Icon, title, desc, footer }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative rounded-[2rem] border border-slate-800 bg-slate-900 p-10 md:p-14 overflow-hidden
-                 hover:border-indigo-500/30 transition-colors duration-500"
-    >
-      {/* Watermark icon — CSS transitions only */}
-      <div className="absolute -bottom-8 -right-8 text-white/[0.03] group-hover:text-white/[0.07]
-                      group-hover:scale-110 transition-all duration-700 pointer-events-none origin-bottom-right">
-        <Icon size={160} />
-      </div>
-
-      <div className="relative z-10">
-        <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20
-                        flex items-center justify-center mb-8">
-          <Icon size={26} className="text-indigo-400" />
-        </div>
-        <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-4">{title}</h2>
-        <p className="text-slate-400 font-medium text-lg leading-relaxed mb-10">{desc}</p>
-        {footer}
-      </div>
-    </motion.div>
-  )
-}
 
 /* ─── Page ──────────────────────────────────────────────────────────────────── */
 
@@ -187,7 +157,7 @@ export default function Resources() {
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
 
           {/* Left Text */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-6 space-y-6">
             <RevealLine delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 leading-[1.05]">
                 Insights & <br />
@@ -204,18 +174,17 @@ export default function Resources() {
                 Explore short insights, tools, and updates on participant engagement, retention risk, and proactive trial operations.
               </p>
             </FadeIn>
-            <FadeIn delay={0.6} className="pt-2">
-              <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase
-                                         hover:bg-blue-600 transition-all duration-500 inline-flex group relative overflow-hidden">
-                <span className="flex items-center gap-3 relative z-10">
-                  Subscribe for Updates <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </HoverButton>
+            <FadeIn delay={0.6} className="pt-2 w-full">
+              <SubscribeForm 
+                containerClassName="w-full max-w-xl"
+                inputClassName="flex-1 w-full px-4 py-4 bg-white border-2 border-slate-200 rounded-none text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-0 transition-all font-medium"
+                buttonClassName="w-full sm:w-auto px-5 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex items-center justify-center group relative overflow-hidden"
+              />
             </FadeIn>
           </div>
 
           {/* Right Hero Image */}
-          <div className="lg:col-span-7 relative h-[500px] hidden lg:flex items-center justify-center overflow-hidden rounded-3xl">
+          <div className="lg:col-span-6 relative h-[500px] hidden lg:flex items-center justify-center overflow-hidden rounded-3xl">
             <FadeIn delay={0.4} className="w-full h-full p-4">
               <img
                 src={RESOURCES_IMG}
@@ -279,53 +248,6 @@ export default function Resources() {
         </div>
       </section>
 
-      {/* ── CASE STUDIES & DOWNLOADS ─────────────────────────────────────────── */}
-      <section className="py-36 px-6 bg-slate-950 relative z-10 border-y border-slate-900">
-        {/* Subtle static ambient glow — no animation loop */}
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full
-                        bg-indigo-500/5 blur-[160px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full
-                        bg-blue-500/5 blur-[160px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-8">
-          <DarkCard
-            delay={0.1}
-            icon={FileText}
-            title="Case Studies & Operational Learnings"
-            desc="Pilot results, workflow improvements, and engagement outcomes."
-            footer={
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
-                              bg-white/5 border border-white/10 text-slate-400 text-sm font-bold">
-                Coming Soon
-              </div>
-            }
-          />
-          <DarkCard
-            delay={0.2}
-            icon={Download}
-            title="Downloadable Content"
-            desc="Playbooks, checklists, templates, and whitepapers."
-            footer={
-              <div className="space-y-3">
-                {['Retention Playbook 2026', 'Site Workflow Templates'].map((label, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 text-slate-300 font-bold cursor-pointer group/link
-                               bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/5
-                               hover:border-indigo-500/30 hover:translate-x-1.5
-                               transition-all duration-300"
-                  >
-                    <Download size={20} className="text-indigo-400 shrink-0" />
-                    <span className="flex-1 text-sm">{label}</span>
-                    <ArrowRight size={16}
-                      className="text-slate-600 group-hover/link:text-indigo-400 transition-colors" />
-                  </div>
-                ))}
-              </div>
-            }
-          />
-        </div>
-      </section>
 
       {/* ── FINAL CTA — matches About page style exactly ──────────────────────── */}
       <section className="py-32 text-center px-6 relative z-10 bg-white">
@@ -339,21 +261,13 @@ export default function Resources() {
             </h2>
           </RevealLine>
 
-          <FadeIn delay={0.4} className="pt-6 flex flex-col sm:flex-row justify-center gap-4">
-            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
-                                       hover:bg-primary transition-all duration-500
-                                       shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
-              <span className="flex items-center gap-3 relative z-10">
-                Subscribe for Updates
-              </span>
-
-            </HoverButton>
-            <HoverButton className="px-12 py-6 bg-white text-slate-900 border border-slate-200 rounded-full
-                                       font-black text-xl hover:bg-slate-50 transition-colors shadow-md
-                                       inline-flex justify-center group gap-3 items-center">
-              Book a Demo
-              <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
-            </HoverButton>
+          <FadeIn delay={0.4} className="pt-6 flex flex-col items-center gap-6">
+            <SubscribeForm 
+              containerClassName="w-full max-w-2xl mx-auto"
+              showIcon={false}
+              inputClassName="flex-1 w-full px-6 py-5 bg-white border border-slate-300 rounded-full text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm font-medium text-lg"
+              buttonClassName="w-full sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary transition-all duration-500 shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex justify-center items-center group relative overflow-hidden"
+            />
           </FadeIn>
         </div>
       </section>

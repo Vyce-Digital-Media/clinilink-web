@@ -164,7 +164,7 @@ export default function Home() {
                     </span>
                   </HoverButton>
                   <HoverButton className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-black/5 group">
-                    <span className="text-sm sm:text-base flex items-center gap-2">Book a Demo</span>
+                    <span className="text-sm sm:text-base flex items-center gap-2">Schedule a Demo</span>
                   </HoverButton>
                 </FadeIn>
               </div>

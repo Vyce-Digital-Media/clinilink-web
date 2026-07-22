@@ -229,7 +229,7 @@ export default function Solutions() {
                                        hover:bg-blue-50 transition-all duration-500
                                        shadow-[0_0_40px_rgba(59,130,246,0.3)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
-                Book a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                Schedule a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </HoverButton>
           </FadeIn>

@@ -5,6 +5,7 @@ import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
 import InteractiveGrid from '../components/ui/InteractiveGrid'
+import SubscribeForm from '../components/ui/SubscribeForm'
 import ABOUT_IMG from '../assets/about_infographic.png'
 
 export default function About() {
@@ -42,10 +43,10 @@ export default function About() {
 
   const missionParagraphs = [
     "Our mission is to give sponsors, CROs, and research sites earlier visibility into participant-level retention risk.",
-    "We help teams answer three important questions:",
-    "Who may be at risk?",
-    "Why are they at risk?",
-    "What action should happen next?"
+    {
+      title: "We help teams answer three important questions:",
+      text: "Who may be at risk? <br> Why are they at risk? <br> What action should happen next?"
+    }
   ]
 
   const approachParagraphs = [
@@ -101,15 +102,13 @@ export default function About() {
             </FadeIn>
 
             {/* CTA Buttons */}
-            <FadeIn delay={0.8} className="flex flex-wrap items-center gap-6 pt-4">
-              <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex group relative overflow-hidden">
-                <span className="flex items-center gap-3 relative z-10">
-                  Explore a Pilot Partnership <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </HoverButton>
-              <button className="px-8 py-4 bg-transparent text-slate-900 rounded-none font-bold text-sm tracking-wide uppercase hover:text-blue-600 border-2 border-slate-900 hover:border-blue-600 transition-all duration-300 inline-flex items-center gap-3">
-                Book a Demo
-              </button>
+            <FadeIn delay={0.8} className="pt-4 w-full">
+              <SubscribeForm 
+                buttonText="Explore a Pilot Partnership"
+                containerClassName="w-full max-w-2xl"
+                inputClassName="flex-1 w-full px-5 py-4 bg-white border-2 border-slate-200 rounded-none text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-0 transition-all font-medium"
+                buttonClassName="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex items-center justify-center group relative overflow-hidden shrink-0"
+              />
             </FadeIn>
           </div>
 
@@ -300,7 +299,7 @@ export default function About() {
               </span>
             </HoverButton>
             <button className="px-10 py-5 bg-transparent text-slate-900 rounded-none font-bold text-base tracking-wide uppercase hover:text-blue-600 border-2 border-slate-900 hover:border-blue-600 transition-all duration-300 inline-flex items-center gap-3">
-              Book a Demo
+              Schedule a Demo
             </button>
           </FadeIn>
         </div>
@@ -382,7 +381,10 @@ function TimelineWord({ word, index, totalWords, startRange, endRange, progress 
 }
 
 function TimelineParagraph({ text, index, total, progress }) {
-  const words = text.split(" ")
+  const isObject = typeof text === 'object'
+  const title = isObject ? text.title : null
+  const content = isObject ? text.text : text
+  const words = content.split(" ")
 
   // Calculate activation range based on parent scroll progress
   const startRange = index / total
@@ -412,19 +414,28 @@ function TimelineParagraph({ text, index, total, progress }) {
         className="absolute -left-[37px] sm:-left-[53px] top-2.5 w-4 h-4 rounded-full border-4 border-white z-20 transition-all duration-300"
       />
 
+      {title && (
+        <h4 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-6">
+          {title}
+        </h4>
+      )}
+
       {/* Paragraph Text with Word-by-Word Smooth Highlight */}
       <p className="text-xl sm:text-2xl font-semibold leading-relaxed flex flex-wrap gap-x-[6px] gap-y-1">
-        {words.map((word, i) => (
-          <TimelineWord
-            key={i}
-            word={word}
-            index={i}
-            totalWords={words.length}
-            startRange={startRange}
-            endRange={endRange}
-            progress={progress}
-          />
-        ))}
+        {words.map((word, i) => {
+          if (word === '<br>') return <div key={i} className="basis-full h-4" />;
+          return (
+            <TimelineWord
+              key={i}
+              word={word}
+              index={i}
+              totalWords={words.length}
+              startRange={startRange}
+              endRange={endRange}
+              progress={progress}
+            />
+          )
+        })}
       </p>
     </motion.div>
   )

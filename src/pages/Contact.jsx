@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { MapPin, ArrowRight } from 'lucide-react';
-import HoverButton from '../components/ui/HoverButton';
 
 export default function Contact() {
   const mapRef = useRef(null);
@@ -114,13 +113,8 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="py-10 flex flex-wrap items-center gap-4"
             >
-              <HoverButton className="px-6 py-3 bg-blue-600 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-500 transition-all duration-500 inline-flex group relative overflow-hidden">
-                <span className="flex items-center gap-2 relative z-10">
-                  Explore a Pilot Partnership <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </HoverButton>
               <button className="px-6 py-3 bg-transparent text-white rounded-none font-bold text-sm tracking-wide uppercase hover:text-blue-400 border-2 border-white hover:border-blue-400 transition-all duration-300 inline-flex items-center gap-2">
-                Book a Demo
+                Schedule a Demo
               </button>
             </motion.div>
 
@@ -286,18 +280,13 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Contact Info */}
-            <div className="space-y-12">
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">Direct Contact</h2>
-                <p className="text-slate-600 text-lg font-medium">Email: <a href="mailto:hello@clinilinkhealth.com" className="text-blue-600 hover:text-blue-700 transition-colors">hello@clinilinkhealth.com</a></p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="text-2xl font-black text-slate-900 uppercase">Address</h3>
-                <div className="text-slate-600 text-lg leading-relaxed space-y-1">
+            <div className="flex flex-col justify-center h-full py-8 lg:py-0">
+              <div className="space-y-6">
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight uppercase">Address</h2>
+                <div className="text-slate-600 text-xl md:text-2xl font-medium leading-relaxed space-y-3">
                   <p>59 Lowe’s Way, Ste 104-B</p>
                   <p>Lowell, MA 01851</p>
-                  <p className="pt-2">Tel : <a href="tel:8574128030" className="hover:text-blue-600 transition-colors">857.412.8030</a></p>
+                  <p className="pt-4">Tel : <a href="tel:8574128030" className="hover:text-blue-600 transition-colors">857.412.8030</a></p>
                   <p>Email : <a href="mailto:info@clinilinkhealth.com" className="text-blue-600 hover:text-blue-700 transition-colors">info@clinilinkhealth.com</a></p>
                 </div>
               </div>

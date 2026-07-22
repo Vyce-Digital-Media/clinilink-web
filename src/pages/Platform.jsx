@@ -39,14 +39,6 @@ const workflowSteps = [
   { label: 'Engagement Tracking', color: 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300' }
 ]
 
-const infraItems = [
-  'HIPAA-ready architecture',
-  'Secure participant data handling',
-  'Role-based access controls',
-  'Integration-ready workflows',
-  'Configurable operational support'
-]
-
 /* ── Sub-components ──────────────────────────────────────────────────────── */
 
 function CapabilityCard({ item, index }) {
@@ -152,30 +144,6 @@ function WorkflowStep({ step, index, total, progress }) {
   )
 }
 
-function InfraItem({ label, index, colClass = "" }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-50px' })
-
-  return (
-    <motion.li
-      ref={ref}
-      initial={{ opacity: 0, x: -24 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex items-center gap-4 text-lg font-bold text-slate-700
-                 bg-white p-6 rounded-2xl shadow-md shadow-slate-200/50 border border-slate-100
-                 hover:shadow-xl hover:shadow-blue-500/8 hover:-translate-x-1
-                 hover:border-blue-100 transition-all duration-400 group cursor-default ${colClass}`}
-    >
-      <CheckCircle2
-        className="text-emerald-500 shrink-0 group-hover:scale-110 transition-transform duration-300"
-        size={24}
-      />
-      {label}
-    </motion.li>
-  )
-}
-
 /* ── Page ──────────────────────────────────────────────────────────────────── */
 
 export default function Platform() {
@@ -218,7 +186,7 @@ export default function Platform() {
                                          hover:bg-primary transition-all duration-500
                                          shadow-[0_10px_40px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
                 <span className="flex items-center gap-2 relative z-10">
-                  Book a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  Schedule a Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </HoverButton>
             </FadeIn>
@@ -320,21 +288,27 @@ export default function Platform() {
 
                 <div className="h-px bg-slate-100 my-6" />
 
-                <ul className="space-y-4">
-                  {[
-                    "Key signals:",
-                    "Participant fit · Study burden · Engagement likelihood · Completion risk",
-                    "What it helps teams do:",
-                    "Identify stronger-fit participants",
-                    "Improve enrollment quality",
-                    "Reduce avoidable dropout risk"
-                  ].map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
-                      <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-slate-900 font-bold mb-2 text-sm">Key signals:</h4>
+                    <p className="text-slate-600 text-sm">Participant fit · Study burden · Engagement likelihood · Completion risk</p>
+                  </div>
+                  <div>
+                    <h4 className="text-slate-900 font-bold mb-3 text-sm">What it helps teams do:</h4>
+                    <ul className="space-y-3">
+                      {[
+                        "Identify stronger-fit participants",
+                        "Improve enrollment quality",
+                        "Reduce avoidable dropout risk"
+                      ].map((bullet, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
+                          <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -358,22 +332,28 @@ export default function Platform() {
 
                 <div className="h-px bg-slate-100 my-6" />
 
-                <ul className="space-y-4">
-                  {[
-                    "Key signals:",
-                    "Missed touchpoints · Low response · Visit risk · Disengagement · Follow-up gaps",
-                    "What it helps teams do:",
-                    "Detect risk earlier",
-                    "Prioritize coordinator follow-up",
-                    "Trigger intervention workflows",
-                    "Protect study continuity"
-                  ].map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
-                      <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-slate-900 font-bold mb-2 text-sm">Key signals:</h4>
+                    <p className="text-slate-600 text-sm">Missed touchpoints · Low response · Visit risk · Disengagement · Follow-up gaps</p>
+                  </div>
+                  <div>
+                    <h4 className="text-slate-900 font-bold mb-3 text-sm">What it helps teams do:</h4>
+                    <ul className="space-y-3">
+                      {[
+                        "Detect risk earlier",
+                        "Prioritize coordinator follow-up",
+                        "Trigger intervention workflows",
+                        "Protect study continuity"
+                      ].map((bullet, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
+                          <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={18} />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -447,24 +427,6 @@ export default function Platform() {
               className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
             />
           </FadeIn>
-        </div>
-      </section>
-
-      {/* ── INFRASTRUCTURE ────────────────────────────────────────────────────── */}
-      <section className="py-36 bg-slate-50 border-y border-slate-100 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <RevealLine>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Enterprise-Ready Infrastructure</h2>
-            </RevealLine>
-          </div>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-6 gap-5 max-w-5xl mx-auto">
-            {infraItems.map((item, i) => {
-              let colClass = "col-span-1 sm:col-span-1 lg:col-span-2"
-              if (i === 3) colClass += " lg:col-start-2"
-              return <InfraItem key={i} label={item} index={i} colClass={colClass} />
-            })}
-          </ul>
         </div>
       </section>
 

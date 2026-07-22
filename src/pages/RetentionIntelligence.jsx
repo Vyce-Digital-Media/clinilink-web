@@ -684,55 +684,7 @@ export default function RetentionIntelligence() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_white_70%)]" />
         </div>
 
-        {/* Floating Data Badges */}
-        <div className="absolute inset-0 z-10 pointer-events-none hidden md:block">
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="absolute top-[20%] left-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-sm font-mono text-emerald-600 font-bold tracking-tight">Signal: Normal</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="absolute bottom-[25%] right-[15%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
-          >
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-            <span className="text-sm font-mono text-amber-600 font-bold tracking-tight">Risk Detected</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 2, duration: 0.5 }}
-            className="absolute top-[20%] right-[18%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
-          >
-            <Activity size={16} className="text-blue-600" />
-            <span className="text-sm font-mono text-blue-600 font-bold tracking-tight">Monitoring 1,248 PTs</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 2.5, duration: 0.5 }}
-            className="absolute bottom-[20%] left-[20%] bg-white/80 backdrop-blur border border-slate-200 shadow-md px-4 py-2 rounded-xl flex items-center gap-2.5"
-          >
-            <ShieldCheck size={16} className="text-indigo-600" />
-            <span className="text-sm font-mono text-indigo-600 font-bold tracking-tight">System Secured</span>
-          </motion.div>
-        </div>
-
         <div className="space-y-8 max-w-5xl mx-auto text-center relative z-20 shrink-0">
-          <RevealLine>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 border border-blue-100 text-blue-600 font-mono text-xs tracking-widest uppercase mb-2 shadow-sm font-bold">
-              <Zap size={14} className="text-blue-500" /> Live Telemetry Online
-            </div>
-          </RevealLine>
           <RevealLine delay={0.1}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase drop-shadow-sm">
               Retention Intelligence{' '}
