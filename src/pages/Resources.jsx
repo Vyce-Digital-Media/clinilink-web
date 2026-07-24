@@ -161,7 +161,7 @@ export default function Resources() {
             <RevealLine delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 leading-[1.05]">
                 Insights & <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Resources</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pr-2 pb-1">Resources</span>
               </h1>
             </RevealLine>
             <FadeIn delay={0.3}>
