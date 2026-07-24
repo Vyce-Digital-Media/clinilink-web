@@ -688,7 +688,7 @@ export default function RetentionIntelligence() {
           <RevealLine delay={0.1}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase drop-shadow-sm">
               Retention Intelligence{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 pr-2 pb-1">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 pr-2 pb-1 pt-2 pl-1">
                 Command Center
               </span>
             </h1>
