@@ -670,7 +670,7 @@ export default function Home() {
             <RevealLine>
               <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-black text-slate-900 tracking-tighter leading-[1.1]">
                 Retention management should not <br />
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">start after participants disengage.</span>
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary pb-2 pr-2">start after participants disengage.</span>
               </h2>
             </RevealLine>
             <FadeIn delay={0.2}>
