@@ -132,19 +132,11 @@ export default function Home() {
               <div className="lg:col-span-6 flex flex-col items-start text-left pointer-events-none">
                 {/* Removed extra text as per text file */}
 
-                <div className="space-y-1 mb-6">
+                <div className="mb-6">
                   <RevealLine delay={0.1}>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[1.05]">
-                      Predict patient dropout
-                    </h1>
-                  </RevealLine>
-                  <RevealLine delay={0.2}>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.05]">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-secondary italic pr-3">before it disrupts</span>
-                    </h1>
-                  </RevealLine>
-                  <RevealLine delay={0.3}>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[1.05]">
+                      Predict patient dropout <br />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-secondary italic pr-3">before it disrupts</span> <br />
                       your trial.
                     </h1>
                   </RevealLine>

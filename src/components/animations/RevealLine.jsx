@@ -6,7 +6,7 @@ export function RevealLine({ children, delay = 0, className = '' }) {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <div ref={ref} className={`overflow-hidden py-6 -my-6 px-6 -mx-6 ${className}`}>
+    <div ref={ref} className={`overflow-hidden py-6 -my-6 pr-6 -mr-6 ${className}`}>
       <motion.div
         initial={{ y: '100%', opacity: 0 }}
         animate={isInView ? { y: '0%', opacity: 1 } : {}}
