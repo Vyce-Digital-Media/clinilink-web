@@ -77,32 +77,22 @@ const audiences = [
 /* ── Sub-components ──────────────────────────────────────────────────────── */
 
 function BulletRow({ head, body, accent, dim, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-50px' })
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -20 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.55, delay: 0.1 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className={`group space-y-1 border-l-2 pl-4 transition-colors duration-300 ${index === 0 ? accent : dim}`}
     >
       <h4 className="font-black text-lg text-slate-900">{head}</h4>
       <p className="text-slate-600 font-medium">{body}</p>
-    </motion.div>
+    </div>
   )
 }
 
 function AudienceBlock({ a, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
   const isFlipped = a.flip
   const TagIcon = a.tagIcon
 
   return (
     <section
-      ref={ref}
       className={`py-36 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center
                   ${index > 0 ? 'border-t border-slate-100' : ''} relative z-10 bg-white`}
     >
@@ -127,10 +117,7 @@ function AudienceBlock({ a, index }) {
       </div>
 
       {/* Image side */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.75, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      <div
         className={`rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 h-[520px] relative group
                     ${isFlipped ? 'lg:order-1' : ''}`}
       >
@@ -140,22 +127,16 @@ function AudienceBlock({ a, index }) {
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent pointer-events-none" />
-      </motion.div>
+      </div>
     </section>
   )
 }
 
-function BenefitCard({ benefit, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+function BenefitCard({ benefit }) {
   const Icon = benefit.icon
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 36 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className="group bg-slate-800 border border-slate-700 p-10 rounded-[2rem]
                  hover:bg-slate-750 hover:border-slate-600
                  hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]
@@ -166,7 +147,7 @@ function BenefitCard({ benefit, index }) {
         className="text-primary mb-8 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
       />
       <h3 className="text-2xl font-black leading-tight text-white">{benefit.title}</h3>
-    </motion.div>
+    </div>
   )
 }
 
@@ -213,7 +194,7 @@ export default function Solutions() {
           <RevealLine delay={0.1}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-[0.95] uppercase">
               Retention Solutions{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 pr-2 pb-1">
                 for Modern
               </span>{' '}
               Clinical Trials
@@ -282,7 +263,7 @@ export default function Solutions() {
           <RevealLine>
             <h2 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-none uppercase">
               See How CliniLink Supports{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500 pr-2 pb-1">
                 Modern Retention Operations
               </span>
             </h2>

@@ -133,7 +133,7 @@ export default function FloatingGallery({ items }) {
           </p>
           <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-black tracking-tighter text-white leading-[0.88] uppercase">
             The Science<br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-sky-300 to-secondary">
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-sky-300 to-secondary pr-2 pb-1">
               of Retention
             </span>
           </h2>

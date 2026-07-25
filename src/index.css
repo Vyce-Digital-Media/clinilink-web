@@ -40,3 +40,13 @@
 .animate-marquee-hover-pause:hover .animate-marquee {
   animation-play-state: paused;
 }
+
+@layer utilities {
+  /* Globally prevent glyph clipping on gradient text without altering layout or responsive text wrapping */
+  .bg-clip-text {
+    padding: 0.2em 0.3em !important;
+    margin: -0.2em -0.3em !important;
+    -webkit-box-decoration-break: clone !important;
+    box-decoration-break: clone !important;
+  }
+}

@@ -42,15 +42,8 @@ const workflowSteps = [
 /* ── Sub-components ──────────────────────────────────────────────────────── */
 
 function CapabilityCard({ item, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 36 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className="group relative p-10 rounded-[2rem] bg-white border border-slate-100
                  shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-blue-500/8
                  transition-all duration-500 overflow-hidden cursor-default"
@@ -72,7 +65,7 @@ function CapabilityCard({ item, index }) {
           {item.subtitle}
         </p>
       )}
-    </motion.div>
+    </div>
   )
 }
 
@@ -170,7 +163,7 @@ export default function Platform() {
             <RevealLine delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase">
                 Two Platforms.<br />
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500 pr-2 pb-1">
                   One Goal:
                 </span><br />
                 Better Trial Retention.
@@ -436,7 +429,7 @@ export default function Platform() {
           <RevealLine>
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
               See the{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500 pr-2 pb-1">
                 CliniLink Platform
               </span>{' '}
               in Action

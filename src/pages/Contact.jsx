@@ -259,17 +259,13 @@ export default function Contact() {
                 desc: "For sites, CROs, advisors, or technology partners interested in collaboration."
               }
             ].map((item, i) => (
-              <motion.div 
+              <div 
                 key={i} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-slate-50 p-10 rounded-[2rem] border border-slate-100 hover:shadow-xl transition-all duration-300 text-center"
               >
                 <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight mb-4">{item.title}</h3>
                 <p className="text-slate-600 text-lg leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -306,11 +302,7 @@ export default function Contact() {
               />
               {/* Floating Marker Card */}
               <div className="absolute top-6 left-6 z-10 p-2 pointer-events-none">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                <div
                   className="bg-white/95 backdrop-blur-md p-5 rounded-3xl shadow-2xl flex items-center gap-5 border border-white/50 max-w-xs pointer-events-auto"
                 >
                   <div className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg shrink-0">
@@ -320,7 +312,7 @@ export default function Contact() {
                     <p className="font-black text-lg text-slate-900 leading-tight">CliniLink</p>
                     <p className="text-[11px] text-slate-500 font-semibold mt-1">59 Lowe’s Way, Ste 104-B</p>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>

@@ -141,17 +141,11 @@ function WorkflowStep({ step, index, progress }) {
   )
 }
 
-function BenefitCard({ benefit, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+function BenefitCard({ benefit }) {
   const Icon = benefit.icon
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 36 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className="group bg-white border border-slate-250/80 p-8 rounded-[2rem]
                  shadow-lg shadow-slate-200/40 hover:shadow-2xl
                  hover:shadow-blue-500/10 hover:border-blue-200
@@ -169,7 +163,7 @@ function BenefitCard({ benefit, index }) {
       <p className="text-slate-600 text-sm leading-relaxed font-semibold">
         {benefit.desc}
       </p>
-    </motion.div>
+    </div>
   )
 }
 
@@ -209,11 +203,7 @@ function SignalCard({ signal, index, colClass = "" }) {
   const currentTheme = colorMap[signal.color] || colorMap.blue
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <div
       className={`border rounded-[2rem] p-8 bg-white shadow-lg hover:shadow-2xl transition-all duration-400 flex flex-col justify-between ${currentTheme.border} ${colClass}`}
     >
       <div>
@@ -243,7 +233,7 @@ function SignalCard({ signal, index, colClass = "" }) {
           />
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -688,7 +678,7 @@ export default function RetentionIntelligence() {
           <RevealLine delay={0.1}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] uppercase drop-shadow-sm">
               Retention Intelligence{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 pr-2 pb-1 pt-2 pl-1">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 pr-2 pb-1">
                 Command Center
               </span>
             </h1>
@@ -795,7 +785,7 @@ export default function RetentionIntelligence() {
           <RevealLine>
             <h2 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-none uppercase">
               See{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500 pr-2 pb-1">
                 Retention Intelligence
               </span>{' '}
               in Action

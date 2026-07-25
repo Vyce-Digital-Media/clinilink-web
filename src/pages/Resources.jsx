@@ -42,18 +42,9 @@ const thoughtLeadership = [
 
 /* ─── Sub-components ────────────────────────────────────────────────────────── */
 
-function InsightCard({ insight, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
-
+function InsightCard({ insight }) {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="group cursor-pointer h-full"
-    >
+    <div className="group cursor-pointer h-full">
       <div className="bg-white border border-slate-200 rounded-[2rem] p-10 cursor-default h-full
                       transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_60px_rgba(59,130,246,0.08)]">
 
@@ -74,7 +65,7 @@ function InsightCard({ insight, index }) {
 
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -107,18 +98,9 @@ function CategoryTicker() {
   )
 }
 
-function ThoughtLeadershipRow({ item, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
-
+function ThoughtLeadershipRow({ item }) {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -30 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-      className="group cursor-pointer relative"
-    >
+    <div className="group cursor-pointer relative">
       {/* Left accent bar — CSS only */}
       <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-gradient-to-b from-blue-400 to-indigo-500
                       origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-400 ease-out" />
@@ -141,7 +123,7 @@ function ThoughtLeadershipRow({ item, index }) {
           <ArrowRight size={22} />
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -255,7 +237,7 @@ export default function Resources() {
           <RevealLine>
             <h2 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-none uppercase">
               Stay Connected to the Future of{' '}
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500">
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500 pr-2 pb-1">
                 Clinical Trial Retention
               </span>
             </h2>
