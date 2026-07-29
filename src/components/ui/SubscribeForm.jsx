@@ -13,7 +13,7 @@ export default function SubscribeForm({
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
     
@@ -25,13 +25,37 @@ export default function SubscribeForm({
       return;
     }
 
-    // Open mailto link to send the subscription request
-    const subject = encodeURIComponent("New Subscription Request");
-    const body = encodeURIComponent(`Please add the following email to your updates list:\n\n${email}`);
-    window.location.href = `mailto:pkshah@clinilinkhealth.com?subject=${subject}&body=${body}`;
-    
-    setStatus('success');
-    setEmail('');
+    setStatus('loading');
+
+    try {
+      // We use Web3Forms to send the email automatically in the background
+      // You will need to get an access key from https://web3forms.com/
+      // by entering pkshah@clinilinkhealth.com on their website
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", // Replace with your actual Web3Forms access key
+          subject: "New Subscription Request",
+          from_name: "Clinilink Website",
+          message: `${email} has subscribed from the resources/about us page.`
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setErrorMsg('Failed to subscribe. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMsg('Network error. Please try again.');
+    }
   };
 
   if (status === 'success') {
