@@ -1,6 +1,6 @@
 import { ArrowRight, Activity, Users, Building2, Workflow, Eye, Clock, LayoutGrid, ShieldCheck } from 'lucide-react'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useInView, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import { useRef, useState } from 'react'
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
 import HoverButton from '../components/ui/HoverButton'
@@ -79,37 +79,30 @@ const audiences = [
 function BulletRow({ head, body, accent, dim, index }) {
   return (
     <div
-      className={`group space-y-1 border-l-2 pl-4 transition-colors duration-300 ${index === 0 ? accent : dim}`}
+      className={`group border-l-2 pl-4 transition-colors duration-300 ${index === 0 ? accent : dim} overflow-hidden`}
     >
-      <h4 className="font-black text-lg text-slate-900">{head}</h4>
-      <p className="text-slate-600 font-medium">{body}</p>
+      <h4 className="font-black text-base text-slate-900 truncate">{head}</h4>
+      <p className="text-sm text-slate-600 font-medium mt-0.5 truncate">{body}</p>
     </div>
   )
 }
 
 function AudienceBlock({ a, index }) {
-  const isFlipped = a.flip
   const TagIcon = a.tagIcon
 
   return (
     <section
-      className={`py-36 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center
-                  ${index > 0 ? 'border-t border-slate-100' : ''} relative z-10 bg-white`}
+      className={`w-full max-w-[1600px] mx-auto grid lg:grid-cols-12 gap-8 lg:gap-16 items-center px-6 lg:px-16`}
     >
       {/* Text side */}
-      <div className={`space-y-8 ${isFlipped ? 'lg:order-2' : ''}`}>
-        <RevealLine>
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${a.tagColor} text-sm font-bold mb-2`}>
-            <TagIcon size={15} /> {a.tag}
-          </div>
-        </RevealLine>
+      <div className="space-y-4 md:space-y-6 lg:col-span-7">
         <RevealLine delay={0.08}>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">{a.title}</h2>
+          <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">{a.title}</h2>
         </RevealLine>
         <FadeIn delay={0.2}>
-          <p className="text-xl text-slate-600 font-medium leading-relaxed">{a.desc}</p>
+          <p className="text-lg text-slate-600 font-medium leading-relaxed">{a.desc}</p>
         </FadeIn>
-        <div className="space-y-6 pt-2">
+        <div className="space-y-4 pt-1">
           {a.bullets.map((b, i) => (
             <BulletRow key={i} head={b.head} body={b.body} accent={a.accentColor} dim={a.dimColor} index={i} />
           ))}
@@ -118,8 +111,7 @@ function AudienceBlock({ a, index }) {
 
       {/* Image side */}
       <div
-        className={`rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 h-[520px] relative group
-                    ${isFlipped ? 'lg:order-1' : ''}`}
+        className="rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 h-[380px] lg:h-[460px] relative group lg:col-span-5"
       >
         <img
           src={a.image}
@@ -154,6 +146,21 @@ function BenefitCard({ benefit }) {
 /* ── Page ──────────────────────────────────────────────────────────────────── */
 
 export default function Solutions() {
+  const targetRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: targetRef })
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-66.666666%"])
+  const [activeTab, setActiveTab] = useState(0)
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest < 0.33) {
+      setActiveTab(0)
+    } else if (latest < 0.66) {
+      setActiveTab(1)
+    } else {
+      setActiveTab(2)
+    }
+  })
+
   return (
     <main className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
@@ -195,8 +202,9 @@ export default function Solutions() {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-[0.95] uppercase">
               Retention Solutions{' '}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 pr-2 pb-1">
-                for Modern
-              </span>{' '}
+                for
+              </span>
+              <br />
               Clinical Trials
             </h1>
           </RevealLine>
@@ -206,7 +214,7 @@ export default function Solutions() {
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-2 flex justify-center gap-4">
-            <HoverButton className="px-8 py-4 bg-white text-slate-900 rounded-full font-black
+            <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-8 py-4 bg-white text-slate-900 rounded-full font-black
                                        hover:bg-blue-50 transition-all duration-500
                                        shadow-[0_0_40px_rgba(59,130,246,0.3)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
@@ -218,8 +226,8 @@ export default function Solutions() {
       </section>
 
       {/* ── WHY RETENTION MATTERS ─────────────────────────────────────────────── */}
-      <section className="py-28 bg-slate-50 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+      <section className="pt-48 pb-16 bg-slate-50 px-6 relative z-10">
+        <div className="max-w-6xl mx-auto text-center space-y-8">
           <RevealLine>
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
               Retention Challenges Impact Every Trial Stakeholder
@@ -232,9 +240,43 @@ export default function Solutions() {
       </section>
 
       {/* ── AUDIENCE BLOCKS (CROs / Sponsors / Sites) ─────────────────────────── */}
-      {audiences.map((a, i) => (
-        <AudienceBlock key={i} a={a} index={i} />
-      ))}
+      <section ref={targetRef} className="relative h-[300vh] bg-slate-50 z-10">
+        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pt-20 lg:pt-24">
+          
+          {/* Sticky Tags Navigation */}
+          <div className="z-20 flex justify-center gap-4 md:gap-12 px-6 flex-wrap mb-8 md:mb-10">
+            {audiences.map((a, i) => {
+              const TagIcon = a.tagIcon
+              const isActive = activeTab === i
+              return (
+                <button 
+                  key={i}
+                  onClick={() => {
+                    if (targetRef.current) {
+                      window.scrollTo({
+                        top: targetRef.current.offsetTop + (window.innerHeight * i),
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 cursor-pointer
+                              ${isActive ? a.tagColor + ' shadow-md scale-105 ring-2 ' + a.accentColor.replace('border-', 'ring-') : 'bg-white text-slate-400 border border-slate-200 hover:bg-slate-50 hover:text-slate-600 hover:shadow-sm'}`}
+                >
+                  <TagIcon size={16} /> {a.tag}
+                </button>
+              )
+            })}
+          </div>
+
+          <motion.div style={{ x }} className="flex w-[300vw] items-center">
+            {audiences.map((a, i) => (
+              <div key={i} className="w-screen flex-shrink-0 flex items-center justify-center">
+                <AudienceBlock a={a} index={i} />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── CROSS-STUDY BENEFITS ──────────────────────────────────────────────── */}
       <section className="py-36 bg-slate-900 text-white px-6 relative z-10">
@@ -259,12 +301,12 @@ export default function Solutions() {
 
       {/* ── CTA ───────────────────────────────────────────────────────────────── */}
       <section className="py-32 text-center px-6 bg-white relative z-10">
-        <div className="max-w-4xl mx-auto space-y-12">
+        <div className="w-full max-w-[1600px] mx-auto space-y-12">
           <RevealLine>
             <h2 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-none uppercase">
-              See How CliniLink Supports{' '}
+              See How CliniLink Supports<br />
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500 pr-2 pb-1">
-                Modern Retention Operations
+                Retention Operations
               </span>
             </h2>
           </RevealLine>
@@ -274,7 +316,7 @@ export default function Solutions() {
             </p>
           </FadeIn>
           <FadeIn delay={0.4} className="pt-6 flex justify-center">
-            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
+            <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">

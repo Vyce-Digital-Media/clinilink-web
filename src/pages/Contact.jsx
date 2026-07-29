@@ -113,7 +113,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="py-10 flex flex-wrap items-center gap-4"
             >
-              <button className="px-6 py-3 bg-transparent text-white rounded-none font-bold text-sm tracking-wide uppercase hover:text-blue-400 border-2 border-white hover:border-blue-400 transition-all duration-300 inline-flex items-center gap-2">
+              <button onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-6 py-3 bg-transparent text-white rounded-none font-bold text-sm tracking-wide uppercase hover:text-blue-400 border-2 border-white hover:border-blue-400 transition-all duration-300 inline-flex items-center gap-2">
                 Schedule a Demo
               </button>
             </motion.div>
@@ -291,7 +291,7 @@ export default function Contact() {
             {/* Right: Map */}
             <div className="h-[400px] lg:h-[500px] w-full rounded-[2.5rem] overflow-hidden relative shadow-2xl border border-slate-200/50 bg-slate-100">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.138407421867!2d-71.06208572421375!3d42.36008247119047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708a514d232b%3A0xe54e60fc7986968c!2sMassachusetts%20General%20Hospital!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                src="https://maps.google.com/maps?q=59%20Lowe's%20Way,%20Lowell,%20MA%2001851&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(70%) contrast(95%) opacity(90%)" }}

@@ -103,8 +103,8 @@ export default function About() {
 
             {/* CTA Buttons */}
             <FadeIn delay={0.8} className="pt-4 w-full">
-              <SubscribeForm 
-                buttonText="Explore a Pilot Partnership"
+              <SubscribeForm
+                buttonText="Let's Connect"
                 containerClassName="w-full max-w-2xl"
                 inputClassName="flex-1 w-full px-5 py-4 bg-white border-2 border-slate-200 rounded-none text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-0 transition-all font-medium"
                 buttonClassName="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex items-center justify-center group relative overflow-hidden shrink-0"
@@ -194,7 +194,7 @@ export default function About() {
               Founder-Led
             </h2>
           </RevealLine>
-          
+
           <div className="space-y-8 text-center max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-black tracking-tight text-blue-600 uppercase">
               Built for the Next Generation of Trial Operations
@@ -221,7 +221,7 @@ export default function About() {
               Who We Serve
             </h2>
           </RevealLine>
-          
+
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {[
               {
@@ -292,13 +292,14 @@ export default function About() {
               We are looking to work with clinical research partners who want to improve participant engagement, reduce avoidable dropout, and create more proactive retention workflows.
             </p>
           </FadeIn>
-          <FadeIn delay={0.4} className="pt-6 flex flex-wrap items-center justify-center gap-6">
-            <HoverButton className="px-10 py-5 bg-slate-900 text-white rounded-none font-bold text-base tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex group relative overflow-hidden">
-              <span className="flex items-center gap-3 relative z-10">
-                Explore a Pilot Partnership <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-            </HoverButton>
-            <button className="px-10 py-5 bg-transparent text-slate-900 rounded-none font-bold text-base tracking-wide uppercase hover:text-blue-600 border-2 border-slate-900 hover:border-blue-600 transition-all duration-300 inline-flex items-center gap-3">
+          <FadeIn delay={0.4} className="pt-6 flex flex-col items-center justify-center gap-6 w-full">
+            <SubscribeForm
+              buttonText="Let's Connect"
+              containerClassName="w-full max-w-2xl mx-auto"
+              inputClassName="flex-1 w-full px-5 py-4 bg-white border-2 border-slate-200 rounded-none text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-0 transition-all font-medium"
+              buttonClassName="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex items-center justify-center group relative overflow-hidden shrink-0"
+            />
+            <button onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-10 py-5 bg-transparent text-slate-900 rounded-none font-bold text-base tracking-wide uppercase hover:text-blue-600 border-2 border-slate-900 hover:border-blue-600 transition-all duration-300 inline-flex items-center gap-3">
               Schedule a Demo
             </button>
           </FadeIn>

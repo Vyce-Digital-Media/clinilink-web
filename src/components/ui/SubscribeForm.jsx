@@ -25,13 +25,13 @@ export default function SubscribeForm({
       return;
     }
 
-    setStatus('loading');
-
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-      setEmail('');
-    }, 1000);
+    // Open mailto link to send the subscription request
+    const subject = encodeURIComponent("New Subscription Request");
+    const body = encodeURIComponent(`Please add the following email to your updates list:\n\n${email}`);
+    window.location.href = `mailto:pkshah@clinilinkhealth.com?subject=${subject}&body=${body}`;
+    
+    setStatus('success');
+    setEmail('');
   };
 
   if (status === 'success') {

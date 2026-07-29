@@ -155,7 +155,7 @@ export default function Home() {
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </HoverButton>
-                  <HoverButton className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-black/5 group">
+                  <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-black/5 group">
                     <span className="text-sm sm:text-base flex items-center gap-2">Schedule a Demo</span>
                   </HoverButton>
                 </FadeIn>
@@ -671,7 +671,7 @@ export default function Home() {
               </p>
             </FadeIn>
             <FadeIn delay={0.4} className="pt-8 flex justify-center">
-              <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary hover:text-white transition-colors duration-500 shadow-2xl shadow-primary/20 group overflow-hidden">
+              <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-primary hover:text-white transition-colors duration-500 shadow-2xl shadow-primary/20 group overflow-hidden">
                 <span className="relative z-10 flex items-center gap-3">
                   Schedule a Demo <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                 </span>

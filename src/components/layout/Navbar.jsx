@@ -89,7 +89,7 @@ export function Navbar() {
 
         {/* CTA BUTTONS */}
         <div className="flex items-center gap-3 z-20">
-          <a href="#" className="whitespace-nowrap px-5 py-2.5 rounded-full bg-primary hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] hover:scale-105 active:scale-95">
+          <a href="https://calendly.com/pkshah-zsk7" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap px-5 py-2.5 rounded-full bg-primary hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] hover:scale-105 active:scale-95">
             Schedule a Demo
           </a>
         </div>

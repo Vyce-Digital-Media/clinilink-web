@@ -175,7 +175,7 @@ export default function Platform() {
               </p>
             </FadeIn>
             <FadeIn delay={0.6} className="pt-2 flex gap-4 items-center">
-              <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold
+              <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold
                                          hover:bg-primary transition-all duration-500
                                          shadow-[0_10px_40px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
                 <span className="flex items-center gap-2 relative z-10">
@@ -424,10 +424,10 @@ export default function Platform() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────────── */}
-      <section className="py-32 text-center px-6 bg-white relative z-10">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <section className="pt-16 pb-48 text-center px-6 bg-white relative z-10">
+        <div className="w-full max-w-[1600px] mx-auto space-y-6">
           <RevealLine>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none uppercase">
               See the{' '}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-500 pr-2 pb-1">
                 CliniLink Platform
@@ -436,12 +436,12 @@ export default function Platform() {
             </h2>
           </RevealLine>
           <FadeIn delay={0.2}>
-            <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+            <p className="text-2xl md:text-3xl text-slate-600 font-medium leading-relaxed max-w-4xl mx-auto">
               Connected platforms working together to predict, prevent, and improve retention.
             </p>
           </FadeIn>
-          <FadeIn delay={0.4} className="pt-6 flex justify-center">
-            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
+          <FadeIn delay={0.4} className="flex justify-center">
+            <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">

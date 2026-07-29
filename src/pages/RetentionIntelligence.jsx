@@ -689,11 +689,11 @@ export default function RetentionIntelligence() {
             </p>
           </FadeIn>
           <FadeIn delay={0.6} className="pt-4 flex justify-center gap-6">
-            <HoverButton className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold uppercase tracking-wider text-sm
+            <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold uppercase tracking-wider text-sm
                                        hover:bg-blue-700 transition-all duration-500
                                        shadow-[0_10px_30px_rgba(37,99,235,0.2)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-2 relative z-10">
-                Initialize Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                Schedule a Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </HoverButton>
           </FadeIn>
@@ -796,8 +796,8 @@ export default function RetentionIntelligence() {
               Explore how CliniLink helps teams identify risk earlier and support proactive retention management.
             </p>
           </FadeIn>
-          <FadeIn delay={0.4} className="pt-6 flex justify-center">
-            <HoverButton className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
+          <FadeIn delay={0.4} className="flex justify-center -mt-2">
+            <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl
                                        hover:bg-primary transition-all duration-500
                                        shadow-[0_20px_50px_rgba(15,23,42,0.15)] inline-flex group relative overflow-hidden">
               <span className="flex items-center gap-3 relative z-10">
