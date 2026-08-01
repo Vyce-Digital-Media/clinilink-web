@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import HoverButton from './HoverButton';
 
-export default function SubscribeForm({ 
+export default function SubscribeForm({
   buttonClassName = "px-8 py-4 bg-slate-900 text-white font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex items-center justify-center group relative overflow-hidden",
   inputClassName = "flex-1 w-full px-5 py-4 bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm font-medium",
   buttonText = "Subscribe for Updates",
@@ -16,7 +16,7 @@ export default function SubscribeForm({
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
-    
+
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -38,7 +38,7 @@ export default function SubscribeForm({
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", // Replace with your actual Web3Forms access key
+          access_key: "8513ca49-8367-4a89-8f7c-044a79e55f7f", // Replace with your actual Web3Forms access key
           subject: "New Subscription Request",
           from_name: "Clinilink Website",
           message: `${email} has subscribed from the resources/about us page.`
@@ -81,8 +81,8 @@ export default function SubscribeForm({
           disabled={status === 'loading'}
           className={`disabled:opacity-50 ${inputClassName}`}
         />
-        <HoverButton 
-          type="submit" 
+        <HoverButton
+          type="submit"
           disabled={status === 'loading'}
           className={`shrink-0 disabled:opacity-70 ${buttonClassName} ${status === 'loading' ? 'cursor-not-allowed' : ''}`}
         >
@@ -93,7 +93,7 @@ export default function SubscribeForm({
               </>
             ) : (
               <>
-                {buttonText} 
+                {buttonText}
                 {showIcon && <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />}
               </>
             )}
