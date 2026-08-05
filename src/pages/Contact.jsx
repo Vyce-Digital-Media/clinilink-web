@@ -18,9 +18,26 @@ export default function Contact() {
     setInquiryType(type);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    const formData = new FormData(e.target);
+    formData.append("access_key", "114282aa-cf34-4e12-bcd7-0d6b5f122e99");
+    formData.append("subject", "New Contact Request from CliniLink");
+    formData.append("Organization Type", inquiryType);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   // Stagger reveal animations for the form elements
@@ -152,6 +169,7 @@ export default function Contact() {
                     <div className="space-y-1">
                       <input
                         type="text"
+                        name="First Name"
                         required
                         placeholder="First Name"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-sm focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400"
@@ -160,6 +178,7 @@ export default function Contact() {
                     <div className="space-y-1">
                       <input
                         type="text"
+                        name="Last Name"
                         required
                         placeholder="Last Name"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-sm focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400"
@@ -172,6 +191,7 @@ export default function Contact() {
                     <div className="space-y-1">
                       <input
                         type="email"
+                        name="Email"
                         required
                         placeholder="Work email"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-sm focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400"
@@ -180,6 +200,7 @@ export default function Contact() {
                     <div className="space-y-1">
                       <input
                         type="text"
+                        name="Company"
                         required
                         placeholder="Company"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-sm focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400"
@@ -213,6 +234,7 @@ export default function Contact() {
                   <motion.div variants={formItemVariants} className="space-y-1">
                     <textarea
                       rows={3}
+                      name="Message"
                       required
                       placeholder="Message"
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all resize-none font-medium text-slate-800 placeholder:text-slate-400 h-[100px]"

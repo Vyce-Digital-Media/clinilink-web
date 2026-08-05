@@ -222,7 +222,7 @@ export default function About() {
             </h2>
           </RevealLine>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {[
               {
                 title: "Sponsors",
@@ -235,10 +235,6 @@ export default function About() {
               {
                 title: "Research Sites",
                 desc: "Reduce manual follow-up burden and help coordinators prioritize outreach."
-              },
-              {
-                title: "Study Teams",
-                desc: "Track participant risk, follow-up activity, and intervention outcomes in one place."
               }
             ].map((item, i) => (
               <FadeIn key={i} delay={0.2 + (i * 0.1)} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300">
@@ -256,7 +252,7 @@ export default function About() {
       </section>
 
       {/* SECTION 5 - VISION (GLASSMORPHIC DASHBOARD) */}
-      <section className="py-32 px-6 max-w-5xl mx-auto relative z-10 my-12">
+      <section className="py-16 px-6 max-w-5xl mx-auto relative z-10 my-4">
         <div className="relative p-10 sm:p-20 rounded-[3rem] border border-slate-200 bg-gradient-to-br from-slate-50/60 to-white/80 backdrop-blur-md shadow-[0_30px_80px_rgba(0,0,0,0.03)] overflow-hidden">
           {/* Subtle neon blue accent lines */}
           <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
