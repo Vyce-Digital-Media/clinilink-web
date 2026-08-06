@@ -19,7 +19,9 @@ import {
   Workflow,
   Key,
   Network,
-  Zap
+  Zap,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 import { RevealLine } from '../components/animations/RevealLine'
 import { FadeIn } from '../components/animations/FadeIn'
@@ -47,11 +49,17 @@ export default function Home() {
   })
 
   useMotionValueEvent(stepsProgress, "change", (latest) => {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) return;
     const step = Math.min(3, Math.floor(latest * 4))
     setActiveStep(step)
   })
 
   const scrollToStep = (stepIndex) => {
+    if (window.innerWidth < 1024) {
+      setActiveStep(stepIndex);
+      return;
+    }
+
     if (stepsContainerRef.current) {
       const rect = stepsContainerRef.current.getBoundingClientRect()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -117,7 +125,7 @@ export default function Home() {
       <main ref={containerRef} className="bg-background overflow-clip selection:bg-primary/20 selection:text-primary">
 
         {/* PREMIUM HERO SECTION WITH INTERACTIVE GRID */}
-        <section className="relative min-h-[100vh] flex items-center justify-center pt-20 overflow-hidden bg-white">
+        <section className="relative min-h-[100vh] flex items-center justify-center pt-32 pb-24 lg:pt-20 lg:pb-0 overflow-hidden bg-white">
           <motion.div
             style={{ y: yBg }}
             className="absolute inset-0 z-0 will-change-transform"
@@ -163,7 +171,7 @@ export default function Home() {
 
               {/* Right Column: Premium Dashboard Mockup (Increased Size) */}
               <div className="lg:col-span-6 w-full pointer-events-none pt-6 lg:pt-0">
-                <div className="relative w-full max-w-2xl lg:max-w-none mx-auto aspect-[4/3] md:aspect-square lg:aspect-auto lg:h-[550px] xl:h-[580px] pointer-events-auto">
+                <div className="relative w-full max-w-2xl lg:max-w-none mx-auto h-[420px] sm:h-[480px] md:h-auto md:aspect-square lg:aspect-auto lg:h-[550px] xl:h-[580px] pointer-events-auto">
                   {/* Ambient background glow behind the dashboard */}
                   <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-blue-500/20 rounded-3xl blur-3xl opacity-60 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }} />
 
@@ -431,13 +439,13 @@ export default function Home() {
         </section>
 
         {/* E. HOW CLINILINK INTERVENES (NEW) - STICKY SCROLL */}
-        <section ref={stepsContainerRef} className="relative h-[500vh] bg-slate-50 z-20 border-b border-slate-200" id="intervenes">
-          <div className="sticky top-0 h-screen w-full flex items-center justify-center py-20 px-6 overflow-hidden">
+        <section ref={stepsContainerRef} className="relative h-auto lg:h-[500vh] bg-slate-50 z-20 border-b border-slate-200" id="intervenes">
+          <div className="relative lg:sticky top-0 min-h-screen lg:h-screen w-full flex items-start lg:items-center justify-center py-10 px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
                 {/* Left Side: Stepper */}
-                <div className="lg:col-span-5 space-y-12">
+                <div className="lg:col-span-5 space-y-8">
                   <div className="space-y-4">
                     <span className="text-primary font-mono text-xs md:text-sm tracking-[0.35em] uppercase font-bold block">
                       Identifies Workflow
@@ -447,7 +455,7 @@ export default function Home() {
                     </h2>
                   </div>
 
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-3 lg:gap-4">
                     {[
                       { step: "Detect", desc: "AI identifies participants at risk." },
                       { step: "Prioritize", desc: "Teams receive retention alerts and risk visibility." },
@@ -459,7 +467,7 @@ export default function Home() {
                         <div
                           key={idx}
                           onClick={() => scrollToStep(idx)}
-                          className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex gap-4 group ${isActive
+                          className={`p-4 lg:p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex gap-4 group ${isActive
                             ? "bg-white border-slate-200 shadow-xl shadow-slate-200/50 translate-x-2"
                             : "bg-transparent border-transparent hover:bg-slate-100/50"
                             }`}
@@ -483,8 +491,8 @@ export default function Home() {
                 </div>
 
                 {/* Right Side: Interactive Stepper Visual (Enlarged & Upscaled) */}
-                <div className="lg:col-span-7 w-full">
-                  <div className="bg-slate-900 rounded-3xl p-12 border border-slate-800 shadow-2xl relative overflow-hidden h-[560px] md:h-[620px] flex flex-col justify-between">
+                <div className="lg:col-span-7 w-full pb-12 lg:pb-0">
+                  <div className="bg-slate-900 rounded-3xl p-5 lg:p-8 border border-slate-800 shadow-2xl relative overflow-hidden h-[540px] lg:h-[500px] xl:h-[580px] flex flex-col justify-between">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px]" />
 
                     <div className="flex items-center justify-between pb-6 border-b border-slate-800">
@@ -494,15 +502,15 @@ export default function Home() {
                       <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
                     </div>
 
-                    <div className="flex-1 flex items-center justify-center py-8">
+                    <div className="flex-1 flex items-center justify-center py-4 lg:py-6 relative">
                       <AnimatePresence mode="wait">
                         {activeStep === 0 && (
                           <motion.div
                             key="detect-visual-large"
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="w-full max-w-md bg-white/5 border border-white/5 rounded-2xl p-8 space-y-6 text-left"
+                            exit={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : -10 }}
+                            className="w-full max-w-md bg-white/5 border border-white/5 rounded-2xl p-6 space-y-4 text-left"
                           >
                             <div className="flex items-center justify-between">
                               <span className="text-sm md:text-base font-bold text-slate-200">Patient P-8291 Risk Profile</span>
@@ -517,7 +525,7 @@ export default function Home() {
                                 <div className="bg-gradient-to-r from-orange-500 to-red-500 h-full rounded-full" style={{ width: "94%" }} />
                               </div>
                             </div>
-                            <div className="text-xs md:text-sm text-slate-300 bg-white/5 p-5 rounded-xl border border-white/5 space-y-3">
+                            <div className="text-xs md:text-sm text-slate-300 bg-white/5 p-4 rounded-xl border border-white/5 space-y-2">
                               <span className="font-bold text-white block mb-1">Key Attrition Signals:</span>
                               <div className="flex items-center gap-3">
                                 <div className="w-2 h-2 rounded-full bg-red-400 shrink-0" />
@@ -534,9 +542,9 @@ export default function Home() {
                         {activeStep === 1 && (
                           <motion.div
                             key="prioritize-visual-large"
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
+                            exit={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : -10 }}
                             className="w-full max-w-md space-y-4 text-left"
                           >
                             <div className="text-xs md:text-sm font-bold text-slate-400 mb-2">Escalated Retention Alerts</div>
@@ -545,7 +553,7 @@ export default function Home() {
                               { id: "P-9011", priority: "High Alert", desc: "No Daily Diary entry for 4 days", color: "bg-red-500/20 text-red-400 border border-red-500/30" },
                               { id: "P-1049", priority: "Medium Priority", desc: "Transport barriers flagged", color: "bg-amber-500/20 text-amber-400 border border-amber-500/30" }
                             ].map((item, idx) => (
-                              <div key={idx} className="p-5 bg-white/5 border border-white/5 rounded-xl flex items-center justify-between hover:bg-white/10 transition-colors">
+                              <div key={idx} className="p-4 bg-white/5 border border-white/5 rounded-xl flex items-center justify-between hover:bg-white/10 transition-colors">
                                 <div>
                                   <span className="text-sm md:text-base font-bold text-white block">{item.id}</span>
                                   <span className="text-xs text-slate-400 block mt-0.5">{item.desc}</span>
@@ -561,18 +569,18 @@ export default function Home() {
                         {activeStep === 2 && (
                           <motion.div
                             key="engage-visual-large"
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
+                            exit={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : -10 }}
                             className="w-full max-w-md space-y-5 text-sm md:text-base"
                           >
-                            <div className="bg-slate-800 text-slate-200 p-5 rounded-2xl rounded-tr-none ml-auto max-w-[85%] text-right font-medium leading-relaxed shadow-lg">
+                            <div className="bg-slate-800 text-slate-200 p-4 lg:p-5 rounded-2xl rounded-tr-none ml-auto max-w-[85%] text-right font-medium leading-relaxed shadow-lg">
                               Hi Alex, we noticed you missed your daily diary. Is there any assistance you need with the study tasks or transportation?
                             </div>
-                            <div className="bg-primary/20 text-slate-200 border border-primary/20 p-5 rounded-2xl rounded-tl-none mr-auto max-w-[85%] text-left leading-relaxed shadow-lg">
+                            <div className="bg-primary/20 text-slate-200 border border-primary/20 p-4 lg:p-5 rounded-2xl rounded-tl-none mr-auto max-w-[85%] text-left leading-relaxed shadow-lg">
                               Hi, yes my regular ride fell through and I don't have transport to clinic on Friday for Visit 4.
                             </div>
-                            <div className="bg-slate-800 text-slate-200 p-5 rounded-2xl rounded-tr-none ml-auto max-w-[85%] text-right font-medium leading-relaxed shadow-lg">
+                            <div className="bg-slate-800 text-slate-200 p-4 lg:p-5 rounded-2xl rounded-tr-none ml-auto max-w-[85%] text-right font-medium leading-relaxed shadow-lg">
                               No worries! We can schedule an automated rideshare for your visit. Would you like us to book it for you?
                             </div>
                           </motion.div>
@@ -581,13 +589,13 @@ export default function Home() {
                         {activeStep === 3 && (
                           <motion.div
                             key="retain-visual-large"
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="w-full max-w-md bg-white/5 border border-white/5 rounded-2xl p-8 text-center space-y-6"
+                            exit={{ opacity: 0, y: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : -10 }}
+                            className="w-full max-w-md bg-white/5 border border-white/5 rounded-2xl p-6 text-center space-y-4"
                           >
-                            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400 shadow-lg shadow-emerald-500/10">
-                              <CheckCircle2 size={36} />
+                            <div className="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400 shadow-lg shadow-emerald-500/10">
+                              <CheckCircle2 size={24} />
                             </div>
                             <div className="space-y-3">
                               <h5 className="text-lg md:text-xl font-black text-white">Retention Secured</h5>
@@ -611,16 +619,32 @@ export default function Home() {
                       </AnimatePresence>
                     </div>
 
-                    {/* Indicator dots */}
-                    <div className="flex justify-center gap-3">
-                      {[0, 1, 2, 3].map((idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => scrollToStep(idx)}
-                          className={`h-2 rounded-full transition-all duration-300 ${activeStep === idx ? "w-10 bg-primary" : "w-2.5 bg-slate-800 hover:bg-slate-700"
-                            }`}
-                        />
-                      ))}
+                    {/* Indicator dots & Mobile Nav */}
+                    <div className="flex items-center justify-between lg:justify-center w-full mt-2">
+                      <button 
+                        onClick={() => scrollToStep(Math.max(0, activeStep - 1))}
+                        className="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-800/80 rounded-full text-slate-300 hover:bg-slate-700 hover:text-white transition-colors"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+
+                      <div className="flex justify-center gap-3">
+                        {[0, 1, 2, 3].map((idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => scrollToStep(idx)}
+                            className={`h-2 rounded-full transition-all duration-300 ${activeStep === idx ? "w-10 bg-primary" : "w-2.5 bg-slate-800 hover:bg-slate-700"
+                              }`}
+                          />
+                        ))}
+                      </div>
+
+                      <button 
+                        onClick={() => scrollToStep(Math.min(3, activeStep + 1))}
+                        className="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-800/80 rounded-full text-slate-300 hover:bg-slate-700 hover:text-white transition-colors"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -75,8 +75,8 @@ function WorkflowSection() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 90, damping: 25 })
 
   return (
-    <section ref={containerRef} className="relative h-[250vh] bg-slate-900 text-white z-10">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4 md:px-8 overflow-hidden">
+    <section ref={containerRef} className="relative h-auto md:h-[250vh] bg-slate-900 text-white z-10">
+      <div className="relative md:sticky md:top-0 h-auto md:h-screen py-24 md:py-0 flex flex-col items-center justify-center px-4 md:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center w-full">
           <RevealLine>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-16">
@@ -152,7 +152,7 @@ export default function Platform() {
     <main ref={containerRef} className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen flex items-center pt-24 pb-12 px-6 overflow-hidden bg-white border-b border-slate-100">
+      <section className="relative min-h-[100vh] lg:h-screen flex items-center pt-32 pb-24 lg:pt-24 lg:pb-12 px-6 overflow-hidden bg-white border-b border-slate-100">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <InteractiveGrid cellSize={40} hoverColor="hover:bg-blue-50/50" gridColor="border-slate-100/50" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-white/80 to-white z-10" />
@@ -185,14 +185,14 @@ export default function Platform() {
             </FadeIn>
           </div>
 
-          <div className="relative h-[500px] w-full hidden lg:block xl:scale-100 scale-90 origin-right">
+          <div className="relative flex flex-col lg:block gap-4 lg:gap-0 h-auto lg:h-[500px] w-full mt-16 lg:mt-0 xl:scale-100 lg:scale-90 origin-center lg:origin-right">
 
             {/* Dark Card (Retention Intelligence - Back Layer) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 top-10 w-full max-w-[420px] bg-slate-900/90 backdrop-blur-2xl border border-slate-700 rounded-[2rem] p-8 shadow-[0_30px_60px_rgba(15,23,42,0.4)] z-20"
+              className="relative lg:absolute lg:right-0 lg:top-10 w-full max-w-[420px] ml-auto lg:ml-0 bg-slate-900/90 backdrop-blur-2xl border border-slate-700 rounded-[2rem] p-6 lg:p-8 shadow-[0_30px_60px_rgba(15,23,42,0.4)] z-20"
             >
               <div className="flex justify-between items-center mb-6">
                 <div className="text-[10px] font-mono text-emerald-400 tracking-[0.2em] uppercase font-bold px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full inline-block">
@@ -225,7 +225,7 @@ export default function Platform() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-10 bottom-10 w-full max-w-[420px] bg-white/80 backdrop-blur-xl border border-slate-200/60 rounded-3xl p-6 shadow-2xl shadow-blue-500/10 z-30"
+              className="relative lg:absolute lg:left-10 lg:bottom-10 w-full max-w-[420px] mr-auto lg:mr-0 mt-[-3rem] lg:mt-0 bg-white/80 backdrop-blur-xl border border-slate-200/60 rounded-3xl p-6 shadow-2xl shadow-blue-500/10 z-30"
             >
               <div className="text-[10px] font-mono text-primary tracking-[0.2em] uppercase font-bold px-3 py-1 bg-primary/10 rounded-full inline-block mb-4">
                 Platform 1

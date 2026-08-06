@@ -65,7 +65,7 @@ export default function About() {
     <main ref={containerRef} className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen flex flex-col justify-center pt-24 pb-12 px-6 overflow-hidden bg-[#F8F9FA] border-b border-slate-200">
+      <section className="relative min-h-[100vh] lg:h-screen flex flex-col justify-start lg:justify-center pt-36 lg:pt-44 pb-12 px-6 overflow-hidden bg-[#F8F9FA] border-b border-slate-200">
 
         {/* Abstract Background pattern */}
         <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
@@ -76,7 +76,7 @@ export default function About() {
           <div className="space-y-8">
 
             <RevealLine delay={0.1}>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[1.05] uppercase">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 leading-[1.1] lg:leading-[1.05] uppercase">
                 Building Better <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pr-2 pb-1">
                   Retention
@@ -113,8 +113,8 @@ export default function About() {
           </div>
 
           {/* Right Hero Image */}
-          <div className="relative h-[600px] hidden lg:flex items-center justify-center">
-            <FadeIn delay={0.4} className="w-full h-full p-12 xl:p-16">
+          <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] flex items-center justify-center mt-8 lg:mt-0">
+            <FadeIn delay={0.4} className="w-full h-full p-4 sm:p-8 lg:p-12 xl:p-16">
               <img
                 src={ABOUT_IMG}
                 alt="Built to Help Trials Stay on Track"

@@ -81,8 +81,8 @@ function BulletRow({ head, body, accent, dim, index }) {
     <div
       className={`group border-l-2 pl-4 transition-colors duration-300 ${index === 0 ? accent : dim} overflow-hidden`}
     >
-      <h4 className="font-black text-base text-slate-900 truncate">{head}</h4>
-      <p className="text-sm text-slate-600 font-medium mt-0.5 truncate">{body}</p>
+      <h4 className="font-black text-base text-slate-900 whitespace-normal lg:truncate">{head}</h4>
+      <p className="text-sm text-slate-600 font-medium mt-0.5 whitespace-normal lg:truncate">{body}</p>
     </div>
   )
 }
@@ -97,6 +97,9 @@ function AudienceBlock({ a, index }) {
       {/* Text side */}
       <div className="space-y-4 md:space-y-6 lg:col-span-7">
         <RevealLine delay={0.08}>
+          <div className={`lg:hidden inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-2 ${a.tagColor}`}>
+            <TagIcon size={16} /> {a.tag}
+          </div>
           <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">{a.title}</h2>
         </RevealLine>
         <FadeIn delay={0.2}>
@@ -171,7 +174,7 @@ export default function Solutions() {
       <section className="relative h-screen px-6 overflow-hidden flex flex-col justify-center items-center border-b border-slate-900 bg-slate-950">
 
         {/* Floating Dashboard Image in Background */}
-        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none px-6 md:mt-20">
+        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none px-6 mt-24 md:mt-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -197,15 +200,15 @@ export default function Solutions() {
         </div>
 
         {/* Text Content */}
-        <div className="space-y-6 max-w-5xl mx-auto text-center relative z-10 w-full drop-shadow-2xl md:mt-20">
+        <div className="space-y-6 max-w-5xl mx-auto text-center relative z-10 w-full drop-shadow-2xl mt-24 md:mt-20">
           <RevealLine delay={0.1}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-[0.95] uppercase">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-tight md:leading-[0.95] uppercase">
               Retention Solutions{' '}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 pr-2 pb-1">
                 for
               </span>
-              <br />
-              Clinical Trials
+              <br className="hidden md:block" />
+              {' '}Clinical Trials
             </h1>
           </RevealLine>
           <FadeIn delay={0.4} className="max-w-3xl mx-auto">
@@ -240,11 +243,11 @@ export default function Solutions() {
       </section>
 
       {/* ── AUDIENCE BLOCKS (CROs / Sponsors / Sites) ─────────────────────────── */}
-      <section ref={targetRef} className="relative h-[300vh] bg-slate-50 z-10">
-        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pt-20 lg:pt-24">
+      <section ref={targetRef} className="relative h-auto lg:h-[300vh] bg-slate-50 z-10">
+        <div className="relative lg:sticky top-0 h-auto lg:h-screen flex flex-col justify-center lg:overflow-hidden pt-20 pb-20 lg:pb-0 lg:pt-24">
           
           {/* Sticky Tags Navigation */}
-          <div className="z-20 flex justify-center gap-4 md:gap-12 px-6 flex-wrap mb-8 md:mb-10">
+          <div className="z-20 hidden lg:flex justify-center gap-4 md:gap-12 px-6 flex-wrap mb-8 md:mb-10">
             {audiences.map((a, i) => {
               const TagIcon = a.tagIcon
               const isActive = activeTab === i
@@ -254,7 +257,7 @@ export default function Solutions() {
                   onClick={() => {
                     if (targetRef.current) {
                       window.scrollTo({
-                        top: targetRef.current.offsetTop + (window.innerHeight * i),
+                        top: targetRef.current.offsetTop + (typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : (window.innerHeight * i)),
                         behavior: 'smooth'
                       })
                     }
@@ -268,9 +271,9 @@ export default function Solutions() {
             })}
           </div>
 
-          <motion.div style={{ x }} className="flex w-[300vw] items-center">
+          <motion.div style={{ x: typeof window !== 'undefined' && window.innerWidth < 1024 ? 0 : x }} className="flex flex-col lg:flex-row w-full lg:w-[300vw] items-center gap-24 lg:gap-0">
             {audiences.map((a, i) => (
-              <div key={i} className="w-screen flex-shrink-0 flex items-center justify-center">
+              <div key={i} className="w-full lg:w-screen flex-shrink-0 flex items-center justify-center">
                 <AudienceBlock a={a} index={i} />
               </div>
             ))}

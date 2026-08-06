@@ -135,7 +135,7 @@ export default function Resources() {
     <main className="bg-white overflow-clip selection:bg-primary/20 selection:text-primary">
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen flex items-center pt-24 pb-12 px-6 overflow-hidden bg-[#F8F9FA] border-b border-slate-200">
+      <section className="relative min-h-[100vh] lg:h-screen flex items-center pt-32 pb-24 lg:pt-24 lg:pb-12 px-6 overflow-hidden bg-[#F8F9FA] border-b border-slate-200">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
 
           {/* Left Text */}
@@ -166,7 +166,7 @@ export default function Resources() {
           </div>
 
           {/* Right Hero Image */}
-          <div className="lg:col-span-6 relative h-[500px] hidden lg:flex items-center justify-center overflow-hidden rounded-3xl">
+          <div className="lg:col-span-6 relative h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden rounded-3xl mt-8 lg:mt-0">
             <FadeIn delay={0.4} className="w-full h-full p-4">
               <img
                 src={RESOURCES_IMG}

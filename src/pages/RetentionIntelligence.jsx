@@ -243,8 +243,8 @@ function LifecycleSection() {
   const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 22 })
 
   return (
-    <section ref={containerRef} className="relative h-[250vh] z-10 bg-white border-b border-slate-100">
-      <div className="sticky top-0 h-screen flex items-center px-6 overflow-hidden">
+    <section ref={containerRef} className="relative h-auto lg:h-[250vh] z-10 bg-white border-b border-slate-100">
+      <div className="relative lg:sticky top-0 h-auto lg:h-screen flex items-center py-24 lg:py-0 px-6 lg:overflow-hidden">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
             <RevealLine>
@@ -288,8 +288,8 @@ function WorkflowSection() {
   const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 22 })
 
   return (
-    <section ref={containerRef} className="relative h-[250vh] bg-slate-900 text-white z-10">
-      <div className="sticky top-0 h-screen flex items-center px-6">
+    <section ref={containerRef} className="relative h-auto lg:h-[250vh] bg-slate-900 text-white z-10">
+      <div className="relative lg:sticky top-0 h-auto lg:h-screen flex items-center py-24 lg:py-0 px-6">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           <div className="flex flex-col items-center relative lg:order-first">
             <div className="relative flex flex-col items-center gap-6 py-8 w-full max-w-xs mx-auto">
