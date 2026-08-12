@@ -101,15 +101,7 @@ export default function About() {
               ))}
             </FadeIn>
 
-            {/* CTA Buttons */}
-            <FadeIn delay={0.8} className="pt-4 w-full">
-              <SubscribeForm
-                buttonText="Let's Connect"
-                containerClassName="w-full max-w-2xl"
-                inputClassName="flex-1 w-full px-5 py-4 bg-white border-2 border-slate-200 rounded-none text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-0 transition-all font-medium"
-                buttonClassName="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex items-center justify-center group relative overflow-hidden shrink-0"
-              />
-            </FadeIn>
+
           </div>
 
           {/* Right Hero Image */}

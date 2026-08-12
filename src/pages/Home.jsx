@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   ShieldCheck,
   Activity,
@@ -34,6 +35,7 @@ import CardStackSection from '../components/ui/CardStackSection'
 import TextReveal from '../components/ui/TextReveal'
 
 export default function Home() {
+  const navigate = useNavigate()
   const containerRef = useRef(null)
   const dashboardRef = useRef(null)
   const stickyContainerRef = useRef(null)
@@ -157,14 +159,11 @@ export default function Home() {
                 </FadeIn>
 
                 <FadeIn delay={0.7} className="mt-10 flex flex-col sm:flex-row gap-4 items-center pointer-events-auto">
-                  <HoverButton className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-slate-800 transition-colors shadow-2xl shadow-slate-900/20 group">
+                  <HoverButton onClick={() => navigate('/platform')} className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-slate-800 transition-colors shadow-2xl shadow-slate-900/20 group">
                     <span className="flex items-center gap-2 text-sm sm:text-base">
                       Explore the Platform
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </span>
-                  </HoverButton>
-                  <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-black/5 group">
-                    <span className="text-sm sm:text-base flex items-center gap-2">Schedule a Demo</span>
                   </HoverButton>
                 </FadeIn>
               </div>

@@ -156,13 +156,7 @@ export default function Resources() {
                 Explore short insights, tools, and updates on participant engagement, retention risk, and proactive trial operations.
               </p>
             </FadeIn>
-            <FadeIn delay={0.6} className="pt-2 w-full">
-              <SubscribeForm 
-                containerClassName="w-full max-w-xl"
-                inputClassName="flex-1 w-full px-4 py-4 bg-white border-2 border-slate-200 rounded-none text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-0 transition-all font-medium"
-                buttonClassName="w-full sm:w-auto px-5 py-4 bg-slate-900 text-white rounded-none font-bold text-sm tracking-wide uppercase hover:bg-blue-600 transition-all duration-500 inline-flex items-center justify-center group relative overflow-hidden"
-              />
-            </FadeIn>
+
           </div>
 
           {/* Right Hero Image */}

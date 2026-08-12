@@ -688,15 +688,7 @@ export default function RetentionIntelligence() {
               A real-time mission control for retention operations. Monitor queues, track escalations, and resolve alerts from a single view.
             </p>
           </FadeIn>
-          <FadeIn delay={0.6} className="pt-4 flex justify-center gap-6">
-            <HoverButton onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold uppercase tracking-wider text-sm
-                                       hover:bg-blue-700 transition-all duration-500
-                                       shadow-[0_10px_30px_rgba(37,99,235,0.2)] inline-flex group relative overflow-hidden">
-              <span className="flex items-center gap-2 relative z-10">
-                Schedule a Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-            </HoverButton>
-          </FadeIn>
+
         </div>
       </section>
 
