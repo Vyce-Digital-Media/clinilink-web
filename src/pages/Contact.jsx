@@ -123,17 +123,6 @@ export default function Contact() {
               </motion.p>
             </div>
 
-            {/* Middle CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="py-10 flex flex-wrap items-center gap-4"
-            >
-              <button onClick={() => window.open('https://calendly.com/pkshah-zsk7', '_blank')} className="px-6 py-3 bg-transparent text-white rounded-none font-bold text-sm tracking-wide uppercase hover:text-blue-400 border-2 border-white hover:border-blue-400 transition-all duration-300 inline-flex items-center gap-2">
-                Schedule a Demo
-              </button>
-            </motion.div>
 
 
           </div>
