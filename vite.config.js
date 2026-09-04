@@ -41,6 +41,11 @@ function staticRoutesPlugin() {
       title: 'Contact Us — CliniLink Health',
       description: 'Get in touch with the CliniLink team for study consultations, enterprise trials, or product demonstrations.',
     },
+    {
+      path: 'privacy-policy',
+      title: 'Privacy Policy & HIPAA Notice — CliniLink Health',
+      description: 'CliniLink Notice of Privacy Practices regarding protected health information (PHI) and data compliance.',
+    },
   ]
 
   return {

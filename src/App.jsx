@@ -4,6 +4,7 @@ import Lenis from 'lenis'
 
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
+import { PrivacyBanner } from './components/ui/PrivacyBanner'
 import ScrollToTop from './components/layout/ScrollToTop'
 import Home from './pages/Home'
 import Platform from './pages/Platform'
@@ -12,6 +13,7 @@ import RetentionIntelligence from './pages/RetentionIntelligence'
 import Resources from './pages/Resources'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -55,11 +57,13 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
       </div>
+      <PrivacyBanner />
     </BrowserRouter>
   )
 }
