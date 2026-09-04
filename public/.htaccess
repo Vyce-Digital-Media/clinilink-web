@@ -1,9 +1,78 @@
+# ----------------------------------------------------------------------
+# CliniLink Health — Production Apache Configuration (.htaccess)
+# ----------------------------------------------------------------------
+
+# Default Character Set
+AddDefaultCharset UTF-8
+
+# Ensure trailing slashes for real directories so /directory/index.html works
+<IfModule mod_dir.c>
+  DirectorySlash On
+  DirectoryIndex index.html
+</IfModule>
+
+# Absolute Fallback: In case mod_rewrite is disabled or a 404 occurs,
+# serve /index.html so React Router handles the route client-side.
+ErrorDocument 404 /index.html
+
+# ----------------------------------------------------------------------
+# URL Rewriting & SPA Routing
+# ----------------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # 1. Force HTTPS (compatible with Cloudflare, load balancers, and direct SSL)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2. Prevent rewrite loop for index.html
   RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+
+  # 3. If requested path exists as a physical file or directory, serve it directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 4. SPA Catch-all: Route all other requests to index.html
+  RewriteRule ^ index.html [L,QSA]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Security Headers
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Prevent MIME type sniffing
+  Header set X-Content-Type-Options "nosniff"
+
+  # Prevent clickjacking
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Control referrer information
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Caching: Never cache HTML entry points so updates are instant
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+
+  # Caching: Long-term cache for immutable Vite hashed assets (/assets/*)
+  <FilesMatch "\.(js|css|woff2|woff|ttf|png|jpg|jpeg|gif|svg|webp|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# MIME Types
+# ----------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType application/javascript js mjs
+  AddType text/css css
+  AddType image/svg+xml svg svgz
+  AddType image/webp webp
+  AddType font/woff2 woff2
+  AddType application/json json
 </IfModule>
