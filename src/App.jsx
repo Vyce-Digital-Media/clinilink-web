@@ -5,6 +5,9 @@ import Lenis from 'lenis'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { PrivacyBanner } from './components/ui/PrivacyBanner'
+import { CookiePreferencesModal } from './components/ui/CookiePreferencesModal'
+import { CookieSettingsTrigger } from './components/ui/CookieSettingsTrigger'
+import { CookieConsentProvider } from './context/CookieConsentContext'
 import ScrollToTop from './components/layout/ScrollToTop'
 import Home from './pages/Home'
 import Platform from './pages/Platform'
@@ -44,27 +47,31 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/platform" element={<Platform />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/retention-intelligence" element={<RetentionIntelligence />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+    <CookieConsentProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <div className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/platform" element={<Platform />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/retention-intelligence" element={<RetentionIntelligence />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-      <PrivacyBanner />
-    </BrowserRouter>
+        <PrivacyBanner />
+        <CookiePreferencesModal />
+        <CookieSettingsTrigger />
+      </BrowserRouter>
+    </CookieConsentProvider>
   )
 }
 

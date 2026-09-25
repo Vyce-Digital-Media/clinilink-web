@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCookieConsent } from '../../context/CookieConsentContext';
 
 export function Footer() {
+  const { openPreferences } = useCookieConsent();
+
   return (
     <footer className="bg-[#0f172a] text-slate-50 border-t border-white/10 pt-16 pb-12 px-6 lg:px-12 font-sans relative overflow-hidden">
 
@@ -48,6 +51,15 @@ export function Footer() {
                 <li><Link to="/about" className="hover:text-white transition-colors">Careers</Link></li>
                 <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
                 <li><Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={openPreferences}
+                    className="hover:text-white transition-colors text-left focus:outline-none"
+                  >
+                    Cookie Preferences
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
