@@ -33,6 +33,27 @@ export function CookiePreferencesModal() {
     }
   }, [isModalOpen, consent]);
 
+  // Prevent background scrolling and lock Lenis smooth scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      if (window.lenis) {
+        window.lenis.stop();
+      }
+      const prevBodyOverflow = document.body.style.overflow;
+      const prevHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+
+      return () => {
+        if (window.lenis) {
+          window.lenis.start();
+        }
+        document.body.style.overflow = prevBodyOverflow;
+        document.documentElement.style.overflow = prevHtmlOverflow;
+      };
+    }
+  }, [isModalOpen]);
+
   // Handle escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -63,15 +84,21 @@ export function CookiePreferencesModal() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="cookie-preferences-title"
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/70 backdrop-blur-sm transition-opacity"
-      data-lenis-prevent
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm transition-opacity overscroll-contain"
+      data-lenis-prevent="true"
       onClick={(e) => {
         if (e.target === e.currentTarget) closePreferences();
       }}
+      onTouchMove={(e) => {
+        if (e.target === e.currentTarget) e.preventDefault();
+      }}
     >
       <div 
-        className="relative w-full max-w-2xl bg-[#0b1329] border border-white/15 rounded-2xl shadow-2xl text-slate-100 overflow-hidden flex flex-col my-auto max-h-[90vh]"
+        className="relative w-full max-w-2xl bg-[#0b1329] border border-white/15 rounded-2xl shadow-2xl text-slate-100 overflow-hidden flex flex-col my-auto max-h-[90vh] overscroll-contain"
+        data-lenis-prevent="true"
         onClick={(e) => e.stopPropagation()}
+        onWheel={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-start justify-between p-6 pb-4 border-b border-white/10">
@@ -96,7 +123,12 @@ export function CookiePreferencesModal() {
         </div>
 
         {/* Scrollable Content */}
-        <div className="p-6 overflow-y-auto space-y-6 text-sm text-slate-300 leading-relaxed">
+        <div 
+          className="p-6 overflow-y-auto space-y-6 text-sm text-slate-300 leading-relaxed overscroll-contain touch-pan-y"
+          data-lenis-prevent="true"
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+        >
           <p>
             We use some essential cookies to make this site work. We would like to set analytics and tracking cookies (such as RB2B) to understand how you use this site and improve our services. We may also use services from Vimeo and YouTube that may also use cookies.
           </p>
