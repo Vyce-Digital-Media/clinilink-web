@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-const STORAGE_KEY = 'clinilink_cookie_consent_v1';
+const STORAGE_KEY = 'clinilink_cookie_consent_v2';
 const CONSENT_EVENT = 'clinilink:consent-change';
 
 const DEFAULT_PREFERENCES = {
@@ -22,6 +22,10 @@ export function CookieConsentProvider({ children }) {
   // Initialize consent state from localStorage on mount
   useEffect(() => {
     try {
+      // Tidy up obsolete keys from prior iterations as requested
+      localStorage.removeItem('clinilink_cookie_consent_v1');
+      localStorage.removeItem('privacy_consent');
+
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
@@ -71,7 +75,7 @@ export function CookieConsentProvider({ children }) {
     };
 
     const record = {
-      version: '1.0',
+      version: '2.0',
       timestamp: new Date().toISOString(),
       categories: finalized,
     };

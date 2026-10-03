@@ -3,7 +3,7 @@
  * are strictly blocked until affirmative opt-in consent is recorded.
  */
 
-const STORAGE_KEY = 'clinilink_cookie_consent_v1';
+const STORAGE_KEY = 'clinilink_cookie_consent_v2';
 const CONSENT_EVENT = 'clinilink:consent-change';
 
 /**

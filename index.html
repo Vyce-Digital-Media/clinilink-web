@@ -7,6 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CliniLink Health — Retention Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Consent-gated RB2B Loader: loads only when Marketing & Identification consent is granted -->
+    <script>
+      (function () {
+        function loadRB2B() {
+          !function (key) {
+            if (window.reb2b) return;
+            window.reb2b = { loaded: true };
+            var s = document.createElement("script");
+            s.async = true;
+            s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";
+            var f = document.getElementsByTagName("script")[0];
+            f.parentNode.insertBefore(s, f);
+          }("4N210HXQGX6Z");
+        }
+        window.addEventListener("clinilink:consent-change", function (e) {
+          var c = e.detail || {};
+          if (c.marketing === true) {
+            loadRB2B();
+          } else if (window.reb2b) {
+            window.location.reload();
+          }
+        });
+      })();
+    </script>
   </head>
   <body class="bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
     <div id="root"></div>
