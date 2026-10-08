@@ -257,7 +257,7 @@ export default function PrivacyPolicy() {
           <ul className="list-disc pl-6 space-y-1">
             <li>Maintaining business relationships</li>
             <li>Responding to inquiries</li>
-            <li>Conduct legitimate business-development activities</li>
+            <li>Conducting legitimate business-development activities</li>
             <li>Maintaining appropriate business and legal records</li>
             <li>Complying with legal obligations</li>
             <li>Resolving disputes</li>
@@ -407,7 +407,7 @@ export default function PrivacyPolicy() {
           <p className="italic text-slate-600">
             This notice applies to CliniLink Corporation in connection with data management and patient engagement services provided for clinical trials.
           </p>
-          
+
           <p>
             CliniLink Corporation (&ldquo;Company&rdquo;) provides data management and patient engagement services to sponsors, clinical research organizations, or healthcare organizations that conduct clinical trials (Trials). This Notice of Privacy Practices (Notice) applies to the Company and describes (A) your rights regarding protected health information (PHI), as defined by the Health Insurance Portability and Accountability Act (HIPAA), that we receive, acquire, or process in connection with any Trials, (B) your choices regarding that PHI, (C) our uses and disclosures of that PHI, and (D) the Company’s responsibilities specific to PHI collected in connection with the Trials.
           </p>
